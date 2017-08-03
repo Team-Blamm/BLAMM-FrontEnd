@@ -1,49 +1,43 @@
-import React, { Component } from "react";
+{/*import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class ProductCard extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
+ const ProductCard = (props) => {
+  return (
     let match = this.props.match;
     console.log(this.props.match);
     let products = this.props.productList.results.map(product => {
         let services = product.services.map(e => e.split(' ').map(f => <span> {f} </span>));
       return (
-        <div key={product.title}>
-          <div className="productBorder">
-            <div>
-              <Link to={`${match.url}/${product.title}`}>
-                {product.title}
-              </Link>
+        <div className="productListGrid">
+          <div key={product.title}>
+            <div className="productBorder">
               <div>
-                <img className="" src={product.img_src} alt={product.title}/>
-              </div>
-              <div>
-                <p>
+                <Link to={`${match.url}/${product.title}`}>
                   {product.title}
-                </p>
-                <p>
-                  {product.price}
-                </p>
+                </Link>
                 <div>
-                  <h5>Services</h5>
-                  <p>{services}</p>
+                  <img className="" src={product.img_src} alt={product.title}/>
+                </div>
+                <div>
+                  <p>
+                    {product.title}
+                  </p>
+                  <p>
+                    {product.price}
+                  </p>
+                  <div>
+                    <h5>Services</h5>
+                    <p>{services}</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      );
-    });
-    return (
-      <div className="productListGrid">
-        {products}
-      </div>
-    );
+      )
+    })
   }
-}
+
 
 export default ProductCard;
 
@@ -68,3 +62,4 @@ export default ProductCard;
 //   </div>
 // </div>
 // </div>
+*/}
