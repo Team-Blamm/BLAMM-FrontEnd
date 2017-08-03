@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,IAAK,CACH,gBAAgB,CCHF,IAAK,CDInB,KAAK,CCHW,IAAK",
+"sources": ["../../src/styles/base/_global.scss","../../src/styles/base/_variables.scss"],
+"names": [],
+"file": "app.css"
+}

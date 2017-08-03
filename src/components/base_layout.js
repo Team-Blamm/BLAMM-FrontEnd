@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
-class BaseLayout extends Component {
+
+export default class BaseLayout extends Component {
   render() {
+    console.log(this.props)
     return (
       <div>
         <div>HEADER</div>
@@ -12,4 +14,4 @@ class BaseLayout extends Component {
   }
 }
 
-export default BaseLayout;
+;
