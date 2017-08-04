@@ -19,21 +19,6 @@ const fakeCart = {
   ]
 }
 
-const cartStyle = {
-  width: '80vw',
-  margin: '5vw'
-};
-
-const cartCardsStyle = {
-  width: '40vw',
-  float: 'left'
-};
-
-const checkoutStyle = {
-  width: '30vw',
-  float: 'right',
-  border: '1px solid #CCC'
-};
 
 class CartPage extends Component {
   constructor() {
@@ -61,16 +46,16 @@ class CartPage extends Component {
   render() {
 
     return (
-      <div style={cartStyle}>
+      <div className="cartStyle">
         <div>
           <h2>My cart</h2>{this.props.children}
         </div>
         {/* left: wrapper for CartCards */}
-        <div style={cartCardsStyle}>
+        <div className="cartCardsStyle">
           {this.state.cartCardsMap}
         </div>
         {/* right: wrapper for Checkout */}
-        <div style={checkoutStyle}>
+        <div className="checkoutStyle">
           <div>
             Individual subtotals [passed from CartCards]
           </div>

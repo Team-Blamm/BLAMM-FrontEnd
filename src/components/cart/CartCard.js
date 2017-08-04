@@ -1,28 +1,6 @@
 import React, {Component} from 'react';
 import '../../styles/Cart.css';
 
-const cartCardStyle = {
-  height: '4rem',
-  border: '1px solid #CCC'
-}
-
-const cartImageStyle = {
-  width:'10vw',
-  float:'left',
-  height:'100%',
-  border: '1px solid #CCC'
-};
-
-const cartCardHoursStyle = {
-  float: 'left',
-  display: 'inline'
-}
-
-const cartCardTotalStyle = {
-  float: 'right',
-  display: 'inline'
-}
-
 class CartCard extends Component {
   constructor(props) {
     super(props);
@@ -60,20 +38,20 @@ class CartCard extends Component {
   render() {
     return(
       <div>
-      <div style={cartCardStyle}>
-          <div style={cartImageStyle}>
-            {/* <img src={this.state.img_src} /> */}
+      <div className="cartCardStyle">
+          <div className="cartImageStyle">
+            <img className="thumbnailImage" src={this.state.img_src} />
           </div>
           <div>
             {this.state.title}
           </div>
           <div>
-            <div style={cartCardHoursStyle}>
+            <div className="cartCardHoursStyle">
               <button onClick={this.handleChange} value="-">-</button>
               {this.state.hours}
               <button onClick={this.handleChange} value="+">+</button>
             </div>
-            <div style={cartCardTotalStyle}>
+            <div className="cartCardTotalStyle">
               {this.state.itemTotal}
             </div>
           </div>
