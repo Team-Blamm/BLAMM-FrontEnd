@@ -28,12 +28,10 @@ ReactDOM.render(
     <BaseLayout>
       <Switch>
 
-
         <Route path="/Cart" component={CartPage} />
-
         <Route path="/productlist/:product" component={ProdDetail} />
+        <Route path="/productlist/:type" component={ProductList} />
         <Route path="/productlist" component={ProductList} />
-
         <Route path="/Admin" component={Admin} />
         <Route path="/" component={App} />
       </Switch>

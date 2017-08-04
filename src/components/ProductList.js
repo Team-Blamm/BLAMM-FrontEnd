@@ -7,7 +7,8 @@ class ProductList extends Component {
     super(props);
     this.state = {
       productList: [],
-      match: this.props.match
+      match: this.props.match,
+      allProducts:[]
     };
   }
   componentDidMount() {
@@ -17,7 +18,7 @@ class ProductList extends Component {
         return results.json();
       })
       .then(data => {
-        this.setState({ productList: data });
+        this.setState({ productList: data, allProducts: data });
         console.log(this.state.productList);
       });
   }
@@ -30,14 +31,16 @@ class ProductList extends Component {
               <div>
                 <h1>Product Cards</h1>
               </div>
-              <div>
-                <SideBar/>
+              <div className="productListContainer">
+              <div className="sideBarContainer">
+                <SideBar productList={this.state.productList} match={this.state.match}/>
               </div>
-              <div>
+              <div className="productCardsContainer">
                 <ProductCard
                   productList={this.state.productList}
                   match={this.state.match}
                 />
+              </div>
               </div>
             </div>
           : <div>Loading</div>}
