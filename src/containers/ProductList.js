@@ -25,7 +25,7 @@ class ProductList extends Component {
             <div className="productBorder">
               <div>
                 <div>
-                  <img className="" src={product.img_src} alt={product.title}/>
+                  <img className="" src={product.imgSrc} alt={product.title}/>
                 </div>
                 <div><Link to={`${match.url}/${product.title}`}>
                   {product.title}
@@ -34,6 +34,7 @@ class ProductList extends Component {
                   <p>
                     {product.title}
                   </p>
+                  <p>#{product.type}</p>
                   <p>
                     {product.rate}
                   </p>
