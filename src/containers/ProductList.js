@@ -7,15 +7,19 @@ import ProductCard from "../components/ProductCard.js";
 class ProductList extends Component {
 
   componentWillMount() {
+    console.log(this.props)
     this.props.fetchProducts();
   }
 
   render() {
-    console.log(this.props.products.results);
-    let productList = (this.props.products || []).map((product) => {
-      return (
-        <div className="productListGrid">
-          <div key={product.title}>
+    let productList = null;
+    if (this.props.fetched === false) {
+      return false
+    } else if (this.props.fetched) {
+      console.log(this.props.products);
+      productList = this.props.products.map((product) => {
+        return (
+        <div key={product.title}>
             <div className="productBorder">
               <div>
                 <div>
@@ -31,15 +35,18 @@ class ProductList extends Component {
                 </div>
               </div>
             </div>
-          </div>
         </div>
       )
     })
+    console.log(productList)
+  }
     return (
       <div>
         <div>
           <h1>Product Cards</h1>
-          {productList}
+          <div className="productListGrid">
+            {productList}
+          </div>
         </div>
       </div>
     );
@@ -47,14 +54,16 @@ class ProductList extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    products: state.products || []
+    products: state.products.products,
+    fetched: state.products.fetched
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchProducts: function() {
+    fetchProducts: () => {
       dispatch(fetchProducts());
     }
   }

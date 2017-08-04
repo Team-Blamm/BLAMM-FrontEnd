@@ -1,35 +1,23 @@
-// const counterReducer = (state = {
-//   result: 1,
-//   lastValues: []
-// }, action) => {
-//
-//   switch (action.type) {
-//     case "INC":
-//       state = {
-//         ...state,
-//         result: state.result + action.payload,
-//         lastValues: [...state.lastValues, action.payload]
-//       };
-//       break;
-//     case "DEC":
-//       state = {
-//         ...state,
-//         result: state.result - action.payload,
-//         lastValues: [...state.lastValues, action.payload]
-//       };
-//   }
-//   return state;
-// }
-import { FETCH_PRODUCTS } from "./actions"
+import { combineReducers } from 'redux';
 
-export const productsReducer = (state={
+import * as types from "./actionTypes";
+
+const initialState = {
   fetching: false,
   fetched: false,
   products: [],
   error: null
-}, action) => {
+}
+
+const productsReducer = (state=initialState, action) => {
   switch (action.type) {
-    case "FETCH_PRODUCTS_FULFILLED" : {
+    case types.REQUEST_PRODUCTS:
+      return {
+        ...state,
+        fetching: true,
+        fetched: false,
+      }
+    case types.FETCH_PRODUCTS:
       console.log(action.payload);
       return {
         ...state,
@@ -37,8 +25,20 @@ export const productsReducer = (state={
         fetched: true,
         products: action.payload
       }
+    case types.RECEIVE_PRODUCTS:
+      console.log(action.payload);
+      return {
+        ...state,
+        fetching: false,
+        fetched: true,
+        payload: action.payload
+      }
       break;
     }
-  }
   return state;
 }
+
+
+const rootReducer = combineReducers({products: productsReducer})
+
+export default rootReducer;
