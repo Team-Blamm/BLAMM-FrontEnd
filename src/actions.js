@@ -18,7 +18,7 @@ function receiveProducts(payload) {
 export const fetchProducts = (products) => {
   return (dispatch) => {
     dispatch(requestProducts());
-    return fetch("https://blamm-store-backend.herokuapp.com/api/v1/products")
+    return fetch("https://blamm-store-backend.herokuapp.com/api/v2/products")
       .then(resp => resp.json())
       .then(json => {
         let products = json.results

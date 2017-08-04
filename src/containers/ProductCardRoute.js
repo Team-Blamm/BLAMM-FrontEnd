@@ -19,7 +19,7 @@ class ProdTest extends Component {
     console.log(match);
     console.log("'Product List' did mount");
     fetch(
-      `https://blamm-store-backend.herokuapp.com/api/v1/products/name/${match}`
+      `https://blamm-store-backend.herokuapp.com/api/v2/products/name/${match}`
     )
       .then(results => {
         return results.json();
