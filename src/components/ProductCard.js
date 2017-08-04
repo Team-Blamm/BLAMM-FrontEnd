@@ -1,13 +1,24 @@
 {/*import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+<<<<<<< HEAD
  const ProductCard = (props) => {
   return (
+=======
+
+
+class ProductCard extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+>>>>>>> 51877f02c42bc5de074e94f90686f915e9cde12d
     let match = this.props.match;
     console.log(this.props.match);
     let products = this.props.productList.results.map(product => {
         let services = product.services.map(e => e.split(' ').map(f => <span> {f} </span>));
       return (
+<<<<<<< HEAD
         <div className="productListGrid">
           <div key={product.title}>
             <div className="productBorder">
@@ -15,6 +26,23 @@ import { Link } from "react-router-dom";
                 <Link to={`${match.url}/${product.title}`}>
                   {product.title}
                 </Link>
+=======
+        <div className="productCardContainer" key={product.title}>
+
+
+
+              <div className="cardImageLeft">
+                <img className="thumbnailImage" src={product.img_src} alt={product.title}/>
+              </div>
+
+              <div className="cardText">
+                <Link to={`${match.url}/${product.title}`}>
+                  {product.title}
+                </Link>
+                <p>
+                  Rate: {product.rate}/hr
+                </p>
+>>>>>>> 51877f02c42bc5de074e94f90686f915e9cde12d
                 <div>
                   <img className="" src={product.img_src} alt={product.title}/>
                 </div>
@@ -31,8 +59,9 @@ import { Link } from "react-router-dom";
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+
+
+
         </div>
       )
     })
