@@ -1,5 +1,20 @@
+/*This is in ProductCard.js*/
 .productListGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
+}
+
+.productListContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.sideBarContainer {
+  border: 1px solid black;
+  width: 10vw;
+}
+.productCardsContainer {
+  grid-column-start: 2;
+  grid-column-end: 4;
 }
