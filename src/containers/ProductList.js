@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 
 import { fetchProducts } from '../actions';
 import ProductCard from "../components/ProductCard.js";
@@ -13,6 +14,7 @@ class ProductList extends Component {
 
   render() {
     let productList = null;
+    let match = this.props.match;
     if (this.props.fetched === false) {
       return false
     } else if (this.props.fetched) {
@@ -25,12 +27,15 @@ class ProductList extends Component {
                 <div>
                   <img className="" src={product.img_src} alt={product.title}/>
                 </div>
+                <div><Link to={`${match.url}/${product.title}`}>
+                  {product.title}
+                </Link></div>
                 <div>
                   <p>
                     {product.title}
                   </p>
                   <p>
-                    {product.price}
+                    {product.rate}
                   </p>
                 </div>
               </div>
