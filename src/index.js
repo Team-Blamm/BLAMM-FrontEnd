@@ -17,6 +17,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import App from "./components/App";
 import Admin from "./components/Admin.js";
 import ProductList from "./containers/ProductList.js";
+import ProdDetails from "./containers/ProdDetails.js";
 import BaseLayout from "./components/base_layout.js";
 
 import ProdDetail from "./containers/ProductCardRoute.js"
@@ -36,7 +37,7 @@ ReactDOM.render(
     <BrowserRouter>
       <BaseLayout>
         <Switch>
-          <Route path="/productlist/:product" component={ProdDetail} />
+          <Route path="/productlist/name/:product" component={ProdDetails} />
           <Route path="/productlist" component={ProductList} />
           <Route path="/Admin" component={Admin} />
           <Route path="/" component={App} />

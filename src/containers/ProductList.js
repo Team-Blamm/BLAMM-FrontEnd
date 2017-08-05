@@ -8,7 +8,6 @@ import ProductCard from "../components/ProductCard.js";
 class ProductList extends Component {
 
   componentWillMount() {
-    console.log(this.props)
     this.props.fetchProducts();
   }
 
@@ -18,16 +17,15 @@ class ProductList extends Component {
     if (this.props.fetched === false) {
       return false
     } else if (this.props.fetched) {
-      console.log(this.props.products);
       productList = this.props.products.map((product) => {
         return (
         <div key={product.title}>
             <div className="productBorder">
               <div>
                 <div>
-                  <img className="" src={product.img_src} alt={product.title}/>
+                  <img className="" src={product.imgSrc} alt={product.title}/>
                 </div>
-                <div><Link to={`${match.url}/${product.title}`}>
+                <div><Link to={`${match.url}/name/${product.title}`}>
                   {product.title}
                 </Link></div>
                 <div>
@@ -59,7 +57,6 @@ class ProductList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     products: state.products.products,
     fetched: state.products.fetched

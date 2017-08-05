@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+{/*import React, { Component } from "react";
 
 //import Components
 import Product from "./ProdDetails.js";
@@ -19,7 +19,7 @@ class ProdTest extends Component {
     console.log(match);
     console.log("'Product List' did mount");
     fetch(
-      `https://blamm-store-backend.herokuapp.com/api/v1/products/name/${match}`
+      `https://blamm-store-backend.herokuapp.com/api/v2/products/name/${match}`
     )
       .then(results => {
         return results.json();
@@ -42,4 +42,4 @@ class ProdTest extends Component {
   }
 }
 
-export default ProdTest;
+export default ProdTest; */}

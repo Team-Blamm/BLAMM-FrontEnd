@@ -2,14 +2,14 @@ import { combineReducers } from 'redux';
 
 import * as types from "./actionTypes";
 
-const initialState = {
+const initialProductsState = {
   fetching: false,
   fetched: false,
   products: [],
   error: null
 }
 
-const productsReducer = (state=initialState, action) => {
+const productsReducer = (state=initialProductsState, action) => {
   switch (action.type) {
     case types.REQUEST_PRODUCTS:
       return {
@@ -38,7 +38,41 @@ const productsReducer = (state=initialState, action) => {
   return state;
 }
 
+const initialProductState = {
+  fetching: false,
+  fetched: false,
+  product: [],
+  error: null
+}
 
-const rootReducer = combineReducers({products: productsReducer})
+const productReducer = (state=initialProductState, action) => {
+  switch (action.type) {
+      case types.REQUEST_ONE_PRODUCT:
+        return {
+          ...state,
+          fetching: true,
+          fetched: false
+        }
+      case types.FETCH_ONE_PRODUCT:
+        return {
+          ...state,
+          fetching: false,
+          fetched: true,
+          product: action.payload
+        }
+      case types.RECEIVE_ONE_PRODUCT:
+        return {
+          ...state,
+          fetching: false,
+          fetched: true,
+          product: action.payload
+        }
+      break;
+    }
+  return state;
+}
+
+
+const rootReducer = combineReducers({products: productsReducer, product: productReducer})
 
 export default rootReducer;

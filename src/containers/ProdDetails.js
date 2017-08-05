@@ -1,10 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from 'react-redux';
+
+import { fetchOneProduct } from '../actions';
 
 
+class ProdDetails extends Component {
 
-const Product = props => {
-  console.log(props);
-  let product = props;
+  componentWillMount() {
+    console.log(this.props)
+    this.props.fetchOneProduct();
+  }
+
+  render() {
+  console.log(this.props);
+  let product = this.props;
   let services = product.services.map(services =>
     services.split(" ").map(oneService => <option>{oneService}</option>));
   let reviews = product.reviews.map(review =>
@@ -19,7 +28,7 @@ const Product = props => {
         <div className="imageContainer">
           <img
             className="productImage"
-            src={product.img_src}
+            src={product.imgSrc}
             alt={"portrait of " + product.title}
           />
         </div>
@@ -48,7 +57,27 @@ const Product = props => {
         </div>
       </div>
     </div>
-  );
+    )
+  }
+}
+
+
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    products: state.product.product,
+    fetched: state.product.fetched
+  }
 };
 
-export default Product;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchOneProduct: () => {
+      dispatch(fetchOneProduct());
+    }
+  }
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProdDetails)
