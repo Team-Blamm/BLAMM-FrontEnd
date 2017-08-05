@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
 //Import Redux Store
-import store from "./store";
+import createStore from "./store";
 
 //IMPORT BROWSERROUTER FUNCTIONALITY
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -20,8 +20,6 @@ import ProductList from "./containers/ProductList.js";
 import ProdDetails from "./containers/ProdDetails.js";
 import BaseLayout from "./components/base_layout.js";
 
-import ProdDetail from "./containers/ProductCardRoute.js"
-
 // import reducers from "./reducers/reducerIndex";
 
 import CartPage from "./components/cart/CartPage.js";
@@ -33,7 +31,7 @@ import registerServiceWorker from "./components/registerServiceWorker";
 //ROUTES
 ReactDOM.render(
 
-  <Provider store={store}>
+  <Provider store={createStore}>
     <BrowserRouter>
       <BaseLayout>
         <Switch>
@@ -45,8 +43,7 @@ ReactDOM.render(
       </BaseLayout>
     </BrowserRouter>
   </Provider>,
-
-
   document.getElementById("root")
 );
+
 registerServiceWorker();

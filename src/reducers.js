@@ -38,41 +38,41 @@ const productsReducer = (state=initialProductsState, action) => {
   return state;
 }
 
-const initialProductState = {
-  fetching: false,
-  fetched: false,
-  product: [],
-  error: null
-}
+{/* }// const initialProductState = {
+//   fetching: false,
+//   fetched: false,
+//   product: [],
+//   error: null
+// }
+//
+// const productReducer = (state=initialProductState, action) => {
+//   switch (action.type) {
+//       case types.REQUEST_ONE_PRODUCT:
+//         return {
+//           ...state,
+//           fetching: true,
+//           fetched: false
+//         }
+//       case types.FETCH_ONE_PRODUCT:
+//         return {
+//           ...state,
+//           fetching: false,
+//           fetched: true,
+//           product: action.payload
+//         }
+//       case types.RECEIVE_ONE_PRODUCT:
+//         return {
+//           ...state,
+//           fetching: false,
+//           fetched: true,
+//           product: action.payload
+//         }
+//       break;
+//     }
+//   return state;
+// } */}
 
-const productReducer = (state=initialProductState, action) => {
-  switch (action.type) {
-      case types.REQUEST_ONE_PRODUCT:
-        return {
-          ...state,
-          fetching: true,
-          fetched: false
-        }
-      case types.FETCH_ONE_PRODUCT:
-        return {
-          ...state,
-          fetching: false,
-          fetched: true,
-          product: action.payload
-        }
-      case types.RECEIVE_ONE_PRODUCT:
-        return {
-          ...state,
-          fetching: false,
-          fetched: true,
-          product: action.payload
-        }
-      break;
-    }
-  return state;
-}
 
-
-const rootReducer = combineReducers({products: productsReducer, product: productReducer})
+const rootReducer = combineReducers({products: productsReducer})
 
 export default rootReducer;
