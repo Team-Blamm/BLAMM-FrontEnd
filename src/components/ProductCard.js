@@ -1,94 +1,57 @@
-{/*import React, { Component } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-<<<<<<< HEAD
- const ProductCard = (props) => {
-  return (
-=======
 
-
-class ProductCard extends Component {
-  constructor(props) {
-    super(props);
-  }
+export default class ProductCard extends Component {
   render() {
->>>>>>> 51877f02c42bc5de074e94f90686f915e9cde12d
-    let match = this.props.match;
-    console.log(this.props.match);
-    let products = this.props.productList.results.map(product => {
-        let services = product.services.map(e => e.split(' ').map(f => <span> {f} </span>));
-      return (
-<<<<<<< HEAD
-        <div className="productListGrid">
-          <div key={product.title}>
-            <div className="productBorder">
-              <div>
-                <Link to={`${match.url}/${product.title}`}>
-                  {product.title}
-                </Link>
-=======
-        <div className="productCardContainer" key={product.title}>
+    let productList = null;
+    const { userType } = this.props.userType;
+    const match = this.props.match;
+    const { products } = this.props.products;
 
-
-
-              <div className="cardImageLeft">
-                <img className="thumbnailImage" src={product.img_src} alt={product.title}/>
-              </div>
-
-              <div className="cardText">
-                <Link to={`${match.url}/${product.title}`}>
-                  {product.title}
-                </Link>
-                <p>
-                  Rate: {product.rate}/hr
-                </p>
->>>>>>> 51877f02c42bc5de074e94f90686f915e9cde12d
+    switch (userType) {
+      case "user":
+        return (
+          productList = products.map((product) => {
+            <div className="productGridItem" key={product.title}>
+              <div className="productBorder">
                 <div>
-                  <img className="" src={product.img_src} alt={product.title}/>
+                  <img className="" src={product.imgSrc} alt={product.title}/>
                 </div>
                 <div>
-                  <p>
-                    {product.title}
-                  </p>
-                  <p>
-                    {product.price}
-                  </p>
+                  <Link to={`${match.url}/name/${product.title}`}>{product.title}
+                  </Link>
+                </div>
+                <div>
+                  <p>{product.title}</p>
+                  <p>{product.rate}</p>
+                </div>
+              </div>
+            </div>
+          })
+        )
+        break;
+        case "admin":
+          return (
+            productList = products.map((product) => {
+              <div className="productGridItem" key={product.title}>
+                <div className="productBorder">
                   <div>
-                    <h5>Services</h5>
-                    <p>{services}</p>
+                    <img className="" src={product.imgSrc} alt={product.title}/>
+                  </div>
+                  <div>
+                    <Link to={`${match.url}/name/${product.title}`}>{product.title}
+                    </Link>
+                  </div>
+                  <div>
+                    <p>{product.title}</p>
+                    <p>{product.rate}</p>
                   </div>
                 </div>
               </div>
-
-
-
-        </div>
-      )
-    })
+            })
+          )
+        break;
+      }
+    }
   }
-
-
-export default ProductCard;
-
-// <div>
-// <div>
-//   <img className="" src={product.img_src} alt={product.title}/>
-// </div>
-// <div>
-//   <p>
-//     {product.title}
-//   </p>
-//   <p>
-//     {product.price}
-//   </p>
-//   <div>
-//     <h5>Services</h5>
-//     <ul>
-//       <li>{product.services[0]}</li>
-//       <li>{product.services[1]}</li>
-//       <li>{product.services[2]}</li>
-//     </ul>
-//   </div>
-// </div>
-// </div>
-*/}

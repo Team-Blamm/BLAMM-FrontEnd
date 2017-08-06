@@ -1,43 +1,40 @@
-//Import React and React-Dom
 import React from "react";
 import ReactDOM from "react-dom";
-
-//Import Provider from Redux-React
 import { Provider } from "react-redux";
-
-//Import Redux Store
-import createStore from "./store";
-
-//IMPORT BROWSERROUTER FUNCTIONALITY
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import createStore from "./store";
 
 //IMPORT CSS FILE HERE
 
-//IMPORT COMPONENTS HERE
-import App from "./components/App";
-import Admin from "./components/Admin.js";
-import ProductList from "./containers/ProductList.js";
-import ProdDetails from "./containers/ProdDetails.js";
-import BaseLayout from "./components/base_layout.js";
+import App from "./containers/App";
+import CartContainer from "./containers/CartContainer.js";
+import ProductsContainer from "./containers/ProductsContainer";
+import ProductContainer from "./containers/ProductContainer";
+import BaseLayout from "./containers/BaseLayout";
 
-// import reducers from "./reducers/reducerIndex";
 
-import CartPage from "./components/cart/CartPage.js";
-
-//IMPORT REGISTERED SERVICE WORKER
 import registerServiceWorker from "./components/registerServiceWorker";
 
+{/* If we want to do Authentication or Responsive Design,
+we would need to create those actions/reducers to control
+states, and we would need to import them and dispatch them
+here, so we can set the environment of the whole app. We can
+create a series of conditionals that tells the App how to
+render, based on whether the user has authenticated and
+whether the media size should be display or mobile. */}
 
-//ROUTES
 ReactDOM.render(
-
   <Provider store={createStore}>
     <BrowserRouter>
       <BaseLayout>
         <Switch>
-          <Route path="/productlist/name/:product" component={ProdDetails} />
-          <Route path="/productlist" component={ProductList} />
-          <Route path="/Admin" component={Admin} />
+          <Route path="/admin/productlist/name/:product" component={ProductContainer} />
+          <Route path="/user/productlist/name/:product" component={ProductContainer} />
+          <Route path="/admin/productlist" component={ProductsContainer} />
+          <Route path="/user/productlist" component={ProductsContainer} />
+          <Route path="/user/receipt" component={CartContainer} />
+          <Route path="/user/shoppingCart" component={CartContainer} />
           <Route path="/" component={App} />
         </Switch>
       </BaseLayout>
