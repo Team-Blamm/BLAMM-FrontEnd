@@ -19,6 +19,7 @@ class ProductContainer extends Component {
           return false
         case true:
         product = products.map(product => {
+
           switch (product.title == match) {
             case true:
               return (
