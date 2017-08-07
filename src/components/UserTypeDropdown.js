@@ -8,10 +8,10 @@ class UserTypeDropdown extends Component {
     return (
       <select>
         <option>
-          <Link to={`${match.url}/admin/productsList`}>Admin</Link>
+          <Link to="/admin/productsList">Admin</Link>
         </option>
         <option>
-          <Link to={`${match.url}/user/productsList`}>User</Link>
+          <Link to="/user/productsList">User</Link>
         </option>
       </select>
     )
