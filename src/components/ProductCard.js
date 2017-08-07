@@ -12,8 +12,9 @@ class ProductCard extends Component {
 
     switch (userType) {
       case "user":
-        return (
-          productList = products.map((product) => {
+
+          productList = products.map(product => {
+            return (
             <div className="productGridItem" key={product.title}>
               <div className="productBorder">
                 <div>
@@ -29,12 +30,15 @@ class ProductCard extends Component {
                 </div>
               </div>
             </div>
+            )
           })
-        )
+
         break;
+
         case "admin":
-          return (
-            productList = products.map((product) => {
+
+            productList = products.map(product => {
+              return (
               <div className="productGridItem" key={product.title}>
                 <div className="productBorder">
                   <div>
@@ -50,9 +54,10 @@ class ProductCard extends Component {
                   </div>
                 </div>
               </div>
-            })
-          )
-        break;
+              )
+            });
+
+        // break;
       }
       return (
         <div>{productList}</div>

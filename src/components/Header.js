@@ -5,7 +5,6 @@ import UserTypeDropdown from './UserTypeDropdown';
 
 class Header extends Component {
   render() {
-    console.log(this.props);
     const authed = this.props.authed;
     const userType = this.props.userType;
     switch (authed) {
@@ -15,7 +14,7 @@ class Header extends Component {
             <div className="branding">
               <img src="https://gallery.mailchimp.com/8fe3233563a12b9c886595f8f/images/03d41d7e-d26a-4c53-b25b-4df580f8b8ae.png" width="125" height="125" style={{borderRadius: '75px', marginLeft: '20px', marginTop: '15px'}}/>
             </div>
-            <UserTypeDropdown />
+            <UserTypeDropdown {...this.props}/>
           </header>
         )
       break;
@@ -38,7 +37,7 @@ class Header extends Component {
                  <ul id="user-main-menu" className="menu-ul"style={{listStyleType: 'none', display: 'flex', justifyContent: 'center', padding: '20px'}} >
                    <li className="menu-item"><NavLink to="/"><i className="fa fa-user" aria-hidden="true" style={{marginRight:"30px", color: "black"}}></i></NavLink></li>
                    <li className="menu-item"><NavLink to="/"><i className="fa fa-shopping-cart" aria-hidden="true" style={{marginRight:"2px", color: "black"}}></i></NavLink></li>
-                   <span class="amount" style={{fontFamily: "Roboto", fontSize: 18, padding: "8px", marginLeft: "0px"}}><span class="currencySymbol">$</span>0.00</span>
+                   <span className="amount" style={{fontFamily: "Roboto", fontSize: 18, padding: "8px", marginLeft: "0px"}}><span className="currencySymbol">$</span>0.00</span>
                  </ul>
                </nav>
              </header>
