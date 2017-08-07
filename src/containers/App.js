@@ -19,7 +19,6 @@ class App extends Component {
         <header>
           <h2>Welcome to Blamm, { this.props.userType }</h2>
           <h3>Cool Logo</h3>
-
         </header>
         <ProductsContainer {...this.props} />
       </div>

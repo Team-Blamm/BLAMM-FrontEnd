@@ -5,7 +5,7 @@ class test extends Component {
   render() {
     return (
       <div>
-        <ProductContainer />
+        <ProductContainer {...this.props}/>
       </div>
     )
   }

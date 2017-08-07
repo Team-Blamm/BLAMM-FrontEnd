@@ -3,15 +3,21 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Product from '../components/ProdDetail/Product';
+import { fetchProducts } from '../actions/productActions';
 import { incrementHours, decrementHours } from '../actions/selectActions';
 
 
 class ProductContainer extends Component {
+
+  componentWillMount() {
+    this.props.fetchProducts();
+  }
+
   render() {
-    let match = this.params;
+    let match = this.props.match.params.product;
     console.log(match);
     const products = this.props.products;
-    var product = null;
+    var oneProduct = null;
     console.log(this.props);
 
     const fetched = this.props.fetched;
@@ -20,30 +26,25 @@ class ProductContainer extends Component {
         case false:
           return false
         case true:
-            console.log(fetched);
-            debugger;
-
-        product = products.filter(product => {
-          return product == match;
-
-              return (
-                <div className="productBody" key="product.title">
-                  <div className="productContainer">
-                    <img className="productImage" src={product.imgSrc} alt={"portrait of " + product.title} />
-                    {product}
-                  </div>
-                  <p>Please</p>
+          console.log(fetched);
+          oneProduct = products.filter(product => {
+            return product.title == match;
+          });
+          console.log(oneProduct[0]);
+            return (
+              <div className="productBody" key="oneProduct[0].title">
+                <div className="productContainer">
                   <Product {...this.props} />
                 </div>
-              )
+              </div>
+            )
       }
-    )};
-
   }
 }
 
 const mapStateToProps = (state) => {
   return {
+    userType: state.authed.userType,
     products: state.products.products,
     fetched: state.products.fetched,
     hours: state.hours
@@ -53,7 +54,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     incrementHours: incrementHours,
-    decrementHours: decrementHours
+    decrementHours: decrementHours,
+    fetchProducts: fetchProducts
   }, dispatch)
 }
 
