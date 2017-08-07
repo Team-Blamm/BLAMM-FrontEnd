@@ -4,19 +4,24 @@ import { Link } from "react-router-dom";
 class UserTypeDropdown extends Component {
 
   render() {
+    console.log(this.props);
     const match = this.props.match;
     return (
       <select>
-        <Link to={"/admin/productsList"}>
+
         <option>
+          <Link to={"/admin/productsList"}>
           Admin
+          </Link>
         </option>
-        </Link>
-        <Link to={"/user/productsList"}>
+
+
         <option>
+          <Link to={"/user/productsList"}>
           User
+          </Link>
         </option>
-        </Link>
+
       </select>
     )
   }

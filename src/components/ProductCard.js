@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 class ProductCard extends Component {
   render() {
     let productList = null;
-    const { userType } = this.props.userType;
+    const userType = this.props.userType;
     const match = this.props.match;
-    const { products } = this.props.products;
+    const products = this.props.products;
+    console.log(userType);
+    console.log(products);
 
     switch (userType) {
       case "user":
@@ -52,6 +54,9 @@ class ProductCard extends Component {
           )
         break;
       }
+      return (
+        <div>{productList}</div>
+      );
     }
   }
 

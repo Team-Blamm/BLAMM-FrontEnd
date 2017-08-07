@@ -10,7 +10,7 @@ class ProductContainer extends Component {
   render() {
     const match = this.props.match.params.product;
     const products = this.props.products;
-    const product = null;
+    var product = null;
     console.log(this.props);
     const fetched = this.props.fetched;
 
@@ -18,7 +18,7 @@ class ProductContainer extends Component {
         case false:
           return false
         case true:
-        const product = products.map(product => {
+        product = products.map(product => {
           switch (product.title == match) {
             case true:
               return (
