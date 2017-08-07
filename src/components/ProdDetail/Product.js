@@ -6,15 +6,10 @@ import Description from './Description';
 import Reviews from './Reviews';
 
 class Product extends Component {
-
-  componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(this.props.fetchProducts());
-  }
-
   render() {
-    const { product } = this.props.product;
-    const { userType } = this.props.userType;
+    const userType = this.props.userType;
+    const product = this.props.product;
+    console.log(this.props)
 
     switch (userType) {
       case "user":

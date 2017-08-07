@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { fetchProducts /*deleteProduct*/ } from '../actions/productActions';
-import ProductsContainer from "./ProductContainer";
+import ProductsContainer from "./ProductsContainer";
 
 class App extends Component {
 
@@ -19,8 +19,8 @@ class App extends Component {
         <header>
           <h2>Welcome to Blamm, { this.props.userType }</h2>
           <h3>Cool Logo</h3>
-            <ProductsContainer {...this.props} />
         </header>
+        <ProductsContainer {...this.props} />
       </div>
     )
   }
@@ -29,7 +29,8 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     products: state.products.products,
-    fetched: state.products.fetched
+    fetched: state.products.fetched,
+    userType: state.authed.userType
   }
 };
 

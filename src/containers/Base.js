@@ -9,12 +9,10 @@ import Footer from '../components/Footer';
 class Base extends Component {
 
   componentWillMount() {
-    console.log(this.props.authenticate);
     this.props.authenticate();
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="App base" style={{fontFamily: "Bangers", backgroundColor: '#16B7F9' }}>
         <Header {...this.props} />
@@ -26,7 +24,6 @@ class Base extends Component {
 };
 
   const mapStateToProps = (state) => {
-    console.log(state);
     return {
       authed: state.authed.authed,
       userType: state.authed.userType,
@@ -37,6 +34,12 @@ class Base extends Component {
     return {
       authenticate: () => {
         dispatch(authenticate())
+      },
+      authedAsUser: () => {
+        dispatch(authedAsUser())
+      },
+      authedAsAdmin: () => {
+        dispatch(authedAsAdmin())
       }
     }
   }

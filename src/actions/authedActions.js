@@ -1,13 +1,13 @@
 import * as types from "../static/actionTypes";
 
-function authedAsUser() {
+export function authedAsUser() {
   return {
     authed: true,
     type: types.AUTHED_AS_USER
   }
 };
 
-function authedAsAdmin() {
+export function authedAsAdmin() {
   return {
     authed: true,
     type: types.AUTHED_AS_ADMIN

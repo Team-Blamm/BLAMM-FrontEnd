@@ -3,28 +3,40 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Product from '../components/ProdDetail/Product';
+import { fetchProducts } from '../actions/productActions';
 import { incrementHours, decrementHours } from '../actions/selectActions';
 
 
 class ProductContainer extends Component {
+
+  componentWillMount() {
+    this.props.fetchProducts();
+  }
+
   render() {
-    const match = this.props.match.params.product;
+    let match = this.props.match.params.product;
+    console.log(match);
     const products = this.props.products;
-    const product = null;
+    var oneProduct = null;
     console.log(this.props);
+
     const fetched = this.props.fetched;
 
       switch (fetched) {
         case false:
           return false
         case true:
-        const product = products.map(product => {
-          switch (product.title == match) {
-            case true:
-              return (
-                <div className="productBody" key="product.title">
+          console.log(fetched);
+          oneProduct = products.filter(product => {
+            return product.title == match;
+          });
+          console.log(oneProduct[0]);
+            return (
+              <div className="productBody" key="oneProduct[0].title">
+                <div className="productContainer">
                   <Product {...this.props} />
                 </div>
+<<<<<<< HEAD
               )
             break;
             case false:
@@ -39,11 +51,17 @@ class ProductContainer extends Component {
         {product}
       </div>
     )
+=======
+              </div>
+            )
+      }
+>>>>>>> fe6d167cb9eb649422868fe79c5297c27ffcd52d
   }
 }
 
 const mapStateToProps = (state) => {
   return {
+    userType: state.authed.userType,
     products: state.products.products,
     fetched: state.products.fetched,
     hours: state.hours
@@ -53,7 +71,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     incrementHours: incrementHours,
-    decrementHours: decrementHours
+    decrementHours: decrementHours,
+    fetchProducts: fetchProducts
   }, dispatch)
 }
 
