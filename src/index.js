@@ -22,8 +22,8 @@ ReactDOM.render(
     <Router>
       <Base>
         <Switch>
-          <Route path="/admin/productlist/name/:product" component={ProductContainer} />
-          <Route path="/user/productlist/name/:product" component={ProductContainer} />
+          <Route path="/admin/productlist/:product" component={ProductContainer} />
+          <Route path="/user/productlist/:product" component={ProductContainer} />
           <Route path="/admin/productlist" component={ProductsContainer} />
           <Route path="/user/productlist" component={ProductsContainer} />
           {/* <Route path="/user/receipt" component={CartContainer} />

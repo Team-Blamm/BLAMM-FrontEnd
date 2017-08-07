@@ -21,7 +21,7 @@ class ProductCard extends Component {
                   <img className="" src={product.imgSrc} alt={product.title}/>
                 </div>
                 <div>
-                  <Link to={`user/productlist/name/${product.title}`}>{product.title}
+                  <Link to={`productlist/${product.title}`}>{product.title}
                   </Link>
                 </div>
                 <div>
@@ -45,7 +45,7 @@ class ProductCard extends Component {
                     <img className="" src={product.imgSrc} alt={product.title}/>
                   </div>
                   <div>
-                    <Link to={`admin/productlist/name/${product.title}`}>{product.title}
+                    <Link to={`productlist/${product.title}`}>{product.title}
                     </Link>
                   </div>
                   <div>
@@ -59,6 +59,7 @@ class ProductCard extends Component {
 
         // break;
       }
+
       return (
         <div>{productList}</div>
       );

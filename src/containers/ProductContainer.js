@@ -8,10 +8,12 @@ import { incrementHours, decrementHours } from '../actions/selectActions';
 
 class ProductContainer extends Component {
   render() {
-    const match = this.props.match.params.product;
+    let match = "";
+    // this.props.match.params.product
     const products = this.props.products;
     var product = null;
     console.log(this.props);
+
     const fetched = this.props.fetched;
 
       switch (fetched) {
