@@ -12,6 +12,7 @@ import ProductsContainer from "./containers/ProductsContainer";
 import ProductContainer from "./containers/ProductContainer";
 import Base from "./containers/Base";
 
+import test from "./components/test.js"
 
 import registerServiceWorker from "./components/registerServiceWorker";
 
@@ -22,8 +23,8 @@ ReactDOM.render(
     <Router>
       <Base>
         <Switch>
-          <Route path="/admin/productlist/:product" component={ProductContainer} />
-          <Route path="/user/productlist/:product" component={ProductContainer} />
+          <Route path="/admin/productlist/:product" component={test} />
+          <Route path="/user/productlist/:product" component={test} />
           <Route path="/admin/productlist" component={ProductsContainer} />
           <Route path="/user/productlist" component={ProductsContainer} />
           {/* <Route path="/user/receipt" component={CartContainer} />

@@ -8,8 +8,8 @@ import { incrementHours, decrementHours } from '../actions/selectActions';
 
 class ProductContainer extends Component {
   render() {
-    let match = "";
-    // this.props.match.params.product
+    let match = this.params;
+    console.log(match);
     const products = this.props.products;
     var product = null;
     console.log(this.props);
@@ -20,28 +20,25 @@ class ProductContainer extends Component {
         case false:
           return false
         case true:
-        product = products.map(product => {
+            console.log(fetched);
+            debugger;
 
-          switch (product.title == match) {
-            case true:
+        product = products.filter(product => {
+          return product == match;
+
               return (
                 <div className="productBody" key="product.title">
+                  <div className="productContainer">
+                    <img className="productImage" src={product.imgSrc} alt={"portrait of " + product.title} />
+                    {product}
+                  </div>
+                  <p>Please</p>
                   <Product {...this.props} />
                 </div>
               )
-            break;
-            case false:
-              return false
-            break;
-          }
       }
     )};
-    return (
-      <div className="productContainer">
-        <img className="productImage" src={product.imgSrc} alt={"portrait of " + product.title} />
-        {product}
-      </div>
-    )
+
   }
 }
 
