@@ -10,7 +10,7 @@ import { deleteReview, addReview } from '../../actions/productActions';
 //   this.props.deleteReview();
 // };
 
-export default class Reviews extends Component {
+class Reviews extends Component {
   render() {
   const { userType } = this.props.userType;
   const { reviews } = this.props.product.reviews;
@@ -58,3 +58,5 @@ export default class Reviews extends Component {
     }
   }
 }
+
+export default Reviews;

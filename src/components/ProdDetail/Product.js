@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
 import Select from './Select';
-import AddToCart from './AddToCart';
+// import AddToCart from './AddToCart';
 import Description from './Description';
 import Reviews from './Reviews';
 
-export default class Product extends Component {
+class Product extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props;
@@ -30,7 +30,7 @@ export default class Product extends Component {
                 <h3>{product.tagline}</h3>
               </header>
               <Select {...this.props} />
-              <AddToCart {...this.props} />
+              {/* <AddToCart {...this.props} /> */}
               <Description {...this.props} />
               <Reviews {...this.props} />
             </div>
@@ -58,3 +58,5 @@ export default class Product extends Component {
     }
   }
 }
+
+export default Product;

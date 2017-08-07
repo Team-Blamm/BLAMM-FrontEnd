@@ -30,7 +30,6 @@ const products = (state=initialState, action) => {
         fetched: true,
         payload: action.payload
       }
-      break;
     }
   return state;
 }

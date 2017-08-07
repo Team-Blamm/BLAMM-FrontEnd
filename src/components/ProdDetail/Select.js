@@ -2,11 +2,11 @@ import React, { Component } from "react";
 
 import AddToCart from './AddToCart';
 
-import { addToCart } from '../actions/cartActions';
-import { deleteService, addService, editService } from '../actions/productActions';
+// import { addToCart } from '../actions/cartActions';
+// import { deleteService, addService, editService } from '../actions/productActions';
 
 
-export default class Select extends Component {
+class Select extends Component {
 
   incrementHours = e => {
     console.log("incrementHours triggered by onChange");
@@ -47,7 +47,7 @@ export default class Select extends Component {
               <button for="hours" onClick={this.decrementHours}>-</button>
               <input name="for" className="hoursCounter" placeholder={"Hours: " + this.props.hours} />
               <button for="hours" onClick={this.incrementHours}>+</button>
-              <AddToCart {...this.props}/>
+              {/* <AddToCart {...this.props}/> */}
             </form>
           )
       break;
@@ -69,3 +69,5 @@ export default class Select extends Component {
     }
   }
 }
+
+export default Select;

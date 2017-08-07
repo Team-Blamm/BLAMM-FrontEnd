@@ -7,7 +7,7 @@ import {
   updateDescription,
 } from '../../actions/productActions';
 
-export default class Description extends Component {
+class Description extends Component {
 
 /* Need to figure out a way to refresh Description
   Component when descriptions have been deleteDescription
@@ -78,3 +78,5 @@ export default class Description extends Component {
       }
     }
   }
+
+export default Description;

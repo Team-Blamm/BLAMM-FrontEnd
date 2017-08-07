@@ -1,17 +1,8 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
-
-import { fetchProducts } from '../actions/productActions';
 
 import ProductCard from "../components/ProductCard.js";
 
-class ProductList extends Component {
-  componentWillMount() {
-    const { dispatch } = this.props;
-    dispatch(fetchProducts());
-  }
-
+class ProductsContainer extends Component {
   renderContent() {
     const match = this.props.match;
     const { products } = this.props.products;
@@ -41,4 +32,4 @@ class ProductList extends Component {
   }
 }
 
-export default ProductList;
+export default ProductsContainer;

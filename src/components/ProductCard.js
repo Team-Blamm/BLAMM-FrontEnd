@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-
-export default class ProductCard extends Component {
+class ProductCard extends Component {
   render() {
     let productList = null;
     const { userType } = this.props.userType;
@@ -55,3 +54,5 @@ export default class ProductCard extends Component {
       }
     }
   }
+
+export default ProductCard;

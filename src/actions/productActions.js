@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import * as types from "../static/actionTypes"
 
 
@@ -28,5 +26,3 @@ export const fetchProducts = (products) => {
     })
   }
 };
-
-{/* Need to create a series of crud functions for Products*/}
