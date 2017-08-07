@@ -7,12 +7,16 @@ class UserTypeDropdown extends Component {
     const match = this.props.match;
     return (
       <select>
+        <Link to={"/admin/productsList"}>
         <option>
-          <Link to="/admin/productsList">Admin</Link>
+          Admin
         </option>
+        </Link>
+        <Link to={"/user/productsList"}>
         <option>
-          <Link to="/user/productsList">User</Link>
+          User
         </option>
+        </Link>
       </select>
     )
   }

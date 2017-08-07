@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 class Base extends Component {
 
   componentWillMount() {
-    console.log(this.props);
+    console.log(this.props.authenticate);
     this.props.authenticate();
   }
 

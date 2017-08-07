@@ -10,14 +10,15 @@ class ProductContainer extends Component {
   render() {
     const match = this.props.match.params.product;
     const products = this.props.products;
-    const fetched = this.props.fetched;
     const product = null;
+    console.log(this.props);
+    const fetched = this.props.fetched;
 
       switch (fetched) {
         case false:
           return false
         case true:
-          const product = products.map(product => {
+        const product = products.map(product => {
           switch (product.title == match) {
             case true:
               return (
@@ -31,7 +32,7 @@ class ProductContainer extends Component {
             break;
           }
       })
-    }
+    };
     return (
       <div className="productContainer">
         <img className="productImage" src={product.imgSrc} alt={"portrait of " + product.title} />

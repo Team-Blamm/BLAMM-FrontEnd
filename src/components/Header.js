@@ -59,7 +59,7 @@ class Header extends Component {
                 </nav>
               </header>
             )
-          break;
+          // break;
         }
     }
   }

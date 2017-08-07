@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 
 class Footer extends Component {
   render() {
-    const { authed } = this.props.authed;
-    const { userType } = this.props.userType;
+    const authed = this.props.authed;
+    const userType = this.props.userType;
     switch (authed) {
       case false:
         return (
