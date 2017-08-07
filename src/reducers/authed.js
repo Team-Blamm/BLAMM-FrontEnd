@@ -2,7 +2,7 @@ import * as types from "../static/actionTypes";
 
 const initialState = {
   authed: false,
-  userType: null
+  userType: "user"
 }
 
 const userType = (state=initialState, action) => {

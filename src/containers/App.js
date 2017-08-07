@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   render() {
-    const { userType } = this.props.userType;
+    const userType = this.props.userType;
     return (
       <div className="productsContainer">
         <header>

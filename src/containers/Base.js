@@ -9,8 +9,8 @@ import Footer from '../components/Footer';
 class Base extends Component {
 
   componentWillMount() {
-    console.log(this.props);
-    this.props.authed();
+    console.log(this.props.authenticate);
+    this.props.authenticate();
   }
 
   render() {
@@ -26,15 +26,16 @@ class Base extends Component {
 };
 
   const mapStateToProps = (state) => {
+    console.log(state);
     return {
-      authed: state.authed,
-      userType: state.userType,
+      authed: state.authed.authed,
+      userType: state.authed.userType,
     }
   }
 
   const mapDispatchToProps = (dispatch) => {
     return {
-      authed: () => {
+      authenticate: () => {
         dispatch(authenticate())
       }
     }

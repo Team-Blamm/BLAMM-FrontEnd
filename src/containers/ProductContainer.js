@@ -9,14 +9,16 @@ import { incrementHours, decrementHours } from '../actions/selectActions';
 class ProductContainer extends Component {
   render() {
     const match = this.props.match.params.product;
-    const { products } = this.props.products;
-    const { fetched } = this.props.fetched;
+    const products = this.props.products;
+    const product = null;
+    console.log(this.props);
+    const fetched = this.props.fetched;
 
-    const product = products.map(product => {
       switch (fetched) {
         case false:
           return false
         case true:
+        const product = products.map(product => {
           switch (product.title == match) {
             case true:
               return (
@@ -30,10 +32,10 @@ class ProductContainer extends Component {
             break;
           }
       }
-    })
+    )};
     return (
       <div className="productContainer">
-        <img className="productImage" src={this.props.product.imgSrc} alt={"portrait of " + this.props.product.title} />
+        <img className="productImage" src={product.imgSrc} alt={"portrait of " + product.title} />
         {product}
       </div>
     )
