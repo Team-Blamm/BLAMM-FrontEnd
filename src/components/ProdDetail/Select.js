@@ -30,43 +30,58 @@ class Select extends Component {
   }
 
   render() {
-    let { hours } = this.props.hours;
-    const { product } = this.props.product;
-    const { userType } = this.props.userType;
+    let hours = this.props.hours;
+    const product = this.props.product;
+    const userType = this.props.userType;
+    let selector = null;
 
     switch (userType) {
       case "user":
-        const userServices = product.services.map(servicesString =>
-          servicesString.split(" ").map(service =>
-            <option>{service}</option>));
+        const userServices = product.services.map(servicesString => {
+          servicesString.split(" ").map(service => {
+            return (
+              <option>{service}</option>
+            )
+          })
+        });
           return (
-            <form>
+            selector = <form>
               <select name="services" className="servicesSelect">
                 {userServices}
               </select>
-              <button for="hours" onClick={this.decrementHours}>-</button>
+              <button htmlFor="hours" onClick={this.decrementHours}>-</button>
               <input name="for" className="hoursCounter" placeholder={"Hours: " + this.props.hours} />
-              <button for="hours" onClick={this.incrementHours}>+</button>
+              <button htmlFor="hours" onClick={this.incrementHours}>+</button>
               {/* <AddToCart {...this.props}/> */}
             </form>
           )
       break;
       case "admin":
-        const adminServices = product.services.map(servicesString =>
-          servicesString.split(" ").map(service =>
+        const adminServices = product.services.map(servicesString => {
+          servicesString.split(" ").map(service => {
+            return (
             <option>
               {service}
               <button className="deleteServiceButton" onClick={this.deleteService}>Delete</button>
               <button className="addServiceButton" onClick={this.addService}>Add</button>
               <button className="editServiceButton" onClick={this.deleteReview}>Edit</button>
-            </option>));
+            </option>
+            )
+          })
+        });
           return (
-            <select name="services" className="servicesSelect">
-              {adminServices}
-            </select>
+            selector =
+              <select name="services" className="servicesSelect">
+                {adminServices}
+              </select>
           )
       break;
     }
+    return (
+      <div>
+        {selector}
+      </div>
+    )
   }
 }
 

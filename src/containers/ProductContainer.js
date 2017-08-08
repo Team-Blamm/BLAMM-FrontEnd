@@ -34,32 +34,15 @@ class ProductContainer extends Component {
             return (
               <div className="productBody" key="oneProduct[0].title">
                 <div className="productContainer">
-                  <Product {...this.props} />
+                  <Product product={oneProduct[0]} />
                 </div>
-<<<<<<< HEAD
-              )
-            break;
-            case false:
-              return false
-            break;
-          }
-      })
-    };
-    return (
-      <div className="productContainer">
-        <img className="productImage" src={product.imgSrc} alt={"portrait of " + product.title} />
-        {product}
-      </div>
-    )
-=======
               </div>
             )
       }
->>>>>>> fe6d167cb9eb649422868fe79c5297c27ffcd52d
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     userType: state.authed.userType,
     products: state.products.products,

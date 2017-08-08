@@ -3,7 +3,7 @@ import * as types from "../static/actionTypes";
 const initialState = {
   fetching: false,
   fetched: false,
-  products: [],
+  products: []
 }
 
 const products = (state=initialState, action) => {
