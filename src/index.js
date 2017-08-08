@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { Route, Switch } from "react-router-dom";
-import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
-import createHistory from 'history/createBrowserHistory'
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+
 
 import createStore from "./store";
 //IMPORT CSS FILE HERE
@@ -20,11 +20,10 @@ import test2 from "./components/test2.js"
 import registerServiceWorker from "./components/registerServiceWorker";
 
 const store = createStore;
-const history = createHistory();
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
+    <BrowserRouter>
       <Base>
         <Switch>
           <Route exact path="/admin/productlist/:product" component={test} />
@@ -36,7 +35,7 @@ ReactDOM.render(
           <Route path="/" component={App} />
         </Switch>
       </Base>
-    </ConnectedRouter>
+    </BrowserRouter>
   </Provider>,
 
   document.getElementById("root")
