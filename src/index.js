@@ -14,8 +14,8 @@ import ProductsContainer from "./containers/ProductsContainer";
 import ProductContainer from "./containers/ProductContainer";
 import Base from "./containers/Base";
 
-import test from "./components/test.js"
-import test2 from "./components/test2.js"
+import Detail from "./components/Detail.js"
+import Listings from "./components/Listings.js"
 
 import registerServiceWorker from "./components/registerServiceWorker";
 
@@ -26,10 +26,10 @@ ReactDOM.render(
     <BrowserRouter>
       <Base>
         <Switch>
-          <Route exact path="/admin/productlist/:product" component={test} />
-          <Route exact path="/user/productlist/:product" component={test} />
-          <Route exact path="/admin/productlist" component={test2} />
-          <Route exact path="/user/productlist" component={test2} />
+          <Route exact path="/admin/productlist/:product" component={Detail} />
+          <Route exact path="/user/productlist/:product" component={Detail} />
+          <Route exact path="/admin/productlist" component={Listings} />
+          <Route exact path="/user/productlist" component={Listings} />
           {/* <Route path="/user/receipt" component={CartContainer} /> */}
           <Route path="/user/shoppingCart" component={CartPage} />
           <Route path="/" component={App} />

@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import ProductContainer from "../containers/ProductContainer"
 
-class test extends Component {
+class Detail extends Component {
   render() {
     return (
       <div>
@@ -12,4 +12,4 @@ class test extends Component {
 }
 
 
-export default test;
+export default Detail;
