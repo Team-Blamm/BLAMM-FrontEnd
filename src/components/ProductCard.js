@@ -1,94 +1,69 @@
-{/*import React, { Component } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-<<<<<<< HEAD
- const ProductCard = (props) => {
-  return (
-=======
-
-
 class ProductCard extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
->>>>>>> 51877f02c42bc5de074e94f90686f915e9cde12d
-    let match = this.props.match;
-    console.log(this.props.match);
-    let products = this.props.productList.results.map(product => {
-        let services = product.services.map(e => e.split(' ').map(f => <span> {f} </span>));
-      return (
-<<<<<<< HEAD
-        <div className="productListGrid">
-          <div key={product.title}>
-            <div className="productBorder">
-              <div>
-                <Link to={`${match.url}/${product.title}`}>
-                  {product.title}
-                </Link>
-=======
-        <div className="productCardContainer" key={product.title}>
+    let productList = null;
+    const userType = this.props.userType;
+    const match = this.props.match;
+    const products = this.props.products;
+    console.log(userType);
+    console.log(products);
 
+    switch (userType) {
+      case "user":
 
-
-              <div className="cardImageLeft">
-                <img className="thumbnailImage" src={product.img_src} alt={product.title}/>
-              </div>
-
-              <div className="cardText">
-                <Link to={`${match.url}/${product.title}`}>
-                  {product.title}
-                </Link>
-                <p>
-                  Rate: {product.rate}/hr
-                </p>
->>>>>>> 51877f02c42bc5de074e94f90686f915e9cde12d
+          productList = products.map(product => {
+            return (
+            <div className="productGridItem" key={product.title}>
+              <div className="productBorder">
                 <div>
-                  <img className="" src={product.img_src} alt={product.title}/>
+                  <img className="" src={product.imgSrc} alt={product.title}/>
                 </div>
                 <div>
-                  <p>
-                    {product.title}
-                  </p>
-                  <p>
-                    {product.price}
-                  </p>
+                  <Link to={`productlist/${product.title}`}>{product.title}
+                  </Link>
+                </div>
+                <div>
+                  <p>{product.title}</p>
+                  <p>{product.rate}</p>
+                </div>
+              </div>
+            </div>
+            )
+          })
+
+        break;
+
+        case "admin":
+
+            productList = products.map(product => {
+              return (
+              <div className="productGridItem" key={product.title}>
+                <div className="productBorder">
                   <div>
-                    <h5>Services</h5>
-                    <p>{services}</p>
+                    <img className="" src={product.imgSrc} alt={product.title}/>
+                  </div>
+                  <div>
+                    <Link to={`productlist/${product.title}`}>{product.title}
+                    </Link>
+                  </div>
+                  <div>
+                    <p>{product.title}</p>
+                    <p>{product.rate}</p>
                   </div>
                 </div>
               </div>
+              )
+            });
 
+        // break;
+      }
 
-
-        </div>
-      )
-    })
+      return (
+        <div>{productList}</div>
+      );
+    }
   }
 
-
 export default ProductCard;
-
-// <div>
-// <div>
-//   <img className="" src={product.img_src} alt={product.title}/>
-// </div>
-// <div>
-//   <p>
-//     {product.title}
-//   </p>
-//   <p>
-//     {product.price}
-//   </p>
-//   <div>
-//     <h5>Services</h5>
-//     <ul>
-//       <li>{product.services[0]}</li>
-//       <li>{product.services[1]}</li>
-//       <li>{product.services[2]}</li>
-//     </ul>
-//   </div>
-// </div>
-// </div>
-*/}

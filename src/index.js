@@ -1,50 +1,42 @@
-//Import React and React-Dom
 import React from "react";
 import ReactDOM from "react-dom";
-
-//Import Provider from Redux-React
 import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-//Import Redux Store
-import store from "./store";
-
-//IMPORT BROWSERROUTER FUNCTIONALITY
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-
+import createStore from "./store";
 //IMPORT CSS FILE HERE
 
-//IMPORT COMPONENTS HERE
-import App from "./components/App";
-import Admin from "./components/Admin.js";
-import ProductList from "./containers/ProductList.js";
-import BaseLayout from "./components/base_layout.js";
+import App from "./containers/App";
+import CartContainer from "./containers/CartContainer";
+import ProductsContainer from "./containers/ProductsContainer";
+import ProductContainer from "./containers/ProductContainer";
+import Base from "./containers/Base";
 
-import ProdDetail from "./containers/ProductCardRoute.js"
+import test from "./components/test.js"
+import test2 from "./components/test2.js"
 
-// import reducers from "./reducers/reducerIndex";
-
-import CartPage from "./components/cart/CartPage.js";
-
-//IMPORT REGISTERED SERVICE WORKER
 import registerServiceWorker from "./components/registerServiceWorker";
 
+const store = createStore;
 
-//ROUTES
 ReactDOM.render(
-
   <Provider store={store}>
-    <BrowserRouter>
-      <BaseLayout>
+    <Router>
+      <Base>
         <Switch>
-          <Route path="/productlist/:product" component={ProdDetail} />
-          <Route path="/productlist" component={ProductList} />
-          <Route path="/Admin" component={Admin} />
+          <Route path="/admin/productlist/:product" component={test} />
+          <Route path="/user/productlist/:product" component={test} />
+          <Route path="/admin/productlist" component={test2} />
+          <Route path="/user/productlist" component={test2} />
+          {/* <Route path="/user/receipt" component={CartContainer} />
+          <Route path="/user/shoppingCart" component={CartContainer} /> */}
           <Route path="/" component={App} />
         </Switch>
-      </BaseLayout>
-    </BrowserRouter>
+      </Base>
+    </Router>
   </Provider>,
 
   document.getElementById("root")
 );
+
 registerServiceWorker();

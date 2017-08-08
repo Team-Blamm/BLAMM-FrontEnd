@@ -1,6 +1,5 @@
-import fetch from "isomorphic-fetch"
+import * as types from "../static/actionTypes"
 
-import * as types from "./actionTypes"
 
 function requestProducts() {
   return {
