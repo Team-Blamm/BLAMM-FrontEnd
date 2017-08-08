@@ -6,7 +6,6 @@ import { authedAsUser, authedAsAdmin, authenticate } from '../actions/authedActi
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { withRouter } from 'react-router-dom';
 
 class Base extends Component {
 

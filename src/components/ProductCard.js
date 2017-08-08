@@ -36,7 +36,8 @@ class ProductCard extends Component {
         break;
 
         case "admin":
-
+            console.log("admin productList");
+            console.log(products);
             productList = products.map(product => {
               return (
               <div className="productGridItem" key={product.title}>
