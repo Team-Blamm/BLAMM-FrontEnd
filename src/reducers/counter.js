@@ -7,7 +7,9 @@ import * as types from "../static/actionTypes";
 //     itemTotal: 0
 // }
 
-const intialState = {};
+const intialState = {
+  hours: 100
+};
 
 const counter = (state = intialState, action) => {
   switch (action.type) {

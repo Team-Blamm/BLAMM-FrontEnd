@@ -10,7 +10,6 @@ class Product extends Component {
   render() {
     const userType = this.props.userType;
     const product = this.props.product;
-    console.log(product)
     let productPage = null;
 
     switch (userType) {
