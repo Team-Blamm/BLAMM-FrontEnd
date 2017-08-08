@@ -35,6 +35,7 @@ ReactDOM.render(
       </Base>
     </Router>
   </Provider>,
+
   document.getElementById("root")
 );
 
