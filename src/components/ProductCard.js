@@ -18,7 +18,7 @@ class ProductCard extends Component {
             <div className="productGridItem" key={product.title}>
               <div className="productBorder">
                 <div>
-                  <img className="" src={product.imgSrc} alt={product.title}/>
+                  <img className="thumbnailImage" src={product.imgSrc} alt={product.title}/>
                 </div>
                 <div>
                   <Link to={`productlist/${product.title}`}>{product.title}
@@ -42,7 +42,7 @@ class ProductCard extends Component {
               <div className="productGridItem" key={product.title}>
                 <div className="productBorder">
                   <div>
-                    <img className="" src={product.imgSrc} alt={product.title}/>
+                    <img className="thumbnailImage" src={product.imgSrc} alt={product.title}/>
                   </div>
                   <div>
                     <Link to={`productlist/${product.title}`}>{product.title}

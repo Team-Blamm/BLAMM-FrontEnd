@@ -2,23 +2,26 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 
 import Select from './Select';
-// import AddToCart from './AddToCart';
+import AddToCart from './AddToCart';
 import Description from './Description';
 import Reviews from './Reviews';
 
 class Product extends Component {
+  AddToCart = e => {
+    this.props.dispatch()
+  }
+
   render() {
     const userType = this.props.userType;
     const product = this.props.product;
     let productPage = null;
-
     switch (userType) {
       case "user":
         return (
           productPage =
-            <div key="product">
+            <div key={product.title}>
               <div className="imageContainer">
-                <img className="productImage" src={product.imgSrc} alt={"portrait of " + product.title}/>
+                <img className="thumbnailImage" src={product.imgSrc} alt={"portrait of " + product.title}/>
               </div>
               <div className="textContainer">
                 <header className="header">
@@ -28,6 +31,9 @@ class Product extends Component {
                 </header>
                 <Select {...this.props} />
                 {/* <AddToCart {...this.props} /> */}
+                <button onClick={this.AddToCart}>
+
+                </button>
                 <Description {...this.props} />
                 <Reviews {...this.props} />
               </div>
@@ -37,9 +43,9 @@ class Product extends Component {
       case "admin":
         return (
           productPage =
-            <div key="product">
+            <div key={product.title}>
               <div className="imageContainer">
-                <img className="productImage"src={product.img_src} alt={"portrait of " + product.title}/>
+                <img className="thumbnailImage" src={product.img_src} alt={"portrait of " + product.title}/>
               </div>
               <div className="textContainer">
                 <header className="header">
@@ -69,5 +75,7 @@ const mapStateToProps = (state, ownProps) => {
     hours: state.counter.hours
   }
 }
+
+
 
 export default connect(mapStateToProps)(Product);
