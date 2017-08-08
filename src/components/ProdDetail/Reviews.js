@@ -26,14 +26,14 @@ class Reviews extends Component {
                 <p className="noReviews">No Reviews Yet</p>
                 <button className="addReview" onClick={this.addReview}>Add Review</button>
               </div>
-          break;
+        break;
         case "admin":
           return
           renderReview =
               <div className="reviews">
                 <p className="noReviews">No Reviews Yet</p>
               </div>
-          break;
+        break;
       }
     case true:
       switch (userType) {
@@ -46,7 +46,7 @@ class Reviews extends Component {
                 <div className="review">{review.review}</div>
                 <button className="addReview" onClick={this.addReview}>Add Review</button>
               </div>)
-          break;
+        break;
         case "admin":
           return
             renderReview = reviews.map(review =>
@@ -56,7 +56,7 @@ class Reviews extends Component {
                 <div className="review">{review.review}</div>
                 <button className="deleteReview" onClick={this.deleteReview}>Delete</button>
               </div>)
-          break;
+        break;
       }
     }
     return (
