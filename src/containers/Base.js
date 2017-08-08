@@ -5,6 +5,7 @@ import { authedAsUser, authedAsAdmin, authenticate } from '../actions/authedActi
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { withRouter } from 'react-router-dom';
 
 class Base extends Component {
 
@@ -45,4 +46,4 @@ class Base extends Component {
   }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Base);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Base));

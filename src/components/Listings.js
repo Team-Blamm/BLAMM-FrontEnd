@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import ProductsContainer from '../containers/ProductsContainer';
 
-class test2 extends Component {
+class Listings extends Component {
   render() {
     return (
       <div>
@@ -12,4 +12,4 @@ class test2 extends Component {
 }
 
 
-export default test2;
+export default Listings;
