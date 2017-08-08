@@ -47,7 +47,7 @@ const mapStateToProps = (state, ownProps) => {
     userType: state.authed.userType,
     products: state.products.products,
     fetched: state.products.fetched,
-    hours: state.hours
+    hours: state.counter.hours
   }
 };
 

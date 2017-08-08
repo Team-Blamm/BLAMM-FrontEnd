@@ -1,15 +1,11 @@
 import * as types from "../static/actionTypes";
 
-// faking initial state until we pass these values through by adding to the cart
-// const intialState = {
-//     hours: 1,
-//     price: 100,
-//     itemTotal: 0
-// }
-
 const intialState = {
-  hours: 100
-};
+    hours: 1,
+    price: 100,
+    itemTotal: 0
+}
+
 
 const counter = (state = intialState, action) => {
   switch (action.type) {
