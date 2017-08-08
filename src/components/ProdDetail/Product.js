@@ -10,7 +10,6 @@ class Product extends Component {
   render() {
     const userType = this.props.userType;
     const product = this.props.product;
-    console.log(product)
     let productPage = null;
 
     switch (userType) {
@@ -67,7 +66,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     userType: state.authed.userType,
     product: ownProps.product,
-    hours: state.hours
+    hours: state.counter.hours
   }
 }
 
