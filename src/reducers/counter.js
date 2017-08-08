@@ -2,22 +2,19 @@ import * as types from "../static/actionTypes";
 
 const intialState = {
     hours: 1,
-    price: 100,
     itemTotal: 0
 }
-
 
 const counter = (state = intialState, action) => {
   switch (action.type) {
       case types.INCREMENT:
-        console.log("Just triggered INCREMENT action in reducers")
-        console.log(state.hours + action.payload);
+        console.log("Just triggered INCREMENT action in reducers");
         return {
           ...state,
           hours: state.hours + action.payload,
           itemTotal: state.hours * state.price
         }
-        break;
+        // break;
       case types.DECREMENT:
         console.log("Just triggered DECREMENT action in reducers");
         return {
@@ -25,7 +22,6 @@ const counter = (state = intialState, action) => {
           hours: state.hours - action.payload,
           itemTotal: state.hours * state.price
         }
-        break;
     }
   return state;
 }

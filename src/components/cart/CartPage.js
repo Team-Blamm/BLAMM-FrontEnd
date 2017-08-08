@@ -1,39 +1,15 @@
-import React, {Component} from 'react';
-import CartItem from './CartItem';
 
-class CartPage extends Component {
-  constructor() {
-    super();
 
-  }
+import React, { Component } from 'react';
+import CartContainer from '../../containers/CartContainer';
+// import component
+
+export default class CartPage extends Component {
 
   render() {
 
     return(
-      <div>
-        <div>
-          <h2>My cart</h2>
-        </div>
-        {/* left: wrapper for CartItems */}
-        <div>
-
-        </div>
-        {/* right: wrapper for totals & checkout */}
-        <div>
-          <div>
-            Individual subtotals [passed from CartCards]
-          </div>
-          <div>
-            Total [sum of sums]
-          </div>
-          <div>
-            <button>Checkout</button>
-          </div>
-        </div>
-      </div>
+      <CartContainer />
     );
   }
-
-}
-
-export default CartPage;
+};

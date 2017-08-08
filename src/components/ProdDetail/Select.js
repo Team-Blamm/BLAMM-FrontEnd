@@ -11,11 +11,14 @@ import { incrementHours, decrementHours } from '../../actions/selectActions'
 class Select extends Component {
 
   increment = e => {
-    incrementHours();
+    console.log("increment hours hit in Select");
+    this.props.dispatch(incrementHours());
+    return incrementHours();
   };
 
   decrement = e => {
-    decrementHours();
+    this.props.dispatch(decrementHours());
+    return decrementHours();
   };
 
   addToCart = e => {
@@ -35,8 +38,6 @@ class Select extends Component {
     const product = this.props.product;
     const userType = this.props.userType;
     let selector = null;
-    console.log(hours);
-
     switch (userType) {
       case "user":
         let userServices = product.services.map(servicesString => {
@@ -46,15 +47,16 @@ class Select extends Component {
         });
           return (
             selector =
-              <form>
+              <div>
                 <select name="services" className="servicesSelect">
                   {userServices}
                 </select>
-                <button htmlFor="hours" onClick={this.decrement}>-</button>
+
+                <button onClick={this.decrement}>-</button>
                 <input name="for" className="hoursCounter" placeholder={"Hours: " + this.props.hours} />
-                <button htmlFor="hours" onClick={this.increment}>+</button>
+                <button onClick={this.increment}>+</button>
                 {/* <AddToCart {...this.props}/> */}
-              </form>
+              </div>
           )
       break;
       case "admin":
