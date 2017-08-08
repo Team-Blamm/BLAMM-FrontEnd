@@ -12,7 +12,7 @@ const counter = (state = intialState, action) => {
       case types.INCREMENT:
         console.log("Just triggered INCREMENT action in reducers")
         console.log(state.hours + action.payload);
-        state = {
+        return {
           ...state,
           hours: state.hours + action.payload,
           itemTotal: state.hours * state.price
@@ -20,7 +20,7 @@ const counter = (state = intialState, action) => {
         break;
       case types.DECREMENT:
         console.log("Just triggered DECREMENT action in reducers");
-        state = {
+        return {
           ...state,
           hours: state.hours - action.payload,
           itemTotal: state.hours * state.price

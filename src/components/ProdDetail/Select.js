@@ -2,19 +2,20 @@ import React, { Component } from "react";
 
 import AddToCart from './AddToCart';
 
+import { incrementHours, decrementHours } from '../../actions/selectActions'
+
 // import { addToCart } from '../actions/cartActions';
 // import { deleteService, addService, editService } from '../actions/productActions';
 
 
 class Select extends Component {
 
-  incrementHours = e => {
-    console.log("incrementHours triggered by onChange");
-    this.props.incrementHours();
+  increment = e => {
+    incrementHours();
   };
 
-  decrementHours = e => {
-    this.props.decrementHours();
+  decrement = e => {
+    decrementHours();
   };
 
   addToCart = e => {
@@ -49,9 +50,9 @@ class Select extends Component {
                 <select name="services" className="servicesSelect">
                   {userServices}
                 </select>
-                <button htmlFor="hours" onClick={this.decrementHours}>-</button>
+                <button htmlFor="hours" onClick={this.decrement}>-</button>
                 <input name="for" className="hoursCounter" placeholder={"Hours: " + this.props.hours} />
-                <button htmlFor="hours" onClick={this.incrementHours}>+</button>
+                <button htmlFor="hours" onClick={this.increment}>+</button>
                 {/* <AddToCart {...this.props}/> */}
               </form>
           )

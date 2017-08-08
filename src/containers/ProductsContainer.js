@@ -1,8 +1,16 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import { fetchProducts } from '../actions/productActions';
 import ProductCard from "../components/ProductCard.js";
 
 class ProductsContainer extends Component {
+
+  componentWillMount() {
+    this.props.fetchProducts();
+  }
+
   render() {
     const match = this.props.match;
     const products = this.props.products;
@@ -25,4 +33,18 @@ class ProductsContainer extends Component {
   }
 }
 
-export default ProductsContainer;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    userType: state.authed.userType,
+    products: state.products.products,
+    fetched: state.products.fetched
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    fetchProducts: fetchProducts
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsContainer);

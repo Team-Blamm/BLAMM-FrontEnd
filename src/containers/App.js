@@ -7,11 +7,6 @@ import ProductsContainer from "./ProductsContainer";
 
 class App extends Component {
 
-  componentDidMount() {
-    console.log(this.props)
-    this.props.fetchProducts();
-  }
-
   render() {
     const userType = this.props.userType;
     return (
@@ -20,28 +15,9 @@ class App extends Component {
           <h2>Welcome to Blamm, { this.props.userType }</h2>
           <h3>Cool Logo</h3>
         </header>
-        <ProductsContainer {...this.props} />
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.products.products,
-    fetched: state.products.fetched,
-    userType: state.authed.userType
-  }
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    fetchProducts: fetchProducts
-  }, dispatch)
-    // deleteProduct: () => {
-    //   dispatch(deleteProduct())
-    // }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
