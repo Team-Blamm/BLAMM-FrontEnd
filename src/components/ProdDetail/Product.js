@@ -31,9 +31,7 @@ class Product extends Component {
                 </header>
                 <Select {...this.props} />
                 {/* <AddToCart {...this.props} /> */}
-                <button onClick={this.AddToCart}>
-
-                </button>
+                <button onClick={this.AddToCart}></button>
                 <Description {...this.props} />
                 <Reviews {...this.props} />
               </div>
@@ -45,7 +43,7 @@ class Product extends Component {
           productPage =
             <div key={product.title}>
               <div className="imageContainer">
-                <img className="thumbnailImage" src={product.img_src} alt={"portrait of " + product.title}/>
+                <img className="thumbnailImage" src={product.imgSrc} alt={"portrait of " + product.title}/>
               </div>
               <div className="textContainer">
                 <header className="header">

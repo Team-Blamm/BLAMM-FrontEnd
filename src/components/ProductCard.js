@@ -25,7 +25,7 @@ class ProductCard extends Component {
                   </Link>
                 </div>
                 <div>
-                  <p>{product.title}</p>
+                  <p>{product.type}</p>
                   <p>{product.rate}</p>
                 </div>
               </div>
