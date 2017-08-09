@@ -30,7 +30,6 @@ class Product extends Component {
                   <h3>{product.tagline}</h3>
                 </header>
                 <Select {...this.props} />
-                {/* <AddToCart {...this.props} /> */}
                 <button onClick={this.AddToCart}></button>
                 <Description {...this.props} />
                 <Reviews {...this.props} />
