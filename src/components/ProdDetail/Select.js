@@ -61,21 +61,21 @@ class Select extends Component {
       break;
       case "admin":
         let adminServices = product.services.map(servicesString => {
-          return servicesString.split(" ").map(service => {
-            return
-              <option>
+          return servicesString.split(", ").map(service => {
+            return (
+              <li>
                 {service}
                 <button className="deleteServiceButton" onClick={this.deleteService}>Delete</button>
                 <button className="addServiceButton" onClick={this.addService}>Add</button>
                 <button className="editServiceButton" onClick={this.deleteReview}>Edit</button>
-              </option>
-          })
+              </li>
+          )})
         });
           return (
             selector =
-              <select name="services" className="servicesSelect">
+              <ul name="services" className="servicesSelect">
                 {adminServices}
-              </select>
+              </ul>
           )
       break;
     }

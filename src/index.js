@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import createHistory from 'history/createBrowserHistory'
+
 
 import createStore from "./store";
 //IMPORT CSS FILE HERE
@@ -20,7 +20,6 @@ import Listings from "./components/Listings.js"
 import registerServiceWorker from "./components/registerServiceWorker";
 
 const store = createStore;
-
 
 ReactDOM.render(
   <Provider store={store}>
