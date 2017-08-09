@@ -16,7 +16,7 @@ class Footer extends Component {
             <div className="footer-about-contact-socialmedia">
               <div className="about">
                 <h3>About BLAMM!</h3>
-                <p>Not everyone can be Bruce Wayne. Saving (or threatending) humanity doesn't pay the bills! That's why we here at BLAMM! recruit and retain the best superheroes and villains to meet your specific needs above your level of satisfaction.</p>
+                <p>Not everyone can be Bruce Wayne. Saving (or threatening) humanity doesn't pay the bills! That's why we here at BLAMM! recruit and retain the best superheroes and villains to meet your specific needs above your level of satisfaction.</p>
                 <p><span>logo placeholder</span>&copy;Copyright 2017 / All Rights Reserved</p>
               </div>
             </div>
