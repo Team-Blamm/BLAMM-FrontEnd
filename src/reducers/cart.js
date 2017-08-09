@@ -1,14 +1,25 @@
 import * as types from "../static/actionTypes";
+import update from 'immutability-helper';
 
+const initialState = {
+  cart: []
+}
 
-const cart = (state, action) => {
+const cart = (state = initialState, action) => {
+  console.log(action);
   switch (action.type) {
-    types.ADD_TO_CART:
-      
+    case types.ADD_TO_CART:
+      return {
+        ... state,
+        product: action.payload,
+        // hours: action.payload
+      }
+
   }
+  return state
 }
 
 
 
 
-export default cart
+export default cart;

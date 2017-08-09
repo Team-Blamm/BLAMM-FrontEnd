@@ -17,6 +17,7 @@
     "base-64": "^0.1.0",
     "enhanced-resolve": "^3.4.1",
     "history": "^4.6.3",
+    "immutability-helper": "^2.3.1",
     "isomorphic-fetch": "^2.2.1",
     "json-loader": "^0.5.7",
     "loader-runner": "^2.3.0",
