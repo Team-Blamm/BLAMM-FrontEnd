@@ -15,7 +15,7 @@ class Header extends Component {
             <div className="branding">
               <img src="images/Team logo.png" alt="team-logo" />
             </div>
-            <UserTypeDropdown {...this.props}/>
+            {/* <UserTypeDropdown {...this.props}/> */}
           </header>
         )
       break;
