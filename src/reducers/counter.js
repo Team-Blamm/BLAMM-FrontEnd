@@ -1,9 +1,12 @@
 import * as types from "../static/actionTypes";
+import update from 'immutability-helper';
 
 const intialState = {
     hours: 1,
     itemTotal: 0
 }
+
+// need to pass the rate to this so that the itemTotal can be calculated
 
 const counter = (state = intialState, action) => {
   switch (action.type) {
@@ -12,7 +15,7 @@ const counter = (state = intialState, action) => {
         return {
           ...state,
           hours: state.hours + action.payload,
-          itemTotal: state.hours * state.price
+          // itemTotal: state.hours * state.price
         }
         // break;
       case types.DECREMENT:
@@ -20,7 +23,7 @@ const counter = (state = intialState, action) => {
         return {
           ...state,
           hours: state.hours - action.payload,
-          itemTotal: state.hours * state.price
+          // itemTotal: state.hours * state.price
         }
     }
   return state;

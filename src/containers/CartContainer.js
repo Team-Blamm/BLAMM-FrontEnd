@@ -4,7 +4,8 @@ import CartItem from '../components/cart/CartItem';
 class CartContainer extends Component {
 
   render() {
-
+    console.log("CartContainer props");
+    console.log(this.props);
     return(
       <div>
         <div>
@@ -12,7 +13,7 @@ class CartContainer extends Component {
         </div>
         {/* left: wrapper for CartItems */}
         <div className="cartItems">
-          <CartItem />
+          <CartItem {...this.props} />
         </div>
         {/* right: wrapper for totals & checkout */}
         <div className="cartTotals">
@@ -29,7 +30,14 @@ class CartContainer extends Component {
       </div>
     );
   }
-
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    // userType: state.authed.userType,
+    product: state.cart.product,
+    // hours: state.counter.hours
+  }
+};
 
 export default CartContainer;

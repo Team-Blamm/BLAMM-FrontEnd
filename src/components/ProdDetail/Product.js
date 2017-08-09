@@ -2,14 +2,10 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 
 import Select from './Select';
-import AddToCart from './AddToCart';
 import Description from './Description';
 import Reviews from './Reviews';
 
 class Product extends Component {
-  AddToCart = e => {
-    this.props.dispatch()
-  }
 
   render() {
     const userType = this.props.userType;
@@ -30,8 +26,7 @@ class Product extends Component {
                   <h3>{product.tagline}</h3>
                 </header>
                 <Select {...this.props} />
-                {/* <AddToCart {...this.props} /> */}
-                <button onClick={this.AddToCart}></button>
+
                 <Description {...this.props} />
                 <Reviews {...this.props} />
               </div>

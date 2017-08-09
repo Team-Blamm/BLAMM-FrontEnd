@@ -6,7 +6,6 @@ import Product from '../components/ProdDetail/Product';
 import { fetchProducts } from '../actions/productActions';
 import { incrementHours, decrementHours } from '../actions/selectActions';
 
-
 class ProductContainer extends Component {
 
   componentWillMount() {
@@ -15,10 +14,8 @@ class ProductContainer extends Component {
 
   render() {
     let match = this.props.match.params.product;
-    console.log(match);
     const products = this.props.products;
     var oneProduct = null;
-    console.log(this.props);
 
     const fetched = this.props.fetched;
 
@@ -26,11 +23,9 @@ class ProductContainer extends Component {
         case false:
           return false
         case true:
-          console.log(fetched);
           oneProduct = products.filter(product => {
             return product.title == match;
           });
-          console.log(oneProduct[0]);
             return (
               <div className="productBody" key="oneProduct[0].title">
                 <div className="productContainer">
