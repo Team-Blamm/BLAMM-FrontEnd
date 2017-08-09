@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
 
 import UserTypeDropdown from './UserTypeDropdown';
-import  '../styles/components/_header.css';
+import  '../styles/components/_header.scss';
 
 class Header extends Component {
   render() {
