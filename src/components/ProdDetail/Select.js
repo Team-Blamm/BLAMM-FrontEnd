@@ -2,19 +2,23 @@ import React, { Component } from "react";
 
 import AddToCart from './AddToCart';
 
+import { incrementHours, decrementHours } from '../../actions/selectActions'
+
 // import { addToCart } from '../actions/cartActions';
 // import { deleteService, addService, editService } from '../actions/productActions';
 
 
 class Select extends Component {
 
-  incrementHours = e => {
-    console.log("incrementHours triggered by onChange");
-    this.props.incrementHours();
+  increment = e => {
+    console.log("increment hours hit in Select");
+    this.props.dispatch(incrementHours());
+    return incrementHours();
   };
 
-  decrementHours = e => {
-    this.props.decrementHours();
+  decrement = e => {
+    this.props.dispatch(decrementHours());
+    return decrementHours();
   };
 
   addToCart = e => {
@@ -30,43 +34,56 @@ class Select extends Component {
   }
 
   render() {
-    let { hours } = this.props.hours;
-    const { product } = this.props.product;
-    const { userType } = this.props.userType;
-
+    let hours = this.props.hours;
+    const product = this.props.product;
+    const userType = this.props.userType;
+    let selector = null;
     switch (userType) {
       case "user":
-        const userServices = product.services.map(servicesString =>
-          servicesString.split(" ").map(service =>
-            <option>{service}</option>));
+        let userServices = product.services.map(servicesString => {
+        return servicesString.split(" ").map(service => {
+            return <option>{service}</option>
+          })
+        });
           return (
-            <form>
-              <select name="services" className="servicesSelect">
-                {userServices}
-              </select>
-              <button for="hours" onClick={this.decrementHours}>-</button>
-              <input name="for" className="hoursCounter" placeholder={"Hours: " + this.props.hours} />
-              <button for="hours" onClick={this.incrementHours}>+</button>
-              {/* <AddToCart {...this.props}/> */}
-            </form>
+            selector =
+              <div>
+                <select name="services" className="servicesSelect">
+                  {userServices}
+                </select>
+
+                <button onClick={this.decrement}>-</button>
+                <input name="for" className="hoursCounter" placeholder={"Hours: " + this.props.hours} />
+                <button onClick={this.increment}>+</button>
+                {/* <AddToCart {...this.props}/> */}
+              </div>
           )
       break;
       case "admin":
-        const adminServices = product.services.map(servicesString =>
-          servicesString.split(" ").map(service =>
-            <option>
-              {service}
-              <button className="deleteServiceButton" onClick={this.deleteService}>Delete</button>
-              <button className="addServiceButton" onClick={this.addService}>Add</button>
-              <button className="editServiceButton" onClick={this.deleteReview}>Edit</button>
-            </option>));
+        let adminServices = product.services.map(servicesString => {
+          return servicesString.split(" ").map(service => {
+            return
+              <option>
+                {service}
+                <button className="deleteServiceButton" onClick={this.deleteService}>Delete</button>
+                <button className="addServiceButton" onClick={this.addService}>Add</button>
+                <button className="editServiceButton" onClick={this.deleteReview}>Edit</button>
+              </option>
+          })
+        });
           return (
-            <select name="services" className="servicesSelect">
-              {adminServices}
-            </select>
+            selector =
+              <select name="services" className="servicesSelect">
+                {adminServices}
+              </select>
           )
       break;
     }
+    return (
+      <div>
+        {selector}
+      </div>
+    )
   }
 }
 

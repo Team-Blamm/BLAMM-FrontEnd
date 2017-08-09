@@ -1,60 +1,62 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
+import { withRouter } from 'react-router-dom';
 import Product from '../components/ProdDetail/Product';
+import { fetchProducts } from '../actions/productActions';
 import { incrementHours, decrementHours } from '../actions/selectActions';
 
 
 class ProductContainer extends Component {
+
+  componentWillMount() {
+    this.props.fetchProducts();
+  }
+
   render() {
-    const match = this.props.match.params.product;
+    let match = this.props.match.params.product;
+    console.log(match);
     const products = this.props.products;
-    const product = null;
+    var oneProduct = null;
     console.log(this.props);
+
     const fetched = this.props.fetched;
 
       switch (fetched) {
         case false:
           return false
         case true:
-        const product = products.map(product => {
-          switch (product.title == match) {
-            case true:
-              return (
-                <div className="productBody" key="product.title">
-                  <Product {...this.props} />
+          console.log(fetched);
+          oneProduct = products.filter(product => {
+            return product.title == match;
+          });
+          console.log(oneProduct[0]);
+            return (
+              <div className="productBody" key="oneProduct[0].title">
+                <div className="productContainer">
+                  <Product product={oneProduct[0]} {...this.props}/>
                 </div>
-              )
-            break;
-            case false:
-              return false
-            break;
-          }
+              </div>
+            )
       }
-    )};
-    return (
-      <div className="productContainer">
-        <img className="productImage" src={product.imgSrc} alt={"portrait of " + product.title} />
-        {product}
-      </div>
-    )
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
+    userType: state.authed.userType,
     products: state.products.products,
     fetched: state.products.fetched,
-    hours: state.hours
+    hours: state.counter.hours
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     incrementHours: incrementHours,
-    decrementHours: decrementHours
+    decrementHours: decrementHours,
+    fetchProducts: fetchProducts
   }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProductContainer));

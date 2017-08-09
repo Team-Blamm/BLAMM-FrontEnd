@@ -1,35 +1,50 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import { fetchProducts } from '../actions/productActions';
 import ProductCard from "../components/ProductCard.js";
 
 class ProductsContainer extends Component {
-  renderContent() {
+
+  componentWillMount() {
+    this.props.fetchProducts();
+  }
+
+  render() {
     const match = this.props.match;
-    const { products } = this.props.products;
-    let { fetched } = this.props.fetched;
+    const products = this.props.products;
+    let fetched = this.props.fetched;
 
     switch (fetched) {
       case false:
         return false
       case true:
         return (
-          <ProductCard {...this.props} />
+          <div>
+            <div>
+              <div className="productListGrid">
+                <ProductCard {...this.props}/>
+              </div>
+            </div>
+          </div>
         )
     }
   }
-
-  render() {
-    return (
-      <div>
-        <div>
-          <h3>{this.props.product.type}</h3>
-          <div className="productListGrid">
-            {this.renderContent()}
-          </div>
-        </div>
-      </div>
-    )
-  }
 }
 
-export default ProductsContainer;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    userType: state.authed.userType,
+    products: state.products.products,
+    fetched: state.products.fetched
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    fetchProducts: fetchProducts
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsContainer);

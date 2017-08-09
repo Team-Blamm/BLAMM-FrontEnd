@@ -6,7 +6,6 @@ import  '../styles/components/_header.scss';
 
 class Header extends Component {
   render() {
-    console.log(this.props);
     const authed = this.props.authed;
     const userType = this.props.userType;
     switch (authed) {
@@ -16,7 +15,7 @@ class Header extends Component {
             <div className="branding">
               <img src="images/Team logo.png" alt="team-logo" />
             </div>
-            <UserTypeDropdown />
+            <UserTypeDropdown {...this.props}/>
           </header>
         )
       break;
@@ -48,7 +47,7 @@ class Header extends Component {
             </div>
           </header>
         </div>
-            )
+        )
           break;
           case "admin":
             return (
