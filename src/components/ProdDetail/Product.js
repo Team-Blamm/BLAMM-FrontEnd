@@ -26,7 +26,6 @@ class Product extends Component {
                   <h3>{product.tagline}</h3>
                 </header>
                 <Select {...this.props} />
-
                 <Description {...this.props} />
                 <Reviews {...this.props} />
               </div>

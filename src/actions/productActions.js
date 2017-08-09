@@ -1,5 +1,5 @@
 import * as types from "../static/actionTypes"
-
+const base64 = require('base-64')
 
 function requestProducts() {
   return {
@@ -26,3 +26,22 @@ export const fetchProducts = (products) => {
     })
   }
 };
+
+
+
+export const addProduct = (product) => {
+  return (dispatch) => {
+    return fetch('https://blamm-store-backend.herokuapp.com/api/v2/products/add', {
+      method: "POST",
+      mode: 'cors',
+	    redirect: 'follow',
+	    headers: new Headers({
+        'Authorization': 'Basic '+ base64.encode('username:password'),
+        'Content-Type': 'application/json'
+      }),
+      body: {
+        
+        }
+      })
+  }
+}
