@@ -25,7 +25,7 @@ class ProductCard extends Component {
                   </Link>
                 </div>
                 <div>
-                  <p>{product.title}</p>
+                  <p>{product.type}</p>
                   <p>{product.rate}</p>
                 </div>
               </div>
@@ -36,7 +36,8 @@ class ProductCard extends Component {
         break;
 
         case "admin":
-
+            console.log("admin productList");
+            console.log(products);
             productList = products.map(product => {
               return (
               <div className="productGridItem" key={product.title}>
@@ -52,6 +53,7 @@ class ProductCard extends Component {
                     <p>{product.title}</p>
                     <p>{product.rate}</p>
                   </div>
+                  <button className="deleteProductButton" onClick={this.deleteService}>Delete</button>
                 </div>
               </div>
               )

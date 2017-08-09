@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { authedAsUser, authedAsAdmin, authenticate } from '../actions/authedActions';
 
@@ -45,4 +46,4 @@ class Base extends Component {
   }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Base);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Base));
