@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import CartItem from '../components/cart/CartItem';
 
 class CartContainer extends Component {
@@ -6,6 +8,7 @@ class CartContainer extends Component {
   render() {
     console.log("CartContainer props");
     console.log(this.props);
+    // console.log(this.state.cart);
     return(
       <div>
         <div>
@@ -32,12 +35,17 @@ class CartContainer extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
+  console.log(state);
   return {
     // userType: state.authed.userType,
     product: state.cart.product,
-    // hours: state.counter.hours
+    hours: state.counter.hours
   }
 };
 
-export default CartContainer;
+// const mapDispatchToProps = (dispatch) => {
+//   return bindActionCreators
+// }
+
+export default connect(mapStateToProps)(CartContainer);

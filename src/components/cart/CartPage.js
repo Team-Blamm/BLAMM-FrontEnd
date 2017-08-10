@@ -4,8 +4,6 @@ import CartContainer from '../../containers/CartContainer';
 // import component
 
 
-
-
 class CartPage extends Component {
 
   render() {
@@ -14,9 +12,11 @@ class CartPage extends Component {
     return (
       <div>
         <CartContainer {...this.props}/>
+        {/* {this.props.product} */}
       </div>
     )
   }
 }
+
 
 export default CartPage;

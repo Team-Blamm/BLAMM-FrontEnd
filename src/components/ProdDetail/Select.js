@@ -13,30 +13,6 @@ import { addToCart } from '../../actions/cartActions';
 
 class Select extends Component {
 
-  increment = e => {
-    this.props.dispatch(incrementHours());
-    e.preventDefault();
-    return incrementHours();
-  };
-
-  decrement = e => {
-    this.props.dispatch(decrementHours());
-    e.preventDefault();
-    return decrementHours();
-  };
-
-  AddToCart = (product) => {
-    console.log("AddToCart action hit in Select.js");
-    console.log(product);
-    return (e) => {
-      e.preventDefault();
-      this.props.dispatch(addToCart(product));
-      addToCart(product);
-    }
-
-
-  }
-
   deleteService = e => {
     this.props.deleteSelect();
   }
@@ -46,7 +22,7 @@ class Select extends Component {
   }
 
   render() {
-
+    const {increment, decrement, AddToCart} = this.props;
     let hours = this.props.hours;
     const product = this.props.product;
     const userType = this.props.userType;
@@ -63,14 +39,14 @@ class Select extends Component {
           return (
             selector =
             <div>
-              <form onSubmit={this.AddToCart(product)} >
+              <form onSubmit={AddToCart(product)}>
                 <Field name="services" className="servicesSelect" component="select">
                   {userServices}
                 </Field>
 
-                <button onClick={this.decrement}>-</button>
+                <button onClick={decrement}>-</button>
                 <Field name="hours" className="hoursCounter" placeholder={"Hours: " + this.props.hours} component="input" type="text" readOnly value={this.hours} />
-                <button onClick={this.increment}>+</button>
+                <button onClick={increment}>+</button>
 
                 <button type="submit">Add to Cart</button>
               </form>
@@ -107,6 +83,9 @@ class Select extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log("Select file mapStateToProps");
+  console.log(state);
+  console.log(ownProps);
   return {
     userType: state.authed.userType,
     product: ownProps.product,

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 
-import Select from './Select';
+import SelectContainer from '../../containers/SelectContainer';
 import Description from './Description';
 import Reviews from './Reviews';
 
@@ -25,7 +25,7 @@ class Product extends Component {
                   <h4>{product.type}</h4>
                   <h3>{product.tagline}</h3>
                 </header>
-                <Select {...this.props} />
+                <SelectContainer {...this.props}/>
 
                 <Description {...this.props} />
                 <Reviews {...this.props} />
@@ -46,7 +46,7 @@ class Product extends Component {
                   <h4>{product.type}</h4>
                   <h3>{product.tagline}</h3>
                 </header>
-              <Select {...this.props} />
+              <SelectContainer />
               <Reviews {...this.props} />
               <Description {...this.props} />
             </div>
