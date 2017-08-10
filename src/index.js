@@ -33,7 +33,7 @@ ReactDOM.render(
           <Route exact path="/admin/productlist" component={Listings} />
           <Route exact path="/user/productlist" component={Listings} />
           {/* <Route path="/user/receipt" component={CartContainer} /> */}
-          <Route path="/user/shoppingCart" component={CartPage} />
+          <Route path="/user/shoppingCart" render={CartPage} />
           <Route path="/" component={App} />
         </Switch>
       </Base>
