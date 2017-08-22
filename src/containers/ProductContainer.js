@@ -6,7 +6,6 @@ import Product from '../components/ProdDetail/Product';
 import { fetchProducts } from '../actions/productActions';
 import { incrementHours, decrementHours } from '../actions/selectActions';
 
-
 class ProductContainer extends Component {
 
   componentWillMount() {
