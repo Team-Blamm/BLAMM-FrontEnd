@@ -40,20 +40,14 @@ class SelectContainer extends Component {
       </div>
     )
   }
-
-
 }
 
 
 
 const mapStateToProps = (state, ownProps) => {
-  console.log("Select file mapStateToProps");
-  console.log(state);
-  console.log(ownProps);
   return {
     userType: state.authed.userType,
     product: ownProps.product,
-    // hours: state.counter.hours
   }
 }
 

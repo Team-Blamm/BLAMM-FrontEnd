@@ -12,7 +12,7 @@ const cart = (state = initialState, action) => {
       return {
         ... state,
         product: action.payload,
-        // hours: action.payload
+        
       }
 
   }

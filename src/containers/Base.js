@@ -45,5 +45,4 @@ class Base extends Component {
     }
   }
 
-
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Base));

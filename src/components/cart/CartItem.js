@@ -18,8 +18,8 @@ class CartItem extends Component {
           <div className="textContainer">
             <header className="header">
               <h2>{product.title}</h2>
-              <h4>{product.type}</h4>
-              <h3>{product.tagline}</h3>
+              {/* <h4>{product.type}</h4>
+              <h3>{product.tagline}</h3> */}
             </header>
             <Select {...this.props}/>
           </div>

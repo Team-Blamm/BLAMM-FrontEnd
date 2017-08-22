@@ -6,9 +6,7 @@ import CartItem from '../components/cart/CartItem';
 class CartContainer extends Component {
 
   render() {
-    console.log("CartContainer props");
-    console.log(this.props);
-    // console.log(this.state.cart);
+    const product = this.props.product;
     return(
       <div>
         <div>
@@ -21,10 +19,7 @@ class CartContainer extends Component {
         {/* right: wrapper for totals & checkout */}
         <div className="cartTotals">
           <div>
-            Individual subtotals [passed from CartCards]
-          </div>
-          <div>
-            Total [sum of sums]
+            Total:
           </div>
           <div>
             <button>Checkout</button>
@@ -43,9 +38,5 @@ const mapStateToProps = (state) => {
     hours: state.counter.hours
   }
 };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return bindActionCreators
-// }
 
 export default connect(mapStateToProps)(CartContainer);
