@@ -34,7 +34,7 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     // userType: state.authed.userType,
-    product: state.cart.product,
+    cart: state.cart.cartProducts,
     hours: state.counter.hours
   }
 };

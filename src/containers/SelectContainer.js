@@ -19,13 +19,11 @@ class SelectContainer extends Component {
     return decrementHours();
   };
 
-  AddToCart = (product) => {
-    console.log("AddToCart action hit in Select.js");
-    console.log(product);
+  AddToCart = (product, hours) => {
     return (e) => {
       e.preventDefault();
-      this.props.dispatch(addToCart(product));
-      addToCart(product);
+      this.props.dispatch(addToCart(product, this.props.hours));
+      addToCart(product, this.props.hours);
     }
   }
 
@@ -42,12 +40,11 @@ class SelectContainer extends Component {
   }
 }
 
-
-
 const mapStateToProps = (state, ownProps) => {
   return {
     userType: state.authed.userType,
     product: ownProps.product,
+    hours: state.counter.hours
   }
 }
 
@@ -59,8 +56,8 @@ const mapDispatchToProps = function(dispatch) {
         decrementHours: function() {
           dispatch(decrementHours());
         },
-        addToCart: function(product) {
-          dispatch(addToCart(product));
+        addToCart: function(product, hours) {
+          dispatch(addToCart(product, this.props.hours));
         }
     }
 }

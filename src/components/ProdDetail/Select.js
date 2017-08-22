@@ -34,8 +34,7 @@ class Select extends Component {
             return <option>{service}</option>
           })
         });
-          console.log("Select props")
-          console.log(this.props);
+      
           return (
             selector =
             <div>
@@ -84,12 +83,9 @@ class Select extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   console.log("Select file mapStateToProps");
-  console.log(state);
-  console.log(ownProps);
   return {
     userType: state.authed.userType,
     product: ownProps.product,
-    // hours: state.counter.hours
   }
 }
 
