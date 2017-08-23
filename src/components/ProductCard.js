@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+
+
 class ProductCard extends Component {
   render() {
     let productList = null;
@@ -8,19 +10,16 @@ class ProductCard extends Component {
     const match = this.props.match;
     const products = this.props.products;
 
-    switch (userType) {
-      case "user":
-
-          productList = products.map(product => {
-            return (
-            <div className="productGridItem" key={product.title}>
-              <div className="productBorder">
-                <div>
-                  <img className="thumbnailImage" src={product.imgSrc} alt={product.title}/>
-                </div>
-                <div>
-                  <Link to={`productlist/${product.title}`}>{product.title}
-                  </Link>
+     productList = products.map(product => {
+        return (
+          <div className="productGridItem" key={product.title}>
+            <div className="productBorder">
+              <div>
+                <img className="thumbnailImage" src={product.imgSrc} alt={product.title}/>
+              </div>
+              <div>
+                <Link to={`productlist/${product.title}`}>{product.title}
+               </Link>
                 </div>
                 <div>
                   <p>{product.type}</p>
@@ -30,38 +29,28 @@ class ProductCard extends Component {
             </div>
             )
           })
-
-        break;
-
-        case "admin":
-            productList = products.map(product => {
-              return (
-              <div className="productGridItem" key={product.title}>
-                <div className="productBorder">
-                  <div>
-                    <img className="thumbnailImage" src={product.imgSrc} alt={product.title}/>
-                  </div>
-                  <div>
-                    <Link to={`productlist/${product.title}`}>{product.title}
-                    </Link>
-                  </div>
-                  <div>
-                    <p>{product.title}</p>
-                    <p>{product.rate}</p>
-                  </div>
-                  <button className="deleteProductButton" onClick={this.deleteService}>Delete</button>
-                </div>
-              </div>
-              )
-            });
-
-        // break;
-      }
-
       return (
-        <div>{productList}</div>
-      );
-    }
+        <div className="productGridItem" key={product.title}>
+          <div className="productBorder">
+            <div>
+              <img className="thumbnailImage" src={product.imgSrc} alt={product.title}/>
+            </div>
+            <div>
+              <Link to={`productlist/${product.title}`}>{product.title}
+              </Link>
+            </div>
+            <div>
+              <p>{product.type}</p>
+              <p>{product.rate}</p>
+            </div>
+          </div>
+        </div>
+        )
+      })
+    return (
+      <div>{productList}</div>
+    );
   }
+}
 
 export default ProductCard;

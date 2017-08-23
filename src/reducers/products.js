@@ -3,7 +3,8 @@ import * as types from "../static/actionTypes";
 const initialState = {
   fetching: false,
   fetched: false,
-  products: []
+  products: [],
+  deleted: false,
 }
 
 const products = (state=initialState, action) => {
@@ -29,6 +30,14 @@ const products = (state=initialState, action) => {
         fetching: false,
         fetched: true,
         payload: action.payload
+      }
+    case types.DELETE_PRODUCT:
+      console.log("delete successful")
+      console.log(action.payload);
+      return {
+        ...state,
+        products: state.products.filter(product => action.payload !== product.title),
+        deleted: true,
       }
     }
   return state;

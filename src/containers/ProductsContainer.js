@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { fetchProducts } from '../actions/productActions';
+
 import ProductCard from "../components/ProductCard.js";
 
 class ProductsContainer extends Component {
