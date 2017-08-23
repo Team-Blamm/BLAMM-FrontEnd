@@ -21,13 +21,12 @@ class SelectContainer extends Component {
 
 
 
-  AddToCart = (product, hours) => {
+  AddToCart = (product, service) => {
       return (e) => {
 
-
       e.preventDefault();
-      this.props.dispatch(addToCart(product, this.props.hours));
-      addToCart(product, this.props.hours);
+      this.props.dispatch(addToCart(product, this.props.hours, service));
+      addToCart(product, this.props.hours, service);
     }
   }
 
@@ -49,7 +48,7 @@ const mapStateToProps = (state, ownProps) => {
     userType: state.authed.userType,
     product: ownProps.product,
     hours: state.counter.hours,
-    services: state
+    services: state.form
   }
 }
 

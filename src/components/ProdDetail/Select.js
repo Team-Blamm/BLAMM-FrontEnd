@@ -1,15 +1,12 @@
 import React, { Component } from "react";
-import { Field, reduxForm, formValues } from 'redux-form';
+import { connect } from 'react-redux';
+import { Field, reduxForm, formValues, formValueSelector } from 'redux-form';
 import { Link } from "react-router-dom";
-
-
 import { incrementHours, decrementHours } from '../../actions/selectActions';
 import { addToCart } from '../../actions/cartActions';
 
-
 // import { addToCart } from '../actions/cartActions';
 // import { deleteService, addService, editService } from '../actions/productActions';
-
 
 class Select extends Component {
 
@@ -38,7 +35,7 @@ class Select extends Component {
           return (
             selector =
             <div>
-              <form onSubmit={AddToCart(product)}>
+              <form onSubmit={AddToCart(product, this.props.servicesSelect)}>
                 <Field name="services" className="servicesSelect" component="select">
                   {userServices}
                 </Field>
@@ -82,16 +79,26 @@ class Select extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log("Select file mapStateToProps");
   return {
     userType: state.authed.userType,
     product: ownProps.product,
+
   }
 }
-
 
 Select = reduxForm({
   form: 'select'
 })(Select)
+
+const selectorForm = formValueSelector('select');
+
+Select = connect(
+  state => {
+    const servicesSelect = selectorForm(state, 'services')
+    return {
+      servicesSelect
+    }
+  }
+)(Select)
 
 export default Select;

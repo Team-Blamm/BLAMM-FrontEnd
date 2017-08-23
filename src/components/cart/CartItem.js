@@ -30,6 +30,9 @@ class CartItem extends Component {
           </div>
         </div>
         <div>
+          Service: {product.service}
+        </div>
+        <div>
           {/* <button value="-" onClick={this.decrementHours}>-</button> */}
           Hours: {product.hours}
           {/* <button value="+" onClick={this.incrementHours}>+</button> */}

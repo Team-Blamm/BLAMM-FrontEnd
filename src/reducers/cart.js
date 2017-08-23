@@ -7,8 +7,8 @@ const initialState = {
 }
 
 const cart = (state = initialState, action) => {
-  console.log(action.product);
-  console.log(action.hours);
+  console.log(action);
+  console.log(action.service);
   switch (action.type) {
     case types.ADD_TO_CART:
       return update(state, {
@@ -20,14 +20,13 @@ const cart = (state = initialState, action) => {
               "rate": action.product.rate,
               "imgSrc": action.product.imgSrc,
               "hours": action.hours,
+              "service": action.service,
               "subtotal": (action.hours * action.product.rate)
 
             }
           ]
         },
-        // cartTotals: {
-        //   $push:
-        // }
+
       });
 
   }
