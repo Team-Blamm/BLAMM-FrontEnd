@@ -2,15 +2,11 @@ import * as types from "../static/actionTypes"
 
 
 
-export const addToCart = (product) => {
-  return (dispatch) => {
-    fetch('/api/signup', {
-          method: "POST",
-          body: {
-            "username": signupName.value,
-            "password": signupPass.value
-          }
-        })
-        .then()
-
+export function addToCart(product, hours, service) {
+  return {
+    product: product,
+    hours: hours,
+    service: service,
+    type: types.ADD_TO_CART
+  }
 }

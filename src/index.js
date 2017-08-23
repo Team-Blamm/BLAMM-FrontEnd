@@ -10,6 +10,7 @@ import createStore from "./store";
 
 import App from "./containers/App";
 import CartPage from "./components/cart/CartPage";
+import CartContainer from "./containers/CartContainer";
 import ProductsContainer from "./containers/ProductsContainer";
 import ProductContainer from "./containers/ProductContainer";
 import Base from "./containers/Base";
@@ -21,6 +22,8 @@ import registerServiceWorker from "./components/registerServiceWorker";
 
 const store = createStore;
 
+
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
@@ -31,7 +34,7 @@ ReactDOM.render(
           <Route exact path="/admin/productlist" component={Listings} />
           <Route exact path="/user/productlist" component={Listings} />
           {/* <Route path="/user/receipt" component={CartContainer} /> */}
-          <Route path="/user/shoppingCart" component={CartPage} />
+          <Route path="/user/shoppingCart" component={CartContainer} />
           <Route path="/" component={App} />
         </Switch>
       </Base>

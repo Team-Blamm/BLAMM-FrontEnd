@@ -6,7 +6,6 @@ import Product from '../components/ProdDetail/Product';
 import { fetchProducts } from '../actions/productActions';
 import { incrementHours, decrementHours } from '../actions/selectActions';
 
-
 class ProductContainer extends Component {
 
   componentWillMount() {
@@ -17,6 +16,7 @@ class ProductContainer extends Component {
     let match = this.props.match.params.product;
     const products = this.props.products;
     var oneProduct = null;
+
     const fetched = this.props.fetched;
 
       switch (fetched) {

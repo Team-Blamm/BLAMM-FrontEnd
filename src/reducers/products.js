@@ -15,7 +15,7 @@ const products = (state=initialState, action) => {
         fetched: false,
       }
     case types.FETCH_PRODUCTS:
-      console.log(action.payload);
+      // console.log(action.payload);
       return {
         ...state,
         fetching: false,
@@ -23,7 +23,7 @@ const products = (state=initialState, action) => {
         products: action.payload
       }
     case types.RECEIVE_PRODUCTS:
-      console.log(action.payload);
+      // console.log(action.payload);
       return {
         ...state,
         fetching: false,
