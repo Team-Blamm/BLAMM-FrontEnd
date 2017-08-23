@@ -49,6 +49,7 @@ class ProductCard extends Component {
                     <p>{product.title}</p>
                     <p>{product.rate}</p>
                   </div>
+                  <button className="deleteProductButton" onClick={this.deleteService}>Delete</button>
                 </div>
               </div>
               )
