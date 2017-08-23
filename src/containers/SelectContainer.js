@@ -19,11 +19,8 @@ class SelectContainer extends Component {
     return decrementHours();
   };
 
-
-
   AddToCart = (product, service) => {
       return (e) => {
-
       e.preventDefault();
       this.props.dispatch(addToCart(product, this.props.hours, service));
       addToCart(product, this.props.hours, service);
@@ -31,7 +28,6 @@ class SelectContainer extends Component {
   }
 
   render() {
-
     return (
       <div>
         <Select {...this.props}

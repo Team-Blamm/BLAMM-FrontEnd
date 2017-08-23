@@ -1,25 +1,28 @@
- .cartCardStyle {
+.cartCardStyle {
   height: 150px;
   border: 1px solid #CCC;
 }
 
- .cartImageStyle {
+.cartImageStyle {
+  height: 150px;
   float: left;
-  height: 100%;
-  border: 1px solid #CCC;
-};
+  display: inline-block;
+}
 
-.thumbnailImage{
+.thumbnailImage {
   height: $prodList-img-thumbnail-height;
   width: $prodList-img-thumbnail-width;
 }
 
- .cartCardHoursStyle {
-  float: left;
-  display: inline;
+.cartItemInfo {
+  padding: 1rem;
+  display: inline-block;
 }
 
- .cartCardTotalStyle {
-  float: right;
-  display: inline;
+.cartCardHours {
+
+}
+
+.cartCardTotal {
+
 }

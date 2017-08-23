@@ -13,43 +13,48 @@ class CartItem extends Component {
       return cartTotals += product.subtotal;
     });
     let cartProducts = cart.map(product => {
-    let itemTotal = product.subtotal;
+      let itemTotal = product.subtotal;
 
       return <div>
-        <div key={product.product.title}>
-          <div className="imageContainer">
+        <div key={product.product.title} className="cartCardStyle">
+          <div className="cartImageStyle">
             <img className="thumbnailImage" src={product.product.imgSrc} alt={"portrait of " + product.product.title}/>
           </div>
-          <div className="textContainer">
-            <header className="header">
+          <div className="cartItemInfo">
+            <header>
               <h2>{product.product.title}</h2>
               {/* <h4>{product.type}</h4>
               <h3>{product.tagline}</h3> */}
             </header>
             <Select {...this.props}/>
+            <div>
+              Service: {product.service}
+            </div>
+            <div className="cartCardHours">
+              {/* <button value="-" onClick={this.decrementHours}>-</button> */}
+              Hours: {product.hours}
+              {/* <button value="+" onClick={this.incrementHours}>+</button> */}
+            </div>
+            <div className="cartCardTotal">
+              Item Total: {itemTotal}
+            </div>
           </div>
-        </div>
-        <div>
-          Service: {product.service}
-        </div>
-        <div>
-          {/* <button value="-" onClick={this.decrementHours}>-</button> */}
-          Hours: {product.hours}
-          {/* <button value="+" onClick={this.incrementHours}>+</button> */}
-        </div>
-        <div>
-          Item Total: {itemTotal}
         </div>
       </div>
     })
 
     return (
       <div>
-        <div className="cartProducts">
+        <div className="cartItems">
           {cartProducts}
         </div>
         <div className="cartTotals">
-          Total {cartTotals}
+          <div>
+            Total {cartTotals}
+          </div>
+          <div>
+            <button>Checkout</button>
+          </div>
         </div>
       </div>
     );
