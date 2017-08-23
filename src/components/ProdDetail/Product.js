@@ -1,11 +1,24 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
+
+import { deleteProduct } from '../../actions/productActions';
 
 import SelectContainer from '../../containers/SelectContainer';
 import Description from './Description';
 import Reviews from './Reviews';
 
 class Product extends Component {
+
+  DeleteProduct = (product) => {
+    console.log("deleteProduct action hit in ProductCard.js");
+    console.log(product);
+    return (e) => {
+      e.preventDefault();
+      this.props.dispatch(deleteProduct(product));
+      // deleteProduct(this.props.product);
+    }
+  }
 
   render() {
     const userType = this.props.userType;
@@ -26,7 +39,6 @@ class Product extends Component {
                   <h3>{product.tagline}</h3>
                 </header>
                 <SelectContainer {...this.props}/>
-
                 <Description {...this.props} />
                 <Reviews {...this.props} />
               </div>
@@ -49,6 +61,9 @@ class Product extends Component {
               <SelectContainer />
               <Reviews {...this.props} />
               <Description {...this.props} />
+
+                <Field onClick={this.DeleteProduct(this.props.product)}  name="deleteProduct" className="deleteProduct" component="button" value={product.title}>Delete Product</Field>
+
             </div>
           </div>
       )
@@ -69,6 +84,8 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-
+Product = reduxForm({
+  form: 'product'
+})(Product)
 
 export default connect(mapStateToProps)(Product);

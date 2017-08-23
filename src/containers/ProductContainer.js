@@ -15,8 +15,7 @@ class ProductContainer extends Component {
   render() {
     let match = this.props.match.params.product;
     const products = this.props.products;
-    var oneProduct = null;
-
+    let oneProduct = null;
     const fetched = this.props.fetched;
 
       switch (fetched) {
