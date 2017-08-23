@@ -33,8 +33,6 @@ class Select extends Component {
       this.props.dispatch(addToCart(product));
       addToCart(product);
     }
-
-
   }
 
   deleteService = e => {
