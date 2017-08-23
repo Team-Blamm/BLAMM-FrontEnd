@@ -20,7 +20,8 @@ export const fetchProducts = (products) => {
   return (dispatch) => {
     dispatch(requestProducts());
     return fetch("https://blamm-store-backend.herokuapp.com/api/v2/products", {
-      method: "GET"
+      method: "GET",
+      mode: "cors",
     })
       .then(resp => resp.json())
       .then(json => {
@@ -55,8 +56,12 @@ export const deleteProduct = (product) => {
   console.log('Basic ' + base64.encode(users.admin.username + ':' + users.admin.password))
   return (dispatch) => {
     console.log('delete request initiated');
+    let userpass = users.admin.username + ":" + users.admin.password
     return fetch(`https://blamm-store-backend.herokuapp.com/api/v2/products/${product.title}/delete`, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: new Headers({
+        'Authorization': 'Basic '+ base64.encode(userpass),
+      }),
     })
       .then(() =>
         dispatch({ type: types.DELETE_PRODUCT, payload: product.title})
