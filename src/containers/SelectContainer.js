@@ -28,7 +28,7 @@ class SelectContainer extends Component {
   }
 
   render() {
-    return (
+      return (
       <div>
         <Select {...this.props}
           increment={this.increment}
