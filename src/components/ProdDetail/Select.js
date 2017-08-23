@@ -1,39 +1,14 @@
 import React, { Component } from "react";
-import { Field, reduxForm, formValues } from 'redux-form';
+import { connect } from 'react-redux';
+import { Field, reduxForm, formValues, formValueSelector } from 'redux-form';
 import { Link } from "react-router-dom";
-
-
 import { incrementHours, decrementHours } from '../../actions/selectActions';
 import { addToCart } from '../../actions/cartActions';
-
 
 // import { addToCart } from '../actions/cartActions';
 // import { deleteService, addService, editService } from '../actions/productActions';
 
-
 class Select extends Component {
-
-  increment = e => {
-    this.props.dispatch(incrementHours());
-    e.preventDefault();
-    return incrementHours();
-  };
-
-  decrement = e => {
-    this.props.dispatch(decrementHours());
-    e.preventDefault();
-    return decrementHours();
-  };
-
-  AddToCart = (product) => {
-    console.log("AddToCart action hit in Select.js");
-    console.log(product);
-    return (e) => {
-      e.preventDefault();
-      this.props.dispatch(addToCart(product));
-      addToCart(product);
-    }
-  }
 
   deleteService = e => {
     this.props.deleteSelect();
@@ -44,7 +19,7 @@ class Select extends Component {
   }
 
   render() {
-
+    const {increment, decrement, AddToCart} = this.props;
     let hours = this.props.hours;
     const product = this.props.product;
     const userType = this.props.userType;
@@ -53,22 +28,21 @@ class Select extends Component {
       case "user":
         let userServices = product.services.map(servicesString => {
         return servicesString.split(" ").map(service => {
-            return <option>{service}</option>
+            return <option value={service}>{service}</option>
           })
         });
-          console.log("Select props")
-          console.log(this.props);
+
           return (
             selector =
             <div>
-              <form onSubmit={this.AddToCart(product)} >
+              <form onSubmit={AddToCart(product, this.props.servicesSelect)}>
                 <Field name="services" className="servicesSelect" component="select">
                   {userServices}
                 </Field>
 
-                <button onClick={this.decrement}>-</button>
+                <button onClick={decrement}>-</button>
                 <Field name="hours" className="hoursCounter" placeholder={"Hours: " + this.props.hours} component="input" type="text" readOnly value={this.hours} />
-                <button onClick={this.increment}>+</button>
+                <button onClick={increment}>+</button>
 
                 <button type="submit">Add to Cart</button>
               </form>
@@ -108,13 +82,23 @@ const mapStateToProps = (state, ownProps) => {
   return {
     userType: state.authed.userType,
     product: ownProps.product,
-    // hours: state.counter.hours
+
   }
 }
-
 
 Select = reduxForm({
   form: 'select'
 })(Select)
+
+const selectorForm = formValueSelector('select');
+
+Select = connect(
+  state => {
+    const servicesSelect = selectorForm(state, 'services')
+    return {
+      servicesSelect
+    }
+  }
+)(Select)
 
 export default Select;

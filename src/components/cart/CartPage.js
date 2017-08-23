@@ -3,14 +3,6 @@ import React, { Component } from 'react';
 import CartContainer from '../../containers/CartContainer';
 // import component
 
-// const CartPage = (props) => {
-//
-//     return(
-//       <CartContainer {...props} />
-//     );
-//   }
-
-
 class CartPage extends Component {
 
   render() {

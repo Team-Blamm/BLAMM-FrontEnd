@@ -2,10 +2,11 @@ import * as types from "../static/actionTypes"
 
 
 
-export function addToCart(product) {
-  console.log(product);
+export function addToCart(product, hours, service) {
   return {
-    payload: product,
+    product: product,
+    hours: hours,
+    service: service,
     type: types.ADD_TO_CART
   }
 }

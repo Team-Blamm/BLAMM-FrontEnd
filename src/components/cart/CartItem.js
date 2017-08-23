@@ -1,44 +1,58 @@
 import React, {Component} from 'react';
 import Select from '../ProdDetail/Select';
 
-
 class CartItem extends Component {
   render() {
 
-    const product = this.props.product;
+    const cart = this.props.cart;
     console.log("CartItem props");
-    console.log(this.props);
-    return (
-      <div>RENDER</div>
-      // <div>
-      //   <div key={product.title}>
-      //     <div className="imageContainer">
-      //       <img className="thumbnailImage" src={product.imgSrc} alt={"portrait of " + product.title}/>
-      //     </div>
-      //     <div className="textContainer">
-      //       <header className="header">
-      //         <h2>{product.title}</h2>
-      //         <h4>{product.type}</h4>
-      //         <h3>{product.tagline}</h3>
-      //       </header>
-      //       <Select {...this.props}/>
-      //     </div>
-      //   </div>
-      //   <div>
-      //     {/* <button value="-" onClick={this.decrementHours}>-</button> */}
-      //     Hours: {/* <button value="+" onClick={this.incrementHours}>+</button> */}
-      //   </div>
-      //   <div>
-      //     Total:
-      //   </div>
-      // </div>
-    );
-  }
-}
+    console.log(this.props.cart);
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    product: ownProps.product
+    let cartTotals = 0;
+    let getTotals = cart.map(product => {
+      return cartTotals += product.subtotal;
+    });
+    let cartProducts = cart.map(product => {
+    let itemTotal = product.subtotal;
+
+      return <div>
+        <div key={product.product.title}>
+          <div className="imageContainer">
+            <img className="thumbnailImage" src={product.product.imgSrc} alt={"portrait of " + product.product.title}/>
+          </div>
+          <div className="textContainer">
+            <header className="header">
+              <h2>{product.product.title}</h2>
+              {/* <h4>{product.type}</h4>
+              <h3>{product.tagline}</h3> */}
+            </header>
+            <Select {...this.props}/>
+          </div>
+        </div>
+        <div>
+          Service: {product.service}
+        </div>
+        <div>
+          {/* <button value="-" onClick={this.decrementHours}>-</button> */}
+          Hours: {product.hours}
+          {/* <button value="+" onClick={this.incrementHours}>+</button> */}
+        </div>
+        <div>
+          Item Total: {itemTotal}
+        </div>
+      </div>
+    })
+
+    return (
+      <div>
+        <div className="cartProducts">
+          {cartProducts}
+        </div>
+        <div className="cartTotals">
+          Total {cartTotals}
+        </div>
+      </div>
+    );
   }
 }
 

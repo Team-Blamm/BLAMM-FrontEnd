@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import CartItem from '../components/cart/CartItem';
 
 class CartContainer extends Component {
 
   render() {
-    console.log("CartContainer props");
-    console.log(this.props);
+    const product = this.props.product;
     return(
       <div>
         <div>
@@ -17,12 +18,7 @@ class CartContainer extends Component {
         </div>
         {/* right: wrapper for totals & checkout */}
         <div className="cartTotals">
-          <div>
-            Individual subtotals [passed from CartCards]
-          </div>
-          <div>
-            Total [sum of sums]
-          </div>
+
           <div>
             <button>Checkout</button>
           </div>
@@ -32,12 +28,13 @@ class CartContainer extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
+  console.log(state);
   return {
     // userType: state.authed.userType,
-    product: state.cart.product,
-    // hours: state.counter.hours
+    cart: state.cart.cartProducts,
+    hours: state.counter.hours
   }
 };
 
-export default CartContainer;
+export default connect(mapStateToProps)(CartContainer);
