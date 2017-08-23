@@ -33,7 +33,7 @@ class SelectContainer extends Component {
         <Select {...this.props}
           increment={this.increment}
           decrement={this.decrement}
-          AddToCart={this.AddToCart}/>
+          AddToCart={this.AddToCart} />
       </div>
     )
   }
@@ -44,7 +44,6 @@ const mapStateToProps = (state, ownProps) => {
     userType: state.authed.userType,
     product: ownProps.product,
     hours: state.counter.hours,
-    services: state.form
   }
 }
 
