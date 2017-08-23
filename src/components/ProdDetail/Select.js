@@ -27,11 +27,10 @@ class Select extends Component {
     switch (userType) {
       case "user":
         let userServices = product.services.map(servicesString => {
-        return servicesString.split(" ").map(service => {
+          return servicesString.split(" ").map(service => {
             return <option value={service}>{service}</option>
           })
         });
-
           return (
             selector =
             <div>
@@ -39,7 +38,6 @@ class Select extends Component {
                 <Field name="services" className="servicesSelect" component="select">
                   {userServices}
                 </Field>
-
                 <button onClick={decrement}>-</button>
                 <Field name="hours" className="hoursCounter" placeholder={"Hours: " + this.props.hours} component="input" type="text" readOnly value={this.hours} />
                 <button onClick={increment}>+</button>
@@ -51,6 +49,7 @@ class Select extends Component {
           )
       break;
       case "admin":
+      console.log(product);
         let adminServices = product.services.map(servicesString => {
           return servicesString.split(", ").map(service => {
             return (

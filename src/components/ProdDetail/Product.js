@@ -61,8 +61,7 @@ class Product extends Component {
               <SelectContainer />
               <Reviews {...this.props} />
               <Description {...this.props} />
-
-                <Field onClick={this.DeleteProduct(this.props.product)}  name="deleteProduct" className="deleteProduct" component="button" value={product.title}>Delete Product</Field>
+              <Field onClick={this.DeleteProduct(this.props.product)}  name="deleteProduct" className="deleteProduct" component="button" value={product.title}>Delete Product</Field>
 
             </div>
           </div>
