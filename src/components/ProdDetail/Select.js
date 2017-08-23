@@ -31,10 +31,10 @@ class Select extends Component {
       case "user":
         let userServices = product.services.map(servicesString => {
         return servicesString.split(" ").map(service => {
-            return <option>{service}</option>
+            return <option value={service}>{service}</option>
           })
         });
-      
+
           return (
             selector =
             <div>

@@ -2,7 +2,8 @@ import * as types from "../static/actionTypes";
 import update from 'immutability-helper';
 
 const initialState = {
-  cartProducts: []
+  cartProducts: [],
+  cartTotals: []
 }
 
 const cart = (state = initialState, action) => {
@@ -15,10 +16,18 @@ const cart = (state = initialState, action) => {
           $push: [
             {
               "product": action.product,
-              "hours": action.hours
+              "title": action.product.title,
+              "rate": action.product.rate,
+              "imgSrc": action.product.imgSrc,
+              "hours": action.hours,
+              "subtotal": (action.hours * action.product.rate)
+
             }
           ]
-        }
+        },
+        // cartTotals: {
+        //   $push:
+        // }
       });
 
   }

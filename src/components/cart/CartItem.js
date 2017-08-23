@@ -7,12 +7,13 @@ class CartItem extends Component {
     const cart = this.props.cart;
     console.log("CartItem props");
     console.log(this.props.cart);
+
     let cartTotals = 0;
     let getTotals = cart.map(product => {
-      return cartTotals += (product.product.rate * product.hours);
+      return cartTotals += product.subtotal;
     });
     let cartProducts = cart.map(product => {
-      let itemTotal = (product.product.rate * product.hours);
+    let itemTotal = product.subtotal;
 
       return <div>
         <div key={product.product.title}>
@@ -45,7 +46,7 @@ class CartItem extends Component {
           {cartProducts}
         </div>
         <div className="cartTotals">
-          Total: {cartTotals}
+          Total {cartTotals}
         </div>
       </div>
     );

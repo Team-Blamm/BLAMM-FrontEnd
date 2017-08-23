@@ -19,8 +19,12 @@ class SelectContainer extends Component {
     return decrementHours();
   };
 
+
+
   AddToCart = (product, hours) => {
-    return (e) => {
+      return (e) => {
+
+
       e.preventDefault();
       this.props.dispatch(addToCart(product, this.props.hours));
       addToCart(product, this.props.hours);
@@ -44,7 +48,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     userType: state.authed.userType,
     product: ownProps.product,
-    hours: state.counter.hours
+    hours: state.counter.hours,
+    services: state
   }
 }
 

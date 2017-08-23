@@ -18,9 +18,7 @@ class CartContainer extends Component {
         </div>
         {/* right: wrapper for totals & checkout */}
         <div className="cartTotals">
-          <div>
-            Total:
-          </div>
+
           <div>
             <button>Checkout</button>
           </div>
