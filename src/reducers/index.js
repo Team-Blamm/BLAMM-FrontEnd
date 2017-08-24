@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
   products,
   counter,
   cart,
-  formReducer
+  form: formReducer
 });
 
 export default rootReducer;
