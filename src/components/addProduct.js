@@ -4,6 +4,12 @@ import { Field, reduxForm } from 'redux-form'
 
 const addProductForm = props => {
   const { addProduct } = props;
+// tagline - a one sentence string highlighting the product
+// rate - number > 0
+// imgSrc - source of an image of the product
+// bgImg - source of a background image for the page
+// services - an array of services that the product provides
+
     return (
         <form onSubmit={ addProduct }>
           <label>Title</label>

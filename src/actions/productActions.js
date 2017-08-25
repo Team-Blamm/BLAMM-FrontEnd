@@ -41,19 +41,43 @@ export function reqForm() {
 export const addProduct = (values) => {
   return (dispatch) => {
     console.log('add request initiated');
+    console.log('values:', values);
+    let newProd = {
+      title: "",
+      tagline: "",
+      type: "",
+      description: "",
+      rate: 0,
+      imgSrc: "",
+      bgImg: "",
+      services: []
+    };
+    for (let key of Object.keys(values)) {
+      if (key === "services") {
+        newProd[key].push(values[key]);
+      } else {
+        newProd[key] = values[key]
+      }
+    }
+    console.log('newProd', newProd);
     let userpass = users.admin.username + ":" + users.admin.password;
-    return
-    fetch(`https://blamm-store-backend.herokuapp.com/api/v2/products/${values.title}/add`, {
-      method: 'POST',
-	    headers: new Headers({
-        'Authorization': 'Basic '+ base64.encode(userpass),
-        'Content-Type': 'application/json'
-      }),
-      body: values
-    })
-      .then(() =>
+    return (
+      fetch(`https://blamm-store-backend.herokuapp.com/api/v2/products/add`, {
+        method: 'POST',
+  	    headers: new Headers({
+          'Authorization': 'Basic '+ base64.encode(userpass),
+          'Content-Type': 'application/json'
+        }),
+        body: newProd
+      })
+      .then((resp) => {
+        console.log('new product post complete', resp);
         dispatch({ type: types.CREATE_PRODUCT })
-      )
+      })
+      .catch((err) => {
+        console.log('err posting new product', err);
+      })
+    )
   }
 }
 

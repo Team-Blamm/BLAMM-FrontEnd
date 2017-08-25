@@ -35,6 +35,7 @@ class ProductForm extends Component {
 
     return (
       <div>
+        {console.log('productForm product', this.props.product)}
         { this.props.product ? (
         <form onSubmit={handleSubmit}>
           <div className="formContainer" key={product.title}>
@@ -56,6 +57,8 @@ class ProductForm extends Component {
             </div>
             <label htmlFor="services" className="serviceLabel">Add New Service</label>
             <Field name="services" className="serviceInput" placeholder="Please enter a new service" component="input" type="text" value={product.services} />
+            <label htmlFor="rate" className="rateLabel">Add a new Rate</label>
+            <Field name="rate" className="rateInput" placeholder="Please enter a rate" component="input" type="number" step=".01" value={product.services} />
             <label htmlFor="description" className="descriptionLabel">Please enter a new description</label>
             <Field name="description" className="descriptionInput" placeholder={product.description} component="textarea" value={product.description} />
           </div>
@@ -82,6 +85,8 @@ class ProductForm extends Component {
             </div>
             <label htmlFor="services" className="serviceLabel">Add New Service</label>
             <Field name="services" className="serviceInput" placeholder="service" component="input" type="text" value="" />
+            <label htmlFor="rate" className="rateLabel">Add a new Rate</label>
+            <Field name="rate" className="rateInput" placeholder="Please enter a rate" component="input" type="number" step=".01" value="" />
             <label htmlFor="description" className="descriptionLabel">Please enter a description</label>
             <Field name="description" className="descriptionInput" placeholder="description" component="textarea" value="" />
           </div>
@@ -102,7 +107,7 @@ class ProductForm extends Component {
 
   const selector = formValueSelector('productForm');
   ProductForm = connect(state => {
-    const { title, image, type, tagline, description, services } = selector(state, 'title', 'image', 'type', 'tagline', 'description', 'services');
+    const { title, image, type, tagline, description, services, rate } = selector(state, 'title', 'image', 'type', 'tagline', 'description', 'services', 'rate');
 
     return {
       title,
@@ -110,7 +115,8 @@ class ProductForm extends Component {
       type,
       tagline,
       description,
-      services
+      services,
+      rate
     }
   })(ProductForm);
 
