@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   authed,
   products,
   counter,
-  formReducer
+  form: formReducer
 });
 
 export default rootReducer;

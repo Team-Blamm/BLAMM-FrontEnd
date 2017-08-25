@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import { Field, reduxForm } from 'redux-form';
 
 import UserTypeDropdown from './UserTypeDropdown';
+import { reqForm } from '../actions/productActions';
 
 class Header extends Component {
+
+  ReqForm = () => {
+    return (e) => {
+      e.preventDefault();
+      this.props.dispatch(reqForm(e.target.value));
+    }
+  }
+
   render() {
     const authed = this.props.authed;
     const userType = this.props.userType;
@@ -56,6 +66,7 @@ class Header extends Component {
                     <li className="menu-item"><NavLink to="/" style={{textDecoration: 'none', margin:'50px', color: "black"}}>Villains</NavLink></li>
                   </ul>
                 </nav>
+                <Field onClick={this.ReqForm(this.props.reqForm)}  name="addProduct" className="addProduct" component="button" value="adding"><Link to="/productlist/newProduct">Add Product</Link></Field>
               </header>
             )
           // break;
@@ -63,5 +74,9 @@ class Header extends Component {
     }
   }
 }
+
+Header = reduxForm({
+  form: 'userForm'
+})(Header)
 
 export default Header;

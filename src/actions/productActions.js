@@ -1,7 +1,8 @@
+import base64 from 'base-64';
+import { SubmissionError } from 'redux-form';
+
 import * as types from "../static/actionTypes"
 import users from "../defaultUsers"
-
-import base64 from 'base-64';
 
 function requestProducts() {
   return {
@@ -20,8 +21,7 @@ export const fetchProducts = (products) => {
   return (dispatch) => {
     dispatch(requestProducts());
     return fetch("https://blamm-store-backend.herokuapp.com/api/v2/products", {
-      method: "GET",
-      mode: "cors",
+      method: "GET"
     })
       .then(resp => resp.json())
       .then(json => {
@@ -32,23 +32,51 @@ export const fetchProducts = (products) => {
   }
 };
 
+export function reqForm() {
+  return {
+    type: types.REQ_FORM
+  };
+};
 
-
-export const addProduct = (product) => {
+export const addProduct = (values) => {
   return (dispatch) => {
-    return fetch('https://blamm-store-backend.herokuapp.com/api/v2/products/add', {
-      method: "POST",
-	    redirect: 'follow',
+    console.log('add request initiated');
+    let userpass = users.admin.username + ":" + users.admin.password;
+    return
+    fetch(`https://blamm-store-backend.herokuapp.com/api/v2/products/${values.title}/add`, {
+      method: 'POST',
 	    headers: new Headers({
-        'Authorization': 'Basic '+ base64.encode('username:password'),
+        'Authorization': 'Basic '+ base64.encode(userpass),
         'Content-Type': 'application/json'
       }),
-      body: {
-
-        }
-      })
+      body: values
+    })
+      .then(() =>
+        dispatch({ type: types.CREATE_PRODUCT })
+      )
   }
-};
+}
+
+export const editProduct = (values) => {
+  return (dispatch) => {
+    console.log('edit request initiated');
+    console.log(values);
+    let userpass = users.admin.username + ":" + users.admin.password;
+    return
+    fetch("https://blamm-store-backend.herokuapp.com/api/v2/products/Batman/update", {
+      method: 'PUT',
+	    headers: new Headers({
+        'Authorization': 'Basic '+ base64.encode(userpass),
+        'Content-Type': 'application/json'
+      }),
+      body: values
+    })
+      .then(() =>
+        dispatch({ type: types.UPDATE_PRODUCT})
+      )
+  }
+}
+
 
 export const deleteProduct = (product) => {
   console.log(product.title);

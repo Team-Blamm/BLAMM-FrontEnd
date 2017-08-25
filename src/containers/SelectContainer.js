@@ -19,8 +19,6 @@ class SelectContainer extends Component {
     return decrementHours();
   };
 
-
-
   AddToCart = (product, service) => {
       return (e) => {
 
@@ -34,7 +32,7 @@ class SelectContainer extends Component {
 
     return (
       <div>
-        <Select {...this.props}
+        <Select {...this.props} product={this.props.product}
           increment={this.increment}
           decrement={this.decrement}
           AddToCart={this.AddToCart}/>
