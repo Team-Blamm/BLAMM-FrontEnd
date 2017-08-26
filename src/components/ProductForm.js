@@ -35,7 +35,6 @@ class ProductForm extends Component {
 
     return (
       <div>
-        {console.log('productForm product', this.props.product)}
         { this.props.product ? (
         <form onSubmit={handleSubmit}>
           <div className="formContainer" key={product.title}>
@@ -68,7 +67,7 @@ class ProductForm extends Component {
         <form onSubmit={handleSubmit}>
           <div className="formContainer">
             <label htmlFor="title" className="titleLabel">Please enter a name</label>
-            <Field name="title" className="titleInput" placeholder="your name" component="input" type="text" value=""/>
+            <Field name="title" className="titleInput" placeholder="your name" component="input" type="text" value="" required />
             <div className="formImage">
               <label htmlFor="image" className="imageLabel">Please choose a new image for your product</label>
               <Field name="image" className="imageInput" placeholder="image url" component="input" type="text" value=""/>

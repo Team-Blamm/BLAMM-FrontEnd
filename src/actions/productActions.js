@@ -43,14 +43,14 @@ export const addProduct = (values) => {
     console.log('add request initiated');
     console.log('values:', values);
     let newProd = {
-      title: "",
-      tagline: "",
-      type: "",
-      description: "",
-      rate: 0,
-      imgSrc: "",
-      bgImg: "",
-      services: []
+      "title": "",
+      "tagline": "",
+      "type": "",
+      "description": "",
+      "rate": 0,
+      "imgSrc": "",
+      "bgImg": "",
+      "services": []
     };
     for (let key of Object.keys(values)) {
       if (key === "services") {
@@ -68,7 +68,7 @@ export const addProduct = (values) => {
           'Authorization': 'Basic '+ base64.encode(userpass),
           'Content-Type': 'application/json'
         }),
-        body: newProd
+        body: JSON.stringify(newProd)
       })
       .then((resp) => {
         console.log('new product post complete', resp);
