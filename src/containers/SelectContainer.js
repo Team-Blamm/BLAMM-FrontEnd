@@ -20,6 +20,7 @@ class SelectContainer extends Component {
   };
 
   AddToCart = (product, service) => {
+      console.log(service);
       return (e) => {
       e.preventDefault();
       this.props.dispatch(addToCart(product, this.props.hours, service));
@@ -30,7 +31,10 @@ class SelectContainer extends Component {
   render() {
       return (
       <div>
-        <Select {...this.props}
+        <Select 
+          product={this.props.product}
+          userType={this.props.userType}
+          hours={this.props.hours}
           increment={this.increment}
           decrement={this.decrement}
           AddToCart={this.AddToCart} />
@@ -44,6 +48,7 @@ const mapStateToProps = (state, ownProps) => {
     userType: state.authed.userType,
     product: ownProps.product,
     hours: state.counter.hours,
+
   }
 }
 
