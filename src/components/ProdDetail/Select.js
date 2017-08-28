@@ -37,6 +37,7 @@ class Select extends Component {
             <div>
               <form onSubmit={AddToCart(product, this.props.servicesSelect)}>
                 <Field name="services" className="servicesSelect" component="select">
+                  <option value="No service selected">Please choose a service</option>
                   {userServices}
                 </Field>
 
