@@ -11,9 +11,7 @@ class Header extends Component {
       case false:
         return (
           <header id="header" className="header-transparent" style={{fontSize: 36, display: 'flex', justifyContent: 'space-between', opacity: '100%', top:'0', width: '100%'}}>
-            <div className="branding">
-              <img src="https://gallery.mailchimp.com/8fe3233563a12b9c886595f8f/images/03d41d7e-d26a-4c53-b25b-4df580f8b8ae.png" width="125" height="125" style={{borderRadius: '75px', marginLeft: '20px', marginTop: '15px'}}/>
-            </div>
+            <div className="branding"></div>
             <UserTypeDropdown {...this.props}/>
           </header>
         )
@@ -23,9 +21,7 @@ class Header extends Component {
           case "user":
             return (
               <header id="header" className="header-transparent" style={{fontSize: 36, display: 'flex', justifyContent: 'space-between', opacity: '100%', top:'0', width: '100%'}}>
-               <div className="branding">
-                  <img src="https://gallery.mailchimp.com/8fe3233563a12b9c886595f8f/images/03d41d7e-d26a-4c53-b25b-4df580f8b8ae.png" width="125" height="125" style={{borderRadius: '75px', marginLeft: '20px', marginTop: '15px'}}/>
-               </div>
+               <div className="branding"></div>
                <nav className="top-nav" >
                  <ul id="main-menu" className="menu-ul" style={{listStyleType: 'none', display: 'flex', justifyContent: 'center', padding: '20px'}}>
                    <li className="menu-item"><NavLink to="/user/productlist" style={{textDecoration: 'none', margin:'50px', color: "black"}}>Main</NavLink></li>
@@ -46,9 +42,7 @@ class Header extends Component {
           case "admin":
             return (
               <header id="header" className="header-transparent" style={{fontSize: 36, display: 'flex', justifyContent: 'space-between', opacity: '100%', top:'0', width: '100%'}}>
-                <div className="branding">
-                  <img src="https://gallery.mailchimp.com/8fe3233563a12b9c886595f8f/images/03d41d7e-d26a-4c53-b25b-4df580f8b8ae.png" width="125" height="125" style={{borderRadius: '75px', marginLeft: '20px', marginTop: '15px'}}/>
-                </div>
+                <div className="branding"></div>
                 <nav className="top-nav" >
                   <ul id="main-menu" className="menu-ul" style={{listStyleType: 'none', display: 'flex', justifyContent: 'center', padding: '20px'}}>
                     <li className="menu-item"><NavLink to="/" style={{textDecoration: 'none', margin:'50px', color: "black"}}>Home</NavLink></li>
