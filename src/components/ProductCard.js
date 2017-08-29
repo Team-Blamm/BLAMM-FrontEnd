@@ -11,24 +11,26 @@ class ProductCard extends Component {
     const products = this.props.products;
 
      productList = products.map(product => {
-      return (
-        <div className="productGridItem" key={product.title}>
-          <div className="productBorder">
-            <div>
-              <img className="thumbnailImage" src={product.imgSrc} alt={product.title}/>
+
+        return (
+          <div className="productGridItem" key={product.title}>
+            <div className="productBorder">
+              <div>
+                <img className="thumbnailImage" src={product.imgSrc} alt={product.title}/>
+              </div>
+              <div>
+                <Link to={`productlist/${product.title}`}>{product.title}
+               </Link>
+                </div>
+                <div>
+                  <p>{product.type}</p>
+                  <p>{product.rate}</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <Link to={`productlist/${product.title}`}>{product.title}
-              </Link>
-            </div>
-            <div>
-              <p>{product.type}</p>
-              <p>{product.rate}</p>
-            </div>
-          </div>
-        </div>
-        )
-      })
+            )
+          })
+
     return (
       <div>{productList}</div>
     );

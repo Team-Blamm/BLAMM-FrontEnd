@@ -2,8 +2,7 @@ import * as types from "../static/actionTypes";
 import update from 'immutability-helper';
 
 const initialState = {
-  cartProducts: [],
-  cartTotals: []
+  cartProducts: []
 }
 
 const cart = (state = initialState, action) => {
@@ -22,13 +21,10 @@ const cart = (state = initialState, action) => {
               "hours": action.hours,
               "service": action.service,
               "subtotal": (action.hours * action.product.rate)
-
             }
           ]
         },
-
       });
-
   }
   return state
 }

@@ -24,27 +24,56 @@ class Select extends Component {
     const product = this.props.product;
     const userType = this.props.userType;
     let selector = null;
+    switch (userType) {
+      case "user":
+        let userServices = product.services.map(servicesString => {
+        return servicesString.split(", ").map(service => {
+            return <option value={service}>{service}</option>
+          })
+        });
 
-    let services = product.services.map(servicesString => {
-      return servicesString.split(" ").map(service => {
-        return <option>{service}</option>
-      })
-    });
+          return (
+            selector =
+            <div>
+              <form onSubmit={AddToCart(product, this.props.servicesSelect)}>
+                <Field name="services" className="servicesSelect" component="select">
+                  <option value="No service selected">Please choose a service</option>
+                  {userServices}
+                </Field>
 
+                <button onClick={decrement}>-</button>
+                <Field name="hours" className="hoursCounter" placeholder={"Hours: " + this.props.hours} component="input" type="text" readOnly value={this.hours} />
+                <button onClick={increment}>+</button>
+
+                <button type="submit">Add to Cart</button>
+              </form>
+              <Link to={`/user/shoppingCart`}>Go to Cart</Link>
+            </div>
+          )
+      break;
+      case "admin":
+        let adminServices = product.services.map(servicesString => {
+          return servicesString.split(", ").map(service => {
+            return (
+              <li>
+                {service}
+                <button className="deleteServiceButton" onClick={this.deleteService}>Delete</button>
+                <button className="addServiceButton" onClick={this.addService}>Add</button>
+                <button className="editServiceButton" onClick={this.deleteReview}>Edit</button>
+              </li>
+          )})
+        });
+          return (
+            selector =
+              <ul name="services" className="servicesSelect">
+                {adminServices}
+              </ul>
+          )
+      break;
+    }
     return (
       <div>
-        <form onSubmit={AddToCart(product, this.props.servicesSelect)}>
-          <Field name="services" className="servicesSelect" component="select">
-            {services}
-          </Field>
-
-          <button onClick={decrement}>-</button>
-          <Field name="hours" className="hoursCounter" placeholder={"Hours: " + this.props.hours} component="input" type="text" readOnly value={this.hours} />
-          <button onClick={increment}>+</button>
-
-          <button type="submit">Add to Cart</button>
-        </form>
-        <Link to={`/user/shoppingCart`}>Go to Cart</Link>
+        {selector}
       </div>
     )
   }
@@ -52,7 +81,9 @@ class Select extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    userType: state.authed.userType,
     product: ownProps.product,
+
   }
 }
 
