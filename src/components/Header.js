@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
 
 import UserTypeDropdown from './UserTypeDropdown';
+import logo from '../styles/images/BLAMM_Logo.png';
 
 class Header extends Component {
   render() {
@@ -11,7 +12,7 @@ class Header extends Component {
       case false:
         return (
           <header id="header" className="header-transparent" style={{fontSize: 36, display: 'flex', justifyContent: 'space-between', opacity: '100%', top:'0', width: '100%'}}>
-            <div className="branding"></div>
+            <div className="branding" style={{backgroundImage:`url(${logo})`}}></div>
             <UserTypeDropdown {...this.props}/>
           </header>
         )
