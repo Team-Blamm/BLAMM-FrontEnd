@@ -5,8 +5,6 @@ class CartItem extends Component {
   render() {
 
     const cart = this.props.cart;
-    console.log("CartItem props");
-    console.log(this.props.cart);
 
     let cartTotals = 0;
     let getTotals = cart.map(product => {
@@ -14,9 +12,9 @@ class CartItem extends Component {
     });
     let cartProducts = cart.map(product => {
       let itemTotal = product.subtotal;
-
+      let cartItemKey = product.product.title + "_" + product.service;
       return <div>
-        <div key={product.product.title} className="cartCardStyle">
+        <div key={cartItemKey} className="cartCardStyle">
           <div className="cartImageStyle">
             <img className="thumbnailImage" src={product.product.imgSrc} alt={"portrait of " + product.product.title}/>
           </div>
