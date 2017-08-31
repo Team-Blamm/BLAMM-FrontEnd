@@ -11,6 +11,7 @@ class ProductCard extends Component {
     const products = this.props.products;
 
      productList = products.map(product => {
+
         return (
           <div className="productGridItem" key={product.title}>
             <div className="productBorder">
@@ -29,7 +30,7 @@ class ProductCard extends Component {
             </div>
             )
           })
-      
+
     return (
       <div>{productList}</div>
     );

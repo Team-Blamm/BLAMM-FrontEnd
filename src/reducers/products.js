@@ -4,7 +4,8 @@ const initialState = {
   fetching: false,
   fetched: false,
   products: [],
-  deleted: false,
+  status: null,
+  reqForm: false
 }
 
 const products = (state=initialState, action) => {
@@ -16,7 +17,6 @@ const products = (state=initialState, action) => {
         fetched: false,
       }
     case types.FETCH_PRODUCTS:
-      // console.log(action.payload);
       return {
         ...state,
         fetching: false,
@@ -24,20 +24,37 @@ const products = (state=initialState, action) => {
         products: action.payload
       }
     case types.RECEIVE_PRODUCTS:
-      // console.log(action.payload);
       return {
         ...state,
         fetching: false,
         fetched: true,
+        reqForm: false,
         payload: action.payload
       }
     case types.DELETE_PRODUCT:
-      console.log("delete successful")
+      console.log("delete successful");
       console.log(action.payload);
       return {
         ...state,
-        products: state.products.filter(product => action.payload !== product.title),
-        deleted: true,
+        status: "deleted"
+      }
+    case types.REQ_FORM:
+      console.log("requested form page");
+      return {
+        ...state,
+        reqForm: true
+      }
+    case types.CREATE_PRODUCT:
+      console.log("create successful");
+      return {
+        ...state,
+        status: "created"
+      }
+    case types.UPDATE_PRODUCT:
+      console.log("update successful");
+      return {
+        ...state,
+        status: "updated"
       }
     }
   return state;

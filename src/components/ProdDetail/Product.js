@@ -2,21 +2,26 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
-import { deleteProduct } from '../../actions/productActions';
+import { deleteProduct, reqForm } from '../../actions/productActions';
 
 import SelectContainer from '../../containers/SelectContainer';
 import Description from './Description';
 import Reviews from './Reviews';
+import ProductForm from '../ProductForm';
 
 class Product extends Component {
 
   DeleteProduct = (product) => {
-    console.log("deleteProduct action hit in ProductCard.js");
-    console.log(product);
     return (e) => {
       e.preventDefault();
       this.props.dispatch(deleteProduct(product));
-      // deleteProduct(this.props.product);
+    }
+  }
+
+  ReqForm = () => {
+    return (e) => {
+      e.preventDefault();
+      this.props.dispatch(reqForm());
     }
   }
 
@@ -48,24 +53,31 @@ class Product extends Component {
       case "admin":
         return (
           productPage =
-            <div key={product.title}>
-              <div className="imageContainer">
-                <img className="thumbnailImage" src={product.imgSrc} alt={"portrait of " + product.title}/>
+            <div>
+              {this.props.product ? (
+                <div key={product.title}>
+                  <div className="imageContainer">
+                    <img className="thumbnailImage" src={product.imgSrc} alt={"portrait of " + product.title}/>
+                  </div>
+                  <div className="textContainer">
+                    <header className="header">
+                      <h2>{product.title}</h2>
+                      <h4>{product.type}</h4>
+                      <h3>{product.tagline}</h3>
+                    </header>
+                    <SelectContainer {...this.props}/>
+                    <Description {...this.props} />
+                    <Reviews {...this.props} />
+                  <Field onClick={this.DeleteProduct(this.props.product)}  name="deleteProduct" className="deleteProduct" component="button" value={product.title}>Delete Product</Field>
+                  <Field onClick={this.ReqForm()}  name="editProduct" className="editProduct" component="button">Edit Product</Field>
+                </div>
               </div>
-              <div className="textContainer">
-                <header className="header">
-                  <h2>{product.title}</h2>
-                  <h4>{product.type}</h4>
-                  <h3>{product.tagline}</h3>
-                </header>
-              <SelectContainer />
-              <Reviews {...this.props} />
-              <Description {...this.props} />
-
-                <Field onClick={this.DeleteProduct(this.props.product)}  name="deleteProduct" className="deleteProduct" component="button" value={product.title}>Delete Product</Field>
-
+            ) : (
+              <div>
+                <ProductForm />
+              </div>
+            )}
             </div>
-          </div>
       )
     }
     return (

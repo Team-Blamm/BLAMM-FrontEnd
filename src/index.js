@@ -13,6 +13,7 @@ import CartPage from "./components/cart/CartPage";
 import CartContainer from "./containers/CartContainer";
 import ProductsContainer from "./containers/ProductsContainer";
 import ProductContainer from "./containers/ProductContainer";
+import ProductForm from "./components/ProductForm";
 import Base from "./containers/Base";
 
 import Detail from "./components/Detail.js"
@@ -23,18 +24,15 @@ import registerServiceWorker from "./components/registerServiceWorker";
 const store = createStore;
 
 
-
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Base>
         <Switch>
-          <Route exact path="/admin/productlist/:product" component={Detail} />
-          <Route exact path="/user/productlist/:product" component={Detail} />
-          <Route exact path="/admin/productlist" component={Listings} />
-          <Route exact path="/user/productlist" component={Listings} />
+          <Route exact path="/productlist/:product" component={Detail} />
+          <Route exact path="/productlist" component={Listings} />
           {/* <Route path="/user/receipt" component={CartContainer} /> */}
-          <Route path="/user/shoppingCart" component={CartContainer} />
+          <Route path="/shoppingCart" component={CartContainer} />
           <Route path="/" component={App} />
         </Switch>
       </Base>

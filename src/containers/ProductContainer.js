@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import Product from '../components/ProdDetail/Product';
-import { fetchProducts } from '../actions/productActions';
+
+import { fetchProducts, reqForm } from '../actions/productActions';
 import { incrementHours, decrementHours } from '../actions/selectActions';
+
+import Product from '../components/ProdDetail/Product';
+import ProductForm from '../components/ProductForm';
 
 class ProductContainer extends Component {
 
@@ -15,24 +18,32 @@ class ProductContainer extends Component {
   render() {
     let match = this.props.match.params.product;
     const products = this.props.products;
-    let oneProduct = null;
     const fetched = this.props.fetched;
+    const reqForm = this.props.reqForm;
+    let oneProduct = null;
 
-      switch (fetched) {
-        case false:
-          return false
-        case true:
-          oneProduct = products.filter(product => {
-            return product.title == match;
-          });
-            return (
-              <div className="productBody" key="oneProduct[0].title">
-                <div className="productContainer">
-                  <Product product={oneProduct[0]} {...this.props}/>
-                </div>
+
+    switch (fetched) {
+      case false:
+        return false
+      case true:
+        oneProduct = products.filter(product => {
+          return product.title == match;
+        });
+        return (
+          <div className = "productContainer">
+            { reqForm === true ? (
+              <div className="productBody">
+                <ProductForm product={oneProduct[0]} {...this.props} />
               </div>
-            )
-      }
+            ) : (
+              <div className="productFormBody">
+                <Product product={oneProduct[0]} {...this.props} />
+              </div>
+            )}
+          </div>
+        )
+    }
   }
 }
 
@@ -41,6 +52,8 @@ const mapStateToProps = (state, ownProps) => {
     userType: state.authed.userType,
     products: state.products.products,
     fetched: state.products.fetched,
+    status: state.products.status,
+    reqForm: state.products.reqForm,
     hours: state.counter.hours
   }
 };
