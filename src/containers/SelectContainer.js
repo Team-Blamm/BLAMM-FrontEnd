@@ -23,6 +23,7 @@ class SelectContainer extends Component {
       console.log(service);
       return (e) => {
       e.preventDefault();
+
       this.props.dispatch(addToCart(product, this.props.hours, service));
       addToCart(product, this.props.hours, service);
     }
@@ -31,7 +32,7 @@ class SelectContainer extends Component {
   render() {
       return (
       <div>
-        <Select 
+        <Select
           product={this.props.product}
           userType={this.props.userType}
           hours={this.props.hours}
