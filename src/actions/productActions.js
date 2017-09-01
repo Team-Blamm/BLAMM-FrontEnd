@@ -85,7 +85,9 @@ export const editProduct = (values) => {
   return (dispatch) => {
     console.log('edit request initiated');
     console.log(values);
-    let title = encodeURIComponent(values.product)
+    let title = encodeURIComponent(values.product);
+    console.log(title);
+    console.log(`https://blamm-store-backend.herokuapp.com/api/v2/products/${title}/update`);
     let userpass = users.admin.username + ":" + users.admin.password;
     return
     fetch(`https://blamm-store-backend.herokuapp.com/api/v2/products/${title}/update`, {
