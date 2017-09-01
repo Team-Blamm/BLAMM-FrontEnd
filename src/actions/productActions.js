@@ -89,18 +89,19 @@ export const editProduct = (values) => {
     console.log(title);
     console.log(`https://blamm-store-backend.herokuapp.com/api/v2/products/${title}/update`);
     let userpass = users.admin.username + ":" + users.admin.password;
-    return
-    fetch(`https://blamm-store-backend.herokuapp.com/api/v2/products/${title}/update`, {
-      method: 'PUT',
-	    headers: new Headers({
-        'Authorization': 'Basic '+ base64.encode(userpass),
-        'Content-Type': 'application/json'
-      }),
-      body: JSON.stringify(values)
-    })
+    return (
+      fetch(`https://blamm-store-backend.herokuapp.com/api/v2/products/${title}/update`, {
+        method: 'PUT',
+        headers: new Headers({
+          'Authorization': 'Basic '+ base64.encode(userpass),
+          'Content-Type': 'application/json'
+        }),
+        body: JSON.stringify(values)
+      })
       .then(() =>
         dispatch({ type: types.UPDATE_PRODUCT})
       )
+    )
   }
 }
 
