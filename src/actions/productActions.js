@@ -89,7 +89,7 @@ export const editProduct = (values) => {
     console.log(title);
     console.log(`https://blamm-store-backend.herokuapp.com/api/v2/products/${title}/update`);
     let userpass = users.admin.username + ":" + users.admin.password;
-    return
+    return (
     fetch(`https://blamm-store-backend.herokuapp.com/api/v2/products/${title}/update`, {
       method: 'PUT',
 	    headers: new Headers({
@@ -101,6 +101,7 @@ export const editProduct = (values) => {
       .then(() =>
         dispatch({ type: types.UPDATE_PRODUCT})
       )
+    )
   }
 }
 

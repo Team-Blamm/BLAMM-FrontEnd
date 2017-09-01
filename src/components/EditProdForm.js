@@ -33,8 +33,8 @@ class EditProdForm extends Component {
             <Field name="title" className="titleInput" placeholder="your name" component="input" type="text" value={product.title} disabled />
             <div className="formImage">
               <img className="thumbnailImage" src={product.imgSrc} alt={"portrait of " + product.title}/>
-              <label htmlFor="imageSrc" className="imageLabel">Please choose a new image for your product</label>
-              <Field name="imageSrc" className="imageInput" placeholder={product.imgSrc} component="input" type="text" value={product.imgSrc} />
+              <label htmlFor="imgSrc" className="imageLabel">Please choose a new image for your product</label>
+              <Field name="imgSrc" className="imageInput" placeholder={product.imgSrc} component="input" type="text" value={product.imgSrc} />
             </div>
             <div className="formText">
               <h2>{product.title}</h2>
@@ -77,11 +77,11 @@ class EditProdForm extends Component {
 
   const selector = formValueSelector('editProdForm');
   EditProdForm = connect(state => {
-    const { title, image, type, tagline, description, services, rate } = selector(state, 'title', 'image', 'type', 'tagline', 'description', 'services', 'rate');
+    const { title, imgSrc, type, tagline, description, services, rate } = selector(state, 'title', 'imgSrc', 'type', 'tagline', 'description', 'services', 'rate');
 
     return {
       title,
-      image,
+      imgSrc,
       type,
       tagline,
       description,
