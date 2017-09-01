@@ -59,7 +59,7 @@ export const addProduct = (values) => {
         newProd[key] = values[key]
       }
     }
-    console.log('newProd', newProd);
+    console.log('newProd', JSON.stringify(newProd));
     let userpass = users.admin.username + ":" + users.admin.password;
     return (
       fetch(`https://blamm-store-backend.herokuapp.com/api/v2/products/add`, {
@@ -85,15 +85,16 @@ export const editProduct = (values) => {
   return (dispatch) => {
     console.log('edit request initiated');
     console.log(values);
+    let title = encodeURIComponent(values.product)
     let userpass = users.admin.username + ":" + users.admin.password;
     return
-    fetch("https://blamm-store-backend.herokuapp.com/api/v2/products/Batman/update", {
+    fetch(`https://blamm-store-backend.herokuapp.com/api/v2/products/${title}/update`, {
       method: 'PUT',
 	    headers: new Headers({
         'Authorization': 'Basic '+ base64.encode(userpass),
         'Content-Type': 'application/json'
       }),
-      body: values
+      body: JSON.stringify(values)
     })
       .then(() =>
         dispatch({ type: types.UPDATE_PRODUCT})

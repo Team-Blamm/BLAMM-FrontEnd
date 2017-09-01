@@ -9,15 +9,11 @@ import createStore from "./store";
 //IMPORT CSS FILE HERE
 
 import App from "./containers/App";
-import CartPage from "./components/cart/CartPage";
-import CartContainer from "./containers/CartContainer";
-import ProductsContainer from "./containers/ProductsContainer";
-import ProductContainer from "./containers/ProductContainer";
-import ProductForm from "./components/ProductForm";
 import Base from "./containers/Base";
-
 import Detail from "./components/Detail.js"
 import Listings from "./components/Listings.js"
+import CartContainer from "./containers/CartContainer";
+import FormContainer from "./containers/FormContainer";
 
 import registerServiceWorker from "./components/registerServiceWorker";
 
@@ -29,6 +25,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Base>
         <Switch>
+          <Route exact path="/productlist/newProduct" component={FormContainer} />
           <Route exact path="/productlist/:product" component={Detail} />
           <Route exact path="/productlist" component={Listings} />
           {/* <Route path="/user/receipt" component={CartContainer} /> */}

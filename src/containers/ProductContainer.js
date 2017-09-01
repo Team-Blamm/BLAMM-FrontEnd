@@ -7,7 +7,7 @@ import { fetchProducts, reqForm } from '../actions/productActions';
 import { incrementHours, decrementHours } from '../actions/selectActions';
 
 import Product from '../components/ProdDetail/Product';
-import ProductForm from '../components/ProductForm';
+import FormContainer from './FormContainer';
 
 class ProductContainer extends Component {
 
@@ -34,7 +34,7 @@ class ProductContainer extends Component {
           <div className = "productContainer">
             { reqForm === true ? (
               <div className="productBody">
-                <ProductForm product={oneProduct[0]} {...this.props} />
+                <FormContainer product={oneProduct[0]} {...this.props} />
               </div>
             ) : (
               <div className="productFormBody">
