@@ -25,26 +25,23 @@ class Select extends Component {
             return <option value={service}>{service}</option>
           })
         });
+        selector =
+          <div>
+            <form onSubmit={AddToCart(product, this.props.servicesSelect)}>
+              <Field name="services" className="servicesSelect" component="select">
+                <option value="No service selected">Please choose a service</option>
+                {userServices}
+              </Field>
 
-          return (
-            selector =
-            <div>
-              <form onSubmit={AddToCart(product, this.props.servicesSelect)}>
-                <Field name="services" className="servicesSelect" component="select">
-                  <option value="No service selected">Please choose a service</option>
-                  {userServices}
-                </Field>
+              <button onClick={decrement}>-</button>
+              <Field name="hours" className="hoursCounter" placeholder={"Hours: " + this.props.hours} component="input" type="text" readOnly value={this.hours} />
+              <button onClick={increment}>+</button>
 
-                <button onClick={decrement}>-</button>
-                <Field name="hours" className="hoursCounter" placeholder={"Hours: " + this.props.hours} component="input" type="text" readOnly value={this.hours} />
-                <button onClick={increment}>+</button>
-
-                <button type="submit">Add to Cart</button>
-              </form>
-              <Link to={`/user/shoppingCart`}>Go to Cart</Link>
-            </div>
-          )
-      break;
+              <button type="submit">Add to Cart</button>
+            </form>
+            <Link to={`/user/shoppingCart`}>Go to Cart</Link>
+          </div>
+        break;
       case "admin":
         let adminServices = product.services.map(servicesString => {
           return servicesString.split(", ").map(service => {
@@ -57,26 +54,19 @@ class Select extends Component {
               </li>
           )})
         });
-          return (
-            selector =
-              <ul name="services" className="servicesSelect">
-                {adminServices}
-              </ul>
-          )
-      break;
+        selector =
+          <ul name="services" className="servicesSelect">
+            {adminServices}
+          </ul>
+        break;
+      default:
+        return null;
     }
     return (
       <div>
         {selector}
       </div>
     )
-  }
-}
-
-const mapStateToProps = (state, ownProps) => {
-  return {
-    userType: state.authed.userType,
-    product: ownProps.product,
   }
 }
 
