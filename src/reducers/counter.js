@@ -24,8 +24,9 @@ const counter = (state = intialState, action) => {
           hours: state.hours - action.payload,
           // itemTotal: state.hours * state.price
         }
+      default:
+        return state;
     }
-  return state;
 }
 
 export default counter;

@@ -20,7 +20,9 @@ export const authenticate = (products) => {
       case types.AUTHED_AS_USER:
         return dispatch(authedAsUser());
       case types.AUTHED_AS_ADMIN:
-        return dispatch(authedAsAdmin())
+        return dispatch(authedAsAdmin());
+      default:
+        return null;
     }
   }
 };

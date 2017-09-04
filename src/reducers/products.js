@@ -56,8 +56,9 @@ const products = (state=initialState, action) => {
         ...state,
         status: "updated"
       }
+    default:
+      return state;
     }
-  return state;
 }
 
 export default products;
