@@ -1,5 +1,4 @@
 import * as types from "../static/actionTypes";
-import update from 'immutability-helper';
 
 const intialState = {
     hours: 1,
