@@ -39,7 +39,7 @@ class Select extends Component {
 
               <button type="submit">Add to Cart</button>
             </form>
-            <Link to={`/user/shoppingCart`}>Go to Cart</Link>
+            <Link to={`/shoppingCart`}>Go to Cart</Link>
           </div>
         break;
       case "admin":

@@ -36,11 +36,13 @@ class Product extends Component {
               <img className="thumbnailImage" src={product.imgSrc} alt={"portrait of " + product.title}/>
             </div>
             <div className="textContainer">
-              <header className="header">
-                <h2>{product.title}</h2>
-                <h4>{product.type}</h4>
-                <h3>{product.tagline}</h3>
-              </header>
+              {/*
+                <header className="header">
+                  <h2>{product.title}</h2>
+                  <h4>{product.type}</h4>
+                  <h3>{product.tagline}</h3>
+                </header>
+              */}
               <SelectContainer {...this.props}/>
               <Description {...this.props} />
               <Reviews {...this.props} />

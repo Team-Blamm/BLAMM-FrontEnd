@@ -58,7 +58,7 @@ class Header extends Component {
                 <div className="branding"></div>
                 <nav className="top-nav" >
                   <ul id="main-menu" className="menu-ul" style={{listStyleType: 'none', display: 'flex', justifyContent: 'center', padding: '20px'}}>
-                    <li className="menu-item"><NavLink to="/" style={{textDecoration: 'none', margin:'50px', color: "black"}}>Home</NavLink></li>
+                    <li className="menu-item"><NavLink to="/productlist" style={{textDecoration: 'none', margin:'50px', color: "black"}}>Home</NavLink></li>
                     {/*
                       <li className="menu-item"><NavLink to="/" style={{textDecoration: 'none', margin:'50px', color: "black"}}>Heroes</NavLink></li>
                       <li className="menu-item"><NavLink to="/" style={{textDecoration: 'none', margin:'50px', color: "black"}}>Villains</NavLink></li>
