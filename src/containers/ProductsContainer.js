@@ -13,8 +13,6 @@ class ProductsContainer extends Component {
   }
 
   render() {
-    const match = this.props.match;
-    const products = this.props.products;
     let fetched = this.props.fetched;
 
     switch (fetched) {
