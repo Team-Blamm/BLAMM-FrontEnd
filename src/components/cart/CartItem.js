@@ -7,9 +7,9 @@ class CartItem extends Component {
     const cart = this.props.cart;
 
     let cartTotals = 0;
-    let getTotals = cart.map(product => {
-      return cartTotals += product.subtotal;
-    });
+    // let getTotals = cart.map(product => {
+    //   return cartTotals += product.subtotal;
+    // });
     let cartProducts = cart.map(product => {
       let itemTotal = product.subtotal;
       let cartItemKey = product.product.title + "_" + product.service;
