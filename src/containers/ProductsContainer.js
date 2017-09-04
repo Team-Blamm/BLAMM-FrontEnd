@@ -28,6 +28,8 @@ class ProductsContainer extends Component {
             </div>
           </div>
         )
+      default:
+        return null;
     }
   }
 }
