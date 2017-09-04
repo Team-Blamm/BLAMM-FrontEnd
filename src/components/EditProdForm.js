@@ -1,30 +1,25 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { Field, reduxForm, formValues, formValueSelector } from 'redux-form';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
 
 import { editProduct } from '../actions/productActions';
-
-import Description from './ProdDetail/Description';
-import Reviews from './ProdDetail/Reviews';
 
 class EditProdForm extends Component {
   render() {
     const {
-      initialValues,
-      handleSubmit,
-      values,
+      handleSubmit
     } = this.props
     const product = this.props.product;
 
-    let services = product.services.map(servicesString => {
-      return servicesString.split(", ").map(service => {
-        return (
-          <li>
-            <label htmlFor="service" className="serviceLabel">Update or Delete Service</label>
-            <Field name="service" className="serviceInput" placeholder={service} component="input" type="text" />
-          </li>
-      )})
-    });
+    // let services = product.services.map(servicesString => {
+    //   return servicesString.split(", ").map(service => {
+    //     return (
+    //       <li>
+    //         <label htmlFor="service" className="serviceLabel">Update or Delete Service</label>
+    //         <Field name="service" className="serviceInput" placeholder={service} component="input" type="text" />
+    //       </li>
+    //   )})
+    // });
 
     return (
         <form onSubmit={handleSubmit}>
@@ -60,20 +55,20 @@ class EditProdForm extends Component {
   }
 }
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+    initialValues: {
+      'product': ownProps.product.title
+    }
+  }
+}
+
   EditProdForm = reduxForm({
     form: 'editProdForm',
     onSubmit(values, dispatch) {
       dispatch(editProduct(values))
     }
   }, mapStateToProps)(EditProdForm)
-
-  const mapStateToProps = (state, ownProps) => {
-    return {
-      initialValues: {
-        'product': ownProps.product.title
-      }
-    }
-  }
 
   const selector = formValueSelector('editProdForm');
   EditProdForm = connect(state => {

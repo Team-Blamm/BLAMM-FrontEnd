@@ -12,7 +12,6 @@ class UserTypeDropdown extends Component {
   }
 
   render() {
-    const match = this.props.match;
     return (
       <div>
         <button onClick={this.authedAsAdmin}><Link to={"productlist"}>Admin</Link></button>
