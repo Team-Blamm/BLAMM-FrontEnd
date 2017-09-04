@@ -18,7 +18,7 @@ class Reviews extends Component {
 
   renderReview = reviews.map(review => {
     return (
-      <div className="reviews" key="review.review">
+      <div className="reviews" key={review.review}>
         <div className="rating">{review.rating}</div>
         <div className="reviewer">{review.username}</div>
         <div className="review">{review.review}</div>
