@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { Field, reduxForm, formValues, formValueSelector } from 'redux-form';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { Link } from "react-router-dom";
-import { incrementHours, decrementHours } from '../../actions/selectActions';
-import { addToCart } from '../../actions/cartActions';
-
-// import { addToCart } from '../actions/cartActions';
-// import { deleteService, addService, editService } from '../actions/productActions';
 
 class Select extends Component {
 
@@ -20,7 +15,6 @@ class Select extends Component {
 
   render() {
     const {increment, decrement, AddToCart} = this.props;
-    let hours = this.props.hours;
     const product = this.props.product;
     const userType = this.props.userType;
     let selector = null;
@@ -83,7 +77,6 @@ const mapStateToProps = (state, ownProps) => {
   return {
     userType: state.authed.userType,
     product: ownProps.product,
-
   }
 }
 

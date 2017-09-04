@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
 
-import {
-  deleteDescription,
-  addDescription,
-  editDescription,
-  updateDescription,
-} from '../../actions/productActions';
-
 class Description extends Component {
 
 /* Need to figure out a way to refresh Description
@@ -24,15 +17,6 @@ class Description extends Component {
 
   updateDescription = e => {
     this.props.updateDescription();
-  }
-
-  editDescription(e) {
-    return
-      const editableDescription = (e) => {
-        <form className="updateDescription">
-          <textarea className="newDescription">{this.props.product.description}</textarea>
-        </form>
-      }
   }
 
   render() {

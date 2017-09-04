@@ -5,7 +5,6 @@ import { Field, reduxForm } from 'redux-form';
 import { deleteProduct, reqForm } from '../../actions/productActions';
 
 import SelectContainer from '../../containers/SelectContainer';
-import FormContainer from '../../containers/SelectContainer';
 import Description from './Description';
 import Reviews from './Reviews';
 
