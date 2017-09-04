@@ -26,40 +26,40 @@ class Description extends Component {
 
     switch (userType) {
       case "user":
-        return (
-          renderDescription =
-            <div className="description">
-              {description}
-            </div>
-        )
-      break;
+        renderDescription =
+          <div className="description">
+            {description}
+          </div>
+        break;
       case "admin":
         switch (description) {
           case true:
-            return (
-              renderDescription =
-                <div>
-                  <div className="description">
-                    {description}
-                  </div>
-                  <form className="updateDescription">
-                    <button className="editDescriptionButton" onClick={this.deleteDescription}>Delete</button>
-                  </form>
-                  <form className="deleteDescription">
-                    <button className="deleteDescriptionButton" onClick={this.editService}>Edit</button>
-                  </form>
+            renderDescription =
+              <div>
+                <div className="description">
+                  {description}
                 </div>
-            )
+                <form className="updateDescription">
+                  <button className="editDescriptionButton" onClick={this.deleteDescription}>Delete</button>
+                </form>
+                <form className="deleteDescription">
+                  <button className="deleteDescriptionButton" onClick={this.editService}>Edit</button>
+                </form>
+              </div>
           break;
           case false:
-            return
-              renderDescription =
-                <form className="addDescription">
-                  <textarea for="description" className="description">Description</textarea>
-                  <button type="submit" name="description">Add</button>
-                </form>
+            renderDescription =
+              <form className="addDescription">
+                <textarea for="description" className="description">Description</textarea>
+                <button type="submit" name="description">Add</button>
+              </form>
+            break;
+          default:
+            break;
+          }
           break;
-        }
+        default:
+          break;
       }
       return (
         <div>
