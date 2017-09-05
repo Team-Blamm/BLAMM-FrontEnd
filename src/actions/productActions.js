@@ -104,7 +104,6 @@ export const editProduct = (values) => {
   }
 }
 
-
 export const deleteProduct = (product) => {
   console.log(product.title);
   console.log(users.admin.username);

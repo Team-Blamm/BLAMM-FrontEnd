@@ -51,11 +51,11 @@ class ProductContainer extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     userType: state.authed.userType,
-    products: state.products.products,
     fetched: state.products.fetched,
     status: state.products.status,
     reqForm: state.products.reqForm,
-    hours: state.counter.hours
+    hours: state.counter.hours,
+    products: state.products.products
   }
 };
 

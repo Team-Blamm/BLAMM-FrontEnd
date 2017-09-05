@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { Redirect } from "react-router-dom";
 
 import { addProduct } from '../actions/productActions';
 
@@ -10,15 +11,20 @@ class AddProdForm extends Component {
     const {
       handleSubmit
     } = this.props
+    const reqForm = this.props.reqForm;
 
     return (
+      <div>
+      { reqForm === false ? (
+        <Redirect to='/productlist'></Redirect>
+      ) : (
         <form onSubmit={handleSubmit}>
           <div className="formContainer">
             <label htmlFor="title" className="titleLabel">Please enter a name</label>
             <Field name="title" className="titleInput" placeholder="your name" component="input" type="text" value="" required />
             <div className="formImage">
-              <label htmlFor="image" className="imageLabel">Please choose a new image for your product</label>
-              <Field name="image" className="imageInput" placeholder="image url" component="input" type="text" value=""/>
+              <label htmlFor="imgSrc" className="imageLabel">Please choose a new image for your product</label>
+              <Field name="imgSrc" className="imageInput" placeholder="image url" component="input" type="text" value=""/>
             </div>
             <div className="formText">
               <label htmlFor="type" className="typeLabel">Please choose a new type</label>
@@ -39,8 +45,10 @@ class AddProdForm extends Component {
           </div>
           <Field name="submit" className="submitButton" component="button" type="submit">Submit</Field>
         </form>
-      )
-    }
+      )}
+    </div>
+    )
+  }
 }
 
 AddProdForm = reduxForm({
@@ -52,11 +60,11 @@ AddProdForm = reduxForm({
 
 const selector = formValueSelector('addProdForm');
 AddProdForm = connect(state => {
-  const { title, image, type, tagline, description, services, rate } = selector(state, 'title', 'image', 'type', 'tagline', 'description', 'services', 'rate');
+  const { title, imgSrc, type, tagline, description, services, rate } = selector(state, 'title', 'imgSrc', 'type', 'tagline', 'description', 'services', 'rate');
 
   return {
     title,
-    image,
+    imgSrc,
     type,
     tagline,
     description,
