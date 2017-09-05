@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import CartItem from '../components/cart/CartItem';
 
 class CartContainer extends Component {
 
   render() {
-    const product = this.props.product;
     return(
       <div className="cartStyle">
         <div>

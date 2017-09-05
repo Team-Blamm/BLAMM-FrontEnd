@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 class ProductCard extends Component {
   render() {
     let productList = null;
-    const userType = this.props.userType;
-    const match = this.props.match;
     const products = this.props.products;
 
      productList = products.map(product => {

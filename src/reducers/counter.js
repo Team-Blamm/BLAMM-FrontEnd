@@ -1,5 +1,4 @@
 import * as types from "../static/actionTypes";
-import update from 'immutability-helper';
 
 const intialState = {
     hours: 1,
@@ -25,8 +24,9 @@ const counter = (state = intialState, action) => {
           hours: state.hours - action.payload,
           // itemTotal: state.hours * state.price
         }
+      default:
+        return state;
     }
-  return state;
 }
 
 export default counter;

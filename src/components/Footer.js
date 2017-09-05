@@ -22,7 +22,6 @@ class Footer extends Component {
             </div>
           </footer>
         )
-      break;
       case true:
         switch (userType) {
           case "user":
@@ -56,7 +55,6 @@ class Footer extends Component {
                 </div>
               </footer>
             )
-          break;
           case "admin":
             return (
               <footer id="footer" style={{width: '100%', fontFamily: 'Roboto'}}>
@@ -76,8 +74,11 @@ class Footer extends Component {
                 </div>
               </footer>
             )
-          break
+          default:
+            return null;
         }
+      default:
+        return null;
       }
     }
   }

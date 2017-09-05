@@ -1,32 +1,33 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { Field, reduxForm, formValues, formValueSelector } from 'redux-form';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { Redirect } from "react-router-dom";
 
 import { editProduct } from '../actions/productActions';
-
-import Description from './ProdDetail/Description';
-import Reviews from './ProdDetail/Reviews';
 
 class EditProdForm extends Component {
   render() {
     const {
-      initialValues,
-      handleSubmit,
-      values,
+      handleSubmit
     } = this.props
     const product = this.props.product;
+    const reqForm = this.props.reqForm;
 
-    let services = product.services.map(servicesString => {
-      return servicesString.split(", ").map(service => {
-        return (
-          <li>
-            <label htmlFor="service" className="serviceLabel">Update or Delete Service</label>
-            <Field name="service" className="serviceInput" placeholder={service} component="input" type="text" />
-          </li>
-      )})
-    });
+    // let services = product.services.map(servicesString => {
+    //   return servicesString.split(", ").map(service => {
+    //     return (
+    //       <li>
+    //         <label htmlFor="service" className="serviceLabel">Update or Delete Service</label>
+    //         <Field name="service" className="serviceInput" placeholder={service} component="input" type="text" />
+    //       </li>
+    //   )})
+    // });
 
     return (
+      <div>
+      { reqForm === false ? (
+        <Redirect to={`/productlist/`}></Redirect>
+      ) : (
         <form onSubmit={handleSubmit}>
           <div className="formContainer" key={product.title}>
             <label htmlFor="title" className="titleLabel">Name</label>
@@ -56,7 +57,17 @@ class EditProdForm extends Component {
           </div>
           <Field name="submit" className="submitButton" component="button" type="submit">Submit</Field>
         </form>
+      )}
+      </div>
     )
+  }
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    initialValues: {
+      'product': ownProps.product.title
+    }
   }
 }
 
@@ -66,14 +77,6 @@ class EditProdForm extends Component {
       dispatch(editProduct(values))
     }
   }, mapStateToProps)(EditProdForm)
-
-  const mapStateToProps = (state, ownProps) => {
-    return {
-      initialValues: {
-        'product': ownProps.product.title
-      }
-    }
-  }
 
   const selector = formValueSelector('editProdForm');
   EditProdForm = connect(state => {
