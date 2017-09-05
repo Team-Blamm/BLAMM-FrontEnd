@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { Field, reduxForm, formValues, formValueSelector } from 'redux-form';
+import { Redirect } from "react-router-dom";
+
 
 import { editProduct } from '../actions/productActions';
 
@@ -15,6 +17,7 @@ class EditProdForm extends Component {
       values,
     } = this.props
     const product = this.props.product;
+    const reqForm = this.props.reqForm;
 
     let services = product.services.map(servicesString => {
       return servicesString.split(", ").map(service => {
@@ -27,6 +30,10 @@ class EditProdForm extends Component {
     });
 
     return (
+      <div>
+      { reqForm === false ? (
+        <Redirect to={`/productlist/${product.title}`}></Redirect>
+      ) : (
         <form onSubmit={handleSubmit}>
           <div className="formContainer" key={product.title}>
             <label htmlFor="title" className="titleLabel">Name</label>
@@ -56,6 +63,8 @@ class EditProdForm extends Component {
           </div>
           <Field name="submit" className="submitButton" component="button" type="submit">Submit</Field>
         </form>
+      )}
+      </div>
     )
   }
 }

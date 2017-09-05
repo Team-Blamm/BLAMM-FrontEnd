@@ -15,9 +15,11 @@ class FormContainer extends Component {
           <EditProdForm
             product={this.props.product}
             editProduct={this.props.editProduct}
-            initialValues={this.props.initialValues} />
+            initialValues={this.props.initialValues}
+            reqForm={this.props.reqForm} />
         ) : (
-          <AddProdForm addProduct={this.props.addProduct} />
+          <AddProdForm addProduct={this.props.addProduct}
+            reqForm={this.props.reqForm} />
         )}
       </div>
     )

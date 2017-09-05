@@ -48,13 +48,15 @@ const products = (state=initialState, action) => {
       console.log("create successful");
       return {
         ...state,
-        status: "created"
+        status: "created",
+        reqForm: false
       }
     case types.UPDATE_PRODUCT:
       console.log("update successful");
       return {
         ...state,
-        status: "updated"
+        status: "updated",
+        reqForm: false
       }
     }
   return state;
