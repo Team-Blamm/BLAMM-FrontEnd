@@ -1,19 +1,15 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { Field, reduxForm, formValues, formValueSelector } from 'redux-form';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { Redirect } from "react-router-dom";
 
 import { addProduct } from '../actions/productActions';
-
-import Description from './ProdDetail/Description';
-import Reviews from './ProdDetail/Reviews';
 
 class AddProdForm extends Component {
 
   render() {
     const {
-      handleSubmit,
-      values,
+      handleSubmit
     } = this.props
     const reqForm = this.props.reqForm;
 

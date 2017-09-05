@@ -6,7 +6,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
 import createStore from "./store";
+
 //IMPORT CSS FILE HERE
+import "./styles/font-awesome-4.7.0/css/font-awesome.css";
 
 import App from "./containers/App";
 import Base from "./containers/Base";

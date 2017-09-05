@@ -1,5 +1,4 @@
 import base64 from 'base-64';
-import { SubmissionError } from 'redux-form';
 
 import * as types from "../static/actionTypes"
 import users from "../defaultUsers"

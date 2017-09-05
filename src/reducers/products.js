@@ -58,8 +58,9 @@ const products = (state=initialState, action) => {
         status: "updated",
         reqForm: false
       }
+    default:
+      return state;
     }
-  return state;
 }
 
 export default products;

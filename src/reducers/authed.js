@@ -27,9 +27,9 @@ const userType = (state=initialState, action) => {
         userName: users.admin.username,
         password: users.admin.password
       }
-    break;
+    default:
+      return state;
   }
-  return state;
 }
 
 export default userType;

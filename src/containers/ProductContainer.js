@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
 
-import { fetchProducts, reqForm } from '../actions/productActions';
+import { fetchProducts } from '../actions/productActions';
 import { incrementHours, decrementHours } from '../actions/selectActions';
 
 import Product from '../components/ProdDetail/Product';
@@ -28,7 +27,7 @@ class ProductContainer extends Component {
         return false
       case true:
         oneProduct = products.filter(product => {
-          return product.title == match;
+          return product.title === match;
         });
         return (
           <div className = "productContainer">
@@ -43,6 +42,8 @@ class ProductContainer extends Component {
             )}
           </div>
         )
+      default:
+        return null
     }
   }
 }
