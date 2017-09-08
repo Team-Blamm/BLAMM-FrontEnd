@@ -21,9 +21,12 @@
   justify-content: center;
 }
 
-.topNav a {
+.nav {
+  margin: 2vh;
+}
+
+.nav a {
   text-decoration: none;
-  margin:50px;
   color: black;
   font-size: 2em;
 }

@@ -30,7 +30,7 @@ class Header extends Component {
         return (
           <header id="header" className="header">
             <div className="branding" style={{backgroundImage:`url(${logo})`}}></div>
-            <div className="topNav" >
+            <div className="nav" >
               <NavLink to="/productlist">Catalog</NavLink>
                 {/*
                   <li className="menu-item"><NavLink to="/user/productlist/:type" style={{textDecoration: 'none', margin:'50px', color: "black"}}>Heroes</NavLink></li>
