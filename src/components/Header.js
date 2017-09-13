@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import { NavLink, Link } from "react-router-dom";
 import { Field, reduxForm } from 'redux-form';
+import { connect } from "react-redux";
 
 import UserTypeDropdown from './UserTypeDropdown';
 import { reqForm } from '../actions/productActions';
 import logo from '../styles/images/BLAMM_Logo.png';
 
 class Header extends Component {
+  // constructor(props) {
+  //   super(props)
+  //
+  //   this.state = {
+  //     showItems: false
+  //   }
+  //
+  // }
 
   ReqForm = () => {
     return (e) => {
@@ -15,7 +24,19 @@ class Header extends Component {
     }
   }
 
+  // componentWillReceiveProps(props, nextProps) {
+  //   console.log(this.props.cartProducts);
+  //   console.log(nextProps.cartProducts);
+  //   if (this.props.cartProducts !== nextProps.cartProducts) {
+  //     return this.setState({ showItems: true })
+  //   }
+  // }
+
+
   render() {
+
+    console.log(this.props.cartProducts)
+    const cartProducts = this.props.cartProducts;
     const authed = this.props.authed;
     const userType = this.props.userType;
     switch (authed) {
@@ -39,6 +60,11 @@ class Header extends Component {
             </div>
             <div className="userNav">
               <NavLink to="/shoppingCart">
+                { !this.props.showItems ? (
+                  <div className="header-item-count">0</div>
+                ) : (
+                  <div className="header-item-count">{this.props.cartProducts.length}</div>
+                )}
                 <i className="fa fa-2x fa-shopping-cart" aria-hidden="true" />
               </NavLink>
               {/*
@@ -59,4 +85,11 @@ Header = reduxForm({
   form: 'userForm'
 })(Header)
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    showItems: state.cart.showItems,
+    cartProducts: state.cart.cartProducts
+  }
+}
+
+export default connect(mapStateToProps)(Header);

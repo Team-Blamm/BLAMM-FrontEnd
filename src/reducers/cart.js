@@ -2,6 +2,7 @@ import * as types from "../static/actionTypes";
 import update from 'immutability-helper';
 
 const initialState = {
+  showItems: false,
   cartProducts: []
 }
 
@@ -11,6 +12,7 @@ const cart = (state = initialState, action) => {
   switch (action.type) {
     case types.ADD_TO_CART:
       return update(state, {
+        showItems: {$set: true},
         cartProducts: {
           $push: [
             {

@@ -7,6 +7,8 @@ class CartItem extends Component {
     const cart = this.props.cart;
 
     let cartTotals = 0;
+
+    console.log(this.props.cart)
     // let getTotals = cart.map(product => {
     //   return cartTotals += product.subtotal;
     // });
