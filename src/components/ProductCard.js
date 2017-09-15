@@ -1,36 +1,40 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-
-
+import React, {Component} from "react";
+import {Link} from "react-router-dom";
 
 class ProductCard extends Component {
   render() {
     let productList = null;
     const products = this.props.products;
 
-     productList = products.map(product => {
+    productList = products.map(product => {
 
-        return (
-          <div className="b-productListing" key={product.title}>
-            <div className="productBorder">
-              <div>
-                <img className="thumbnailImage" src={product.imgSrc} alt={product.title}/>
+      return (
+        <div className="l-productListing" key={product.title}>
+          <div className="b-productListing">
+            <div>
+              <img className="b-productListing__image" src={product.imgSrc} alt={product.title}/>
+            </div>
+            <div className="b-productListing__title">
+              <Link to={`productlist/${encodeURIComponent(product.title)}`}>{product.title}
+              </Link>
+            </div>
+            <div className="l-productListing__info">
+              <div className="b-productListing__info">
+                <p className="b-productListing__subheader">Type &nbsp;&nbsp;</p>
+                <p className="b-productListing__text">{product.type}</p>
               </div>
-              <div>
-                <Link to={`productlist/${product.title}`}>{product.title}
-               </Link>
-                </div>
-                <div>
-                  <p>{product.type}</p>
-                  <p>{product.rate}</p>
-                </div>
+              <div className="b-productListing__info">
+                <p className="b-productListing__subheader">Rate &nbsp;&nbsp;</p>
+                <p className="b-productListing__text">$ {product.rate}</p>
               </div>
             </div>
-            )
-          })
+          </div>
+        </div>
+      )
+    });
 
     return (
-      <div>{productList}</div>
+      <div className="productListGrid">{productList}</div>
     );
   }
 }

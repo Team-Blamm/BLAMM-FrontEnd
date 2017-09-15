@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 
+import logo from '../styles/images/BLAMM_Logo.png';
+
 class App extends Component {
 
   render() {
     return (
       <div className="productsContainer">
-        <header>
-          <h2>Welcome to Blamm, { this.props.userType }</h2>
-          <h3>Cool Logo</h3>
-        </header>
+        <header />
+        <div className="splashBody" style={{backgroundImage:`url(${logo})`}}></div>
       </div>
     )
   }

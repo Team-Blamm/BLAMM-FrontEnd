@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
 
-// import { deleteReview, addReview } from '../../actions/productActions';
 
-// deleteReview = e => {
-//   this.props.deleteReview();
-// };
-
-// addReview = e => {
-//   this.props.deleteReview();
-// };
 
 class Reviews extends Component {
+  
   render() {
   const userType = this.props.userType;
   const reviews = this.props.product.reviews;

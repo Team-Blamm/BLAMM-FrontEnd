@@ -1,28 +1,13 @@
 /*in ProductCard.js*/
 .productListGrid {
   display: flex;
-  justify-content: space-between;
-  max-width: 80vw;
+  justify-content: center;
+  // align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80vw;
+  margin: 0 auto;
 }
-
-/* unused */
-.productListContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-/* unused */
-.sideBarContainer {
-  border: 1px solid black;
-  width: 10vw;
-}
-
-/* unused */
-.productCardsContainer {
-  grid-column-start: 2;
-  grid-column-end: 4;
-}
-
 
 
 /* BEM organization
@@ -31,34 +16,65 @@
 .block__element {}
 .block--modifier {}
 
-.b-product
-
-.b-product__image
-
-.b-product__info
-
-.b-product__title
-
-.b-product__
+b- block (presentational)
+l- layout (containers)
 
 */
 
 
 
-.b-productListing {
-  // max-width: 200px;
-  flex: 1;
+.l-productListing {
+  flex: 1 1 20vw;
+  display: flex;
+  margin-bottom: 3rem;
+
 }
 
+.b-productListing {
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+}
 
 .b-productListing__image {
-
-}
-
-.b-productListing__info {
-
+  height: $prodList-img-height;
+  width: $prodList-img-width;
 }
 
 .b-productListing__title {
+  flex: 1;
+  font-size: $small-title;
+  text-align: center;
 
+}
+
+.b-productListing__title a{
+  text-decoration: none;
+}
+
+.l-productListing__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 0.4rem;
+}
+
+.b-productListing__info {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  max-height: 40px;
+
+}
+
+.b-productListing__subheader {
+  margin: 0;
+  text-align: left;
+  font-size: $small-info-header;
+  font-family: $subhead-font;
+}
+
+.b-productListing__text {
+  margin: 0;
+  font-size: $small-info;
 }

@@ -15,7 +15,10 @@ export const AUTHED_AS_ADMIN = "AUTHED_AS_ADMIN";
 
 export const GET_PROD_DETAILS = "GET_PROD_DETAILS";
 export const ADD_TO_CART = "ADD_TO_CART";
+export const CHECK_OUT = "CHECK_OUT";
+export const CLEAR_BUTTONS = "CLEAR_BUTTONS"
 export const PURCHASE = "PURCHASE";
+
 
 export const INCREMENT = "INCREMENT";
 export const DECREMENT = "DECREMENT";

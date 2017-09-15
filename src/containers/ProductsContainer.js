@@ -21,9 +21,7 @@ class ProductsContainer extends Component {
       case true:
         return (
           <div>
-            <div className="productListGrid">
               <ProductCard {...this.props}/>
-            </div>
           </div>
         )
       default:
