@@ -1,20 +1,64 @@
-/*This is in ProductCard.js*/
+/*in ProductCard.js*/
 .productListGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
+  display: flex;
+  justify-content: space-between;
+  max-width: 80vw;
 }
 
+/* unused */
 .productListContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+/* unused */
 .sideBarContainer {
   border: 1px solid black;
   width: 10vw;
 }
+
+/* unused */
 .productCardsContainer {
   grid-column-start: 2;
   grid-column-end: 4;
+}
+
+
+
+/* BEM organization
+
+.block {}
+.block__element {}
+.block--modifier {}
+
+.b-product
+
+.b-product__image
+
+.b-product__info
+
+.b-product__title
+
+.b-product__
+
+*/
+
+
+
+.b-productListing {
+  // max-width: 200px;
+  flex: 1;
+}
+
+
+.b-productListing__image {
+
+}
+
+.b-productListing__info {
+
+}
+
+.b-productListing__title {
+
 }

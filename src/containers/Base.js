@@ -15,7 +15,7 @@ class Base extends Component {
 
   render() {
     return (
-      <div className="App base" style={{fontFamily: "Bangers", backgroundColor: '#16B7F9' }}>
+      <div className="App base" style={{fontFamily: "Bangers" }}>
         <Header {...this.props} />
         {this.props.children}
         <Footer {...this.props} />

@@ -11,7 +11,7 @@ class ProductCard extends Component {
      productList = products.map(product => {
 
         return (
-          <div className="productGridItem" key={product.title}>
+          <div className="b-productListing" key={product.title}>
             <div className="productBorder">
               <div>
                 <img className="thumbnailImage" src={product.imgSrc} alt={product.title}/>
