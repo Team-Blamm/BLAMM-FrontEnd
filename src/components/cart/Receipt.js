@@ -1,15 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-class CartItem extends Component {
+import CartTotal from "./CartTotal";
+
+class Receipt extends Component {
+
   render() {
-
     const cart = this.props.cart;
-    let cartTotals = 0;
-    console.log(cart);
+    const cartTotal = this.props.cartTotal;
+
     let cartProducts = cart.map(product => {
     let itemTotal = product.subtotal;
     let cartItemKey = product.title + "_" + Math.floor(Math.random()*10000);
-      return (
+    return (
+      <div>
         <div key={cartItemKey}>
           <div className="cartCardStyle">
             <div className="cartImageStyle">
@@ -19,9 +22,6 @@ class CartItem extends Component {
               <header>
                 <h2>{product.product.title}</h2>
               </header>
-              <div>
-                Service: {product.service}
-              </div>
               <div className="cartCardHours">
                 Hours: {product.hours}
               </div>
@@ -31,6 +31,12 @@ class CartItem extends Component {
             </div>
           </div>
         </div>
+        <div className="cart-total-container">
+          <CartTotal cart={this.props.cart}
+            cartTotal={this.props.cartTotal}
+          />
+        </div>
+      </div>
       )
     })
     return (
@@ -39,8 +45,8 @@ class CartItem extends Component {
           {cartProducts}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default CartItem;
+export default Receipt;

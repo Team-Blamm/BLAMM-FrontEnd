@@ -3,7 +3,27 @@ import { connect } from 'react-redux';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { Link } from "react-router-dom";
 
+// import { incrementHours, decrementHours } from "../../actions/selectActions";
+
 class Select extends Component {
+  constructor(props) {
+    super(props)
+      this.state = {
+        hoursCounter: 1
+      }
+  }
+
+  increment = e => {
+    e.preventDefault();
+    this.props.increment();
+    this.setState({hoursCounter: this.state.hoursCounter + 1})
+  };
+
+  decrement = e => {
+    e.preventDefault();
+    this.props.decrement();
+    this.setState({hoursCounter: this.state.hoursCounter - 1})
+  };
 
   deleteService = e => {
     this.props.deleteSelect();
@@ -11,6 +31,14 @@ class Select extends Component {
 
   addService = e => {
     this.props.addService();
+  }
+
+  addToCart = (product, service) => {
+      return (e) => {
+      e.preventDefault();
+      this.props.addToCart(product, this.props.hours, service);
+      this.setState({hoursCounter: 1})
+    }
   }
 
   render() {
@@ -27,19 +55,18 @@ class Select extends Component {
         });
         selector =
           <div>
-            <form onSubmit={AddToCart(product, this.props.servicesSelect)}>
+            <form onSubmit={this.addToCart(product, this.props.servicesSelect)}>
               <Field name="services" className="servicesSelect" component="select">
                 <option value="No service selected">Please choose a service</option>
                 {userServices}
               </Field>
 
-              <button onClick={decrement}>-</button>
-              <Field name="hours" className="hoursCounter" placeholder={"Hours: " + this.props.hours} component="input" type="text" readOnly value={this.hours} />
-              <button onClick={increment}>+</button>
+              <button onClick={this.decrement} disabled={ this.state.hoursCounter > 1 ? false : true }>-</button>
+              <Field name="hours" className="hoursCounter" placeholder={"Hours: " + this.state.hoursCounter} component="input" type="text" readOnly value={this.hours} />
+              <button onClick={this.increment}>+</button>
 
               <button type="submit">Add to Cart</button>
             </form>
-            <Link to={`/shoppingCart`}>Go to Cart</Link>
           </div>
         break;
       case "admin":

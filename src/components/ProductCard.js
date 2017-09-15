@@ -7,7 +7,7 @@ class ProductCard extends Component {
   render() {
     let productList = null;
     const products = this.props.products;
-
+    
      productList = products.map(product => {
 
         return (
@@ -17,7 +17,7 @@ class ProductCard extends Component {
                 <img className="thumbnailImage" src={product.imgSrc} alt={product.title}/>
               </div>
               <div>
-                <Link to={`productlist/${product.title}`}>{product.title}
+                <Link to={`productlist/${encodeURIComponent(product.title)}`}>{product.title}
                </Link>
                 </div>
                 <div>

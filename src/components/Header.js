@@ -8,14 +8,6 @@ import { reqForm } from '../actions/productActions';
 import logo from '../styles/images/BLAMM_Logo.png';
 
 class Header extends Component {
-  // constructor(props) {
-  //   super(props)
-  //
-  //   this.state = {
-  //     showItems: false
-  //   }
-  //
-  // }
 
   ReqForm = () => {
     return (e) => {
@@ -23,15 +15,6 @@ class Header extends Component {
       this.props.dispatch(reqForm(e.target.value));
     }
   }
-
-  // componentWillReceiveProps(props, nextProps) {
-  //   console.log(this.props.cartProducts);
-  //   console.log(nextProps.cartProducts);
-  //   if (this.props.cartProducts !== nextProps.cartProducts) {
-  //     return this.setState({ showItems: true })
-  //   }
-  // }
-
 
   render() {
 
@@ -60,7 +43,7 @@ class Header extends Component {
             </div>
             <div className="userNav">
               <NavLink to="/shoppingCart">
-                { !this.props.showItems ? (
+                { !this.props.itemAdded ? (
                   <div className="header-item-count">0</div>
                 ) : (
                   <div className="header-item-count">{this.props.cartProducts.length}</div>
@@ -87,7 +70,7 @@ Header = reduxForm({
 
 const mapStateToProps = (state) => {
   return {
-    showItems: state.cart.showItems,
+    itemAdded: state.cart.itemAdded,
     cartProducts: state.cart.cartProducts
   }
 }
