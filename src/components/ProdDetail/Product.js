@@ -42,9 +42,9 @@ class Product extends Component {
     switch (userType) {
       case "user":
         productPage =
-          <div key={product.title}>
-            <div className="imageContainer">
-              <img className="thumbnailImage" src={product.imgSrc} alt={"portrait of " + product.title}/>
+          <div className="l-product" key={product.title}>
+            <div className="l-image">
+              <img className="b-image" src={product.imgSrc} alt={"portrait of " + product.title}/>
             </div>
             {!this.props.showButtons ? (
               <div></div>
@@ -62,14 +62,16 @@ class Product extends Component {
                 </button>
               </div>
             )}
-            <div className="textContainer">
-              {/*
+            <div className="l-info">
+
                 <header className="header">
-                  <h2>{product.title}</h2>
-                  <h4>{product.type}</h4>
-                  <h3>{product.tagline}</h3>
+                  <p>
+                    <span className="b-info__h1">{product.title}</span>
+                    <span className="b-info__h3">{product.type}</span>
+                  </p>
+                  <p className="b-info__h2">"{product.tagline}"</p>
                 </header>
-              */}
+
               <SelectContainer {...this.props}/>
               <Description {...this.props} />
               <Reviews {...this.props} />

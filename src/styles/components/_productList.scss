@@ -2,11 +2,11 @@
 .productListGrid {
   display: flex;
   justify-content: center;
-  // align-items: center;
+  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   width: 80vw;
-  margin: 0 auto;
+  margin: 4rem auto 0 auto;
 }
 
 
@@ -24,39 +24,48 @@ l- layout (containers)
 
 
 .l-productListing {
-  flex: 1 1 20vw;
+  flex: 1 1 12vw;
   display: flex;
   margin-bottom: 3rem;
+
 
 }
 
 .b-productListing {
   flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
+
 }
 
 .b-productListing__image {
   height: $prodList-img-height;
   width: $prodList-img-width;
+  object-fit: cover;
+  object-position: 40% 10%;
+  padding-bottom: 0.2rem;
 }
 
 .b-productListing__title {
   flex: 1;
   font-size: $small-title;
   text-align: center;
+  margin-top: 0.4rem;
+  padding: 0 0.2rem;
+
 
 }
 
 .b-productListing__title a{
   text-decoration: none;
+  color: $main-link-color;
+  letter-spacing: 0.1rem;
 }
 
 .l-productListing__info {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: 0.4rem;
+  margin-top: 0.2rem;
+
 }
 
 .b-productListing__info {
@@ -77,4 +86,5 @@ l- layout (containers)
 .b-productListing__text {
   margin: 0;
   font-size: $small-info;
+  letter-spacing: 0.05rem;
 }

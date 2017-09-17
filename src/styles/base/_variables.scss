@@ -1,7 +1,13 @@
 /* GLOBAL VARIABLES GO HERE */
 
-$body-bg-color: #F2F2F2;
+$body-bg-color: #FFF;
+$secondary-bg-color: #F2F2F2;
 $body-font-color: #372C44;
+$main-link-color: #923D31;
+
+$accent-orange: #FFB300;
+$accent-teal: #88D1CA;
+
 $comic-font: "Bangers";
 $subhead-font: "Oswald";
 
@@ -17,3 +23,6 @@ $small-info: 20px;
 $prodList-bg-color: lightgrey;
 $prodList-img-height: 150px;
 $prodList-img-width: 150px;
+
+/*PRODUCT IMAGE VARIABLES */
+$product-image: 300px;

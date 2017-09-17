@@ -2,26 +2,85 @@
   height: $prodList-img-height;
   width: $prodList-img-width;
 }
-.productCardContainer {
-  border: 1px solid black;
-  width: 20vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 5px;
-  justify-items: center;
-  align-items:center;
-}
-.cardText {
-  margin: 3px;
 
-  h5 {
-    margin: 0;
-  }
-  p {
-    margin:0;
-    text-transform: capitalize;
-  }
+
+
+/* BEM organization
+
+.block {}
+.block__element {}
+.block--modifier {}
+
+b- block (presentational)
+l- layout (containers)
+
+*/
+
+
+.l-product {
+  display: flex;
+  min-height: 500px;
+  max-width: 60vw;
+  margin: 4rem auto 1rem auto;
+  background-color: lightgrey;
 }
-.cardImageLeft {
-  margin: 3px;
+
+.l-image {
+  min-height: 500px;
+  background-color: pink;
+  flex-basis: $product-image;
+  width: 50%;
+}
+
+.b-image {
+  height: $product-image;
+  width: $product-image;
+  top: 2rem;
+  object-fit: cover;
+  object-position: 40% 10%;
+}
+
+.l-info {
+  min-height: 500px;
+  flex-basis: 50vw;
+  width: 50%;
+  padding: 2rem;
+}
+
+.b-info {
+
+}
+
+.b-info__h1 {
+  font-size: 3rem;
+  color: $main-link-color;
+  letter-spacing: 0.1rem;
+
+}
+
+.b-info__h2 {
+  font-size: 1.75rem;
+  letter-spacing: 0.1rem;
+}
+
+.b-info__h3 {
+  font-size: 1.25rem;
+  letter-spacing: 0.1rem;
+}
+
+.l-select {
+  display: flex;
+  flex-direction: column;
+}
+
+.b-select {
+
+}
+
+.b-select__services {
+  max-width: 25vw;
+}
+
+.l-reviews {
+
 }
