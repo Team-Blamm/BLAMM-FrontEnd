@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 
 class Reviews extends Component {
-  
+
   render() {
   const userType = this.props.userType;
   const reviews = this.props.product.reviews;
@@ -12,17 +12,19 @@ class Reviews extends Component {
   renderReview = reviews.map(review => {
     return (
       <div className="reviews" key={review.review}>
-        <div className="rating">{review.rating}</div>
+        <div className="rating">{review.rating} / 5 stars</div>
         <div className="reviewer">{review.username}</div>
         <div className="review">{review.review}</div>
-          {userType === "user" ? <button className="addReview" onClick={this.addReview}>Add Review</button>
-          : null}
+
         </div>)}
     )
     return (
-      <div>
+      <div className="l-reviews">
         {renderReview}
+        {userType === "user" ? <button className=".b-forms__submit" onClick={this.addReview}>Add Review</button>
+        : null}
       </div>
+
     )
   }
 }

@@ -20,7 +20,7 @@ l- layout (containers)
 .l-product {
   display: flex;
   min-height: 500px;
-  max-width: 60vw;
+  max-width: 70vw;
   margin: 4rem auto 1rem auto;
   background-color: lightgrey;
 }
@@ -41,10 +41,14 @@ l- layout (containers)
 }
 
 .l-info {
-  min-height: 500px;
-  flex-basis: 50vw;
+  // min-height: 500px;
+  flex-basis: 60vw;
   width: 50%;
   padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .b-info {
@@ -59,7 +63,7 @@ l- layout (containers)
 }
 
 .b-info__h2 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   letter-spacing: 0.1rem;
 }
 
@@ -68,19 +72,104 @@ l- layout (containers)
   letter-spacing: 0.1rem;
 }
 
-.l-select {
+.l-forms {
   display: flex;
-  flex-direction: column;
+  flex-basis: 60vw;
+  // flex-direction: column;
+  // justify-content: space-between;
+
 }
 
-.b-select {
+.b-forms__label {
+  margin: 0 0.5rem;
+  // display: inline-block;
+  font-family: "Oswald";
+  flex-basis: 10vw;
+  flex-grow: 2;
+  flex-shrink: 1;
+}
+
+.b-forms__submit {
+  font-family: "Oswald";
+  font-size: 1rem;
+  margin: 1rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid black;
+  background-color: #FFF;
 
 }
 
-.b-select__services {
-  max-width: 25vw;
+.b-formGroup {
+  display: flex;
+  flex-basis: 70vw;
+  justify-content: flex-start;
+  margin: 0.5rem 0;
+}
+
+.b-services__options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-basis: 50vw;
+  flex-grow: 1;
+  flex-shrink: 0.5;
+  // max-width: 30vw;
+}
+
+// .b-services__input
+input[type=radio] {
+  display: none;
+  position: absolute;
+}
+
+// .b-servcies__input + label
+input[type=radio]+span {
+  padding: .25rem 1rem;
+  border: 1px solid black;
+  background-color: #FFF;
+  margin: 0 0.1rem 0 0;
+  display: inline-block;
+}
+
+// .b-servcies__input:checked + label
+input[type=radio]:checked + span {
+  background-color: #CCC;
+  border: 3px solid #FFF;
+}
+
+
+.b-hours {
+  flex-basis: 40vw;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.b-hours__button {
+  font-family: "Oswald";
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid black;
+  background-color: #FFF;
+  // margin: 1rem 0;
+}
+
+.b-hours__counter {
+  font-size: 1.25rem;
+  width: 2rem;
+  text-align: center;
+  // margin: 1rem 0;
+}
+
+.b-description {
+  font-size: 1rem;
+  margin: 0.5rem 0;
 }
 
 .l-reviews {
+
+}
+
+.b-review {
 
 }

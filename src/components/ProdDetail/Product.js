@@ -72,9 +72,10 @@ class Product extends Component {
                   <p className="b-info__h2">"{product.tagline}"</p>
                 </header>
 
-              <SelectContainer {...this.props}/>
-              <Description {...this.props} />
-              <Reviews {...this.props} />
+                <Description {...this.props} />
+                <SelectContainer {...this.props}/>
+                <Reviews {...this.props} />
+                
             </div>
           </div>
         break;

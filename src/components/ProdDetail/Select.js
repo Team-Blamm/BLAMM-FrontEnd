@@ -48,24 +48,60 @@ class Select extends Component {
     let selector = null;
     switch (userType) {
       case "user":
-        let userServices = product.services.map(servicesString => {
-        return servicesString.split(", ").map(service => {
-            return <option value={service}>{service}</option>
-          })
-        });
+        // let userServices = product.services.map(servicesString => {
+        // return servicesString.split(", ").map(service => {
+        //     return <option value={service}>{service}</option>
+        //   })
+        // });
+
+
+        let userServicesRadio = product.services.map(servicesString => {
+          return servicesString.split(", ").map(service => {
+            let serviceName = `service_${service}`;
+            console.log(service);
+            console.log(serviceName);
+              return (
+                <label className="b-services__label" for={`service${service}`}>
+                <Field
+                  id={`service${service}`}
+                  label={`service${service}`}
+                  name="services"
+                  component="input"
+                  type="radio"
+                  value={service}
+                  className="b-services__input"
+                />
+                <span>{service}</span>
+              </label>
+              )
+            })
+          });
         selector =
-          <div >
-            <form className="l-select" onSubmit={this.addToCart(product, this.props.servicesSelect)}>
-              <Field name="services" className="b-select__services" component="select">
+          <div className="l-forms">
+            <form  onSubmit={this.addToCart(product, this.props.servicesSelect)}>
+              {/* <Field name="services" className="b-select" component="select">
                 <option value="No service selected">Please choose a service</option>
                 {userServices}
-              </Field>
-
-              <button onClick={this.decrement} disabled={ this.state.hoursCounter > 1 ? false : true }>-</button>
-              <Field name="hours" className="hoursCounter" placeholder={"Hours: " + this.state.hoursCounter} component="input" type="text" readOnly value={this.hours} />
-              <button onClick={this.increment}>+</button>
-
-              <button type="submit">Add to Cart</button>
+              </Field> */}
+              <div className="b-formGroup">
+                <div className="b-forms__label">
+                  <label>Select Service</label>
+                </div>
+                <div className="b-services__options">
+                  {userServicesRadio}
+                </div>
+              </div>
+              <div className="b-formGroup">
+                <span className="b-forms__label">Select Hours</span>
+                <div className="b-hours">
+                  <button onClick={this.decrement} disabled={ this.state.hoursCounter > 1 ? false : true } className="b-hours__button">-</button>
+                  <Field name="hours" className="b-hours__counter" placeholder={ this.state.hoursCounter} component="input" type="text" readOnly value={this.hours} />
+                  <button onClick={this.increment} className="b-hours__button">+</button>
+                </div>
+              </div>
+              <div>
+                <button type="submit" className="b-forms__submit">Add to Cart</button>
+              </div>
             </form>
           </div>
         break;
@@ -89,6 +125,7 @@ class Select extends Component {
       default:
         return null;
     }
+
     return (
       <div>
         {selector}
