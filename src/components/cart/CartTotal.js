@@ -19,12 +19,14 @@ class CartTotal extends Component {
     }
 
     return (
-      <div className="cartTotals">
+      <div className="l-total">
         <div>
-          Total: ${cartTotal}
+          <h2>Checkout</h2>
         </div>
+        <span className="b-forms__label">Total cost: </span>
+        <span className="b-info__h3"> ${cartTotal} </span>
         <form onSubmit={this.checkOut()}>
-          <Field name="submit" className="submitButton" component="button" type="submit">Checkout</Field>
+          <Field name="submit" className="b-forms__submit" component="button" type="submit">Checkout</Field>
         </form>
       </div>
     )

@@ -78,7 +78,7 @@ class Select extends Component {
           });
         selector =
           <div className="l-forms">
-            <form  onSubmit={this.addToCart(product, this.props.servicesSelect)}>
+            <form className="b-form" onSubmit={this.addToCart(product, this.props.servicesSelect)}>
               {/* <Field name="services" className="b-select" component="select">
                 <option value="No service selected">Please choose a service</option>
                 {userServices}
@@ -101,6 +101,7 @@ class Select extends Component {
               </div>
               <div>
                 <button type="submit" className="b-forms__submit">Add to Cart</button>
+
               </div>
             </form>
           </div>

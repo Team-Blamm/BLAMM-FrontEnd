@@ -2,12 +2,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 100%;
+  width: 100%;
   height: 6vw;
-  // margin-right: 2vw;
-  background-color: $secondary-bg-color;
-  border-bottom: 10px solid $accent-teal;
+  // border-bottom: 5px solid $accent-teal;
   overflow: visible;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  // background dots
+  background-color: $secondary-bg-color;
+  background-image: radial-gradient($vintage 10%, transparent 10%),
+  radial-gradient($vintage 10%, transparent 10%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+
+
 }
 
 .branding {
@@ -29,12 +38,21 @@
 
 .nav {
   margin: 2vh;
+  transform: rotate(-5deg);
 }
 
 .nav a {
   text-decoration: none;
-  color: black;
-  font-size: 2em;
+  letter-spacing: 0.1rem;
+  color: $accent-orange;
+  text-shadow:
+    3px 3px 0 $body-font-color,
+  -1px -1px 0 $body-font-color,
+   1px -1px 0 $body-font-color,
+   -1px 1px 0 $body-font-color,
+    1px 1px 0 $body-font-color,;
+  font-size: 3em;
+
 }
 
 .userNav a {

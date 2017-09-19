@@ -11,17 +11,18 @@ class Reviews extends Component {
 
   renderReview = reviews.map(review => {
     return (
-      <div className="reviews" key={review.review}>
-        <div className="rating">{review.rating} / 5 stars</div>
-        <div className="reviewer">{review.username}</div>
-        <div className="review">{review.review}</div>
+      <div className="b-review" key={review.review}>
+        <div className="b-review__text">{review.rating} / 5 stars</div>
+        <div className="b-review__text">By {review.username}</div>
+        <div className="b-review__text">{review.review}</div>
 
         </div>)}
     )
     return (
       <div className="l-reviews">
+        <div className="b-forms__label">Reviews</div>
         {renderReview}
-        {userType === "user" ? <button className=".b-forms__submit" onClick={this.addReview}>Add Review</button>
+        {userType === "user" ? <button className="b-forms__submit" onClick={this.addReview}>Add Review</button>
         : null}
       </div>
 

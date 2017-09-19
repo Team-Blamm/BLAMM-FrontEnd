@@ -10,32 +10,33 @@ class CartItem extends Component {
     let itemTotal = product.subtotal;
     let cartItemKey = product.title + "_" + Math.floor(Math.random()*10000);
       return (
-        <div key={cartItemKey}>
-          <div className="cartCardStyle">
-            <div className="cartImageStyle">
-              <img className="thumbnailImage" src={product.product.imgSrc} alt={"portrait of " + product.product.title}/>
+        <div key={cartItemKey} className="b-cartItem">
+          <div>
+            <img className="b-productListing__image" src={product.product.imgSrc} alt={"portrait of " + product.product.title} />
+          </div>
+          <div className="b-cartItem__info">
+            <header>
+              <h2>{product.product.title}</h2>
+            </header>
+            <div>
+              Service: {product.service}
             </div>
-            <div className="cartItemInfo">
-              <header>
-                <h2>{product.product.title}</h2>
-              </header>
-              <div>
-                Service: {product.service}
-              </div>
-              <div className="cartCardHours">
-                Hours: {product.hours}
-              </div>
-              <div className="cartCardTotal">
-                Item Total: {itemTotal}
-              </div>
+            <div className="cartCardHours">
+              Hours: {product.hours}
+            </div>
+            <div className="cartCardTotal">
+              Item Total: {itemTotal}
             </div>
           </div>
         </div>
       )
     })
     return (
-      <div>
-        <div className="cartItems">
+      <div className="l-subtotals">
+        <div>
+          <h2>My cart</h2>
+        </div>
+        <div>
           {cartProducts}
         </div>
       </div>

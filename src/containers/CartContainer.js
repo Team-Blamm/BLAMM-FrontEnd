@@ -12,18 +12,13 @@ class CartContainer extends Component {
 
   render() {
     return(
-      <div className="cartStyle">
-        <div>
-          <h2>My cart</h2>
-        </div>
-        {/* left: wrapper for CartItems */}
         <div>
           {this.props.checkedOut ? (
             <Receipt cart={this.props.cart}
               cartTotal={this.props.cartTotal}
             />
           ) : (
-            <div>
+            <div className="l-cart">
               <CartItem {...this.props} />
               <CartTotal cart={this.props.cart}
                 cartTotal={this.props.cartTotal}
@@ -32,7 +27,6 @@ class CartContainer extends Component {
             </div>
           )}
         </div>
-      </div>
     );
   }
 }

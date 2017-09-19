@@ -28,7 +28,7 @@ class Description extends Component {
       case "user":
         renderDescription =
           <div className="b-description">
-            {description}
+            <span className="b-info__text">{description}</span>
           </div>
         break;
       case "admin":

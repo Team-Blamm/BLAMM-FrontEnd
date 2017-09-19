@@ -1,22 +1,40 @@
 /* GLOBAL VARIABLES GO HERE */
 
+/* COLORS */
 $body-bg-color: #FFF;
 $secondary-bg-color: #F2F2F2;
-$body-font-color: #372C44;
+$vintage: #D4D2B6;
+
+$body-font-color: #452B34;
+$secondary-font-color: #4E3D59;
+$invert-font-color: #FEFEE7;
+
 $main-link-color: #923D31;
 
 $accent-orange: #FFB300;
 $accent-teal: #88D1CA;
+$accent-red: #ED4E1D;
 
+
+
+/* TYPE */
 $comic-font: "Bangers";
-$subhead-font: "Oswald";
+$secondary-font: "Oswald";
 
 
 /* TYPE SIZES */
+/* comic font */
+$small-title: 2rem;
+$small-info: 1.25rem;
 
-$small-title: 32px;
-$small-info-header: 16px;
-$small-info: 20px;
+$large-title: 6rem;
+$large-info: 1.75rem;
+
+$text: 1rem;
+$large-text: 1.25rem;
+
+/* label font */
+$small-info-label: 1rem;
 
 
 /*PRODUCT LIST VARIABLES */

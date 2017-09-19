@@ -46,36 +46,40 @@ class Product extends Component {
             <div className="l-image">
               <img className="b-image" src={product.imgSrc} alt={"portrait of " + product.title}/>
             </div>
-            {!this.props.showButtons ? (
-              <div></div>
-            ) : (
-              <div className="notification-container">
-                <h4 className="added-item-title">You've saved this item to your cart</h4>
-                <button onClick={this.ClearButtons}>
-                  <Link className="product-link" to='/productlist'>Back to All Products</Link>
-                </button>
-                <button onClick={this.ClearButtons}>
-                  <Link className="product-link" to={`/productlist/${productEncoded}`}>Purchase more services from {product.title}</Link>
-                </button>
-                <button onClick={this.ClearButtons}>
-                  <Link className="product-link" to='/shoppingCart'>Proceed to Checkout</Link>
-                </button>
-              </div>
-            )}
             <div className="l-info">
-
-                <header className="header">
-                  <p>
-                    <span className="b-info__h1">{product.title}</span>
-                    <span className="b-info__h3">{product.type}</span>
-                  </p>
-                  <p className="b-info__h2">"{product.tagline}"</p>
+                <header className="b-header">
+                  <span className="b-info__h1">{product.title}</span>
+                  <span className="b-info__h3">{product.type}</span>
+                  <div className="b-info__h2">"{product.tagline}"</div>
+                  <Description {...this.props} />
                 </header>
-
-                <Description {...this.props} />
                 <SelectContainer {...this.props}/>
+                {!this.props.showButtons ? (
+                  <div></div>
+                ) : (
+                  <div >
+                    <div style={{ display:"block" }}>
+                    <h4 className="added-item-title">You've saved this item to your cart</h4>
+                    </div>
+                    <div style={{ display:"inline-block" }}>
+                    <button onClick={this.ClearButtons} className="b-forms__submit">
+                      <Link className="product-link" to='/productlist'>Back to All Products</Link>
+                    </button>
+                    </div>
+                    <div style={{ display:"inline-block" }}>
+                    <button onClick={this.ClearButtons} className="b-forms__submit">
+                      <Link className="product-link" to={`/productlist/${productEncoded}`}>Purchase more services from {product.title}</Link>
+                    </button>
+                    </div>
+                    <div style={{ display:"inline-block" }}>
+                    <button onClick={this.ClearButtons} className="b-forms__submit">
+                      <Link className="product-link" to='/shoppingCart'>Proceed to Checkout</Link>
+                    </button>
+                    </div>
+                  </div>
+                )}
                 <Reviews {...this.props} />
-                
+
             </div>
           </div>
         break;

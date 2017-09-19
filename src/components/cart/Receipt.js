@@ -12,10 +12,10 @@ class Receipt extends Component {
     let itemTotal = product.subtotal;
     let cartItemKey = product.title + "_" + Math.floor(Math.random()*10000);
     return (
-      <div>
+      <div className="l-receipt">
         <div key={cartItemKey}>
           <div className="cartCardStyle">
-            <div className="cartImageStyle">
+            <div className="b-productListing__image">
               <img className="thumbnailImage" src={product.product.imgSrc} alt={"portrait of " + product.product.title}/>
             </div>
             <div className="cartItemInfo">

@@ -22,12 +22,14 @@ l- layout (containers)
   min-height: 500px;
   max-width: 70vw;
   margin: 4rem auto 1rem auto;
-  background-color: lightgrey;
+  // background-color: #FFF;
+
+
 }
 
 .l-image {
   min-height: 500px;
-  background-color: pink;
+  // background-color: #FFF;
   flex-basis: $product-image;
   width: 50%;
 }
@@ -38,64 +40,86 @@ l- layout (containers)
   top: 2rem;
   object-fit: cover;
   object-position: 40% 10%;
+  border: 5px solid $body-font-color;
 }
 
 .l-info {
-  // min-height: 500px;
+  padding: 0 0.25rem;
   flex-basis: 60vw;
   width: 50%;
-  padding: 2rem;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
 }
 
-.b-info {
+.b-header {
+  min-height: $product-image;
+  padding: 0.5rem 2rem;
+  // background-color: $accent-teal;
+  background: linear-gradient(135deg, $accent-teal 0%, #ffffff 60%, #ffffff 100%);
+  border: 5px solid $secondary-font-color;
 
 }
 
 .b-info__h1 {
-  font-size: 3rem;
-  color: $main-link-color;
+  font-size: $large-title;
+  color: $accent-red;
   letter-spacing: 0.1rem;
-
+  margin-right: 2rem;
+  text-shadow:
+    4px 4px 0 $body-font-color,
+  -2px -2px 0 $body-font-color,
+   2px -2px 0 $body-font-color,
+   -2px 2px 0 $body-font-color,
+    2px 2px 0 $body-font-color,;
 }
 
 .b-info__h2 {
-  font-size: 1.5rem;
+  font-size: $large-info;
   letter-spacing: 0.1rem;
+  margin: 1rem;
 }
 
 .b-info__h3 {
-  font-size: 1.25rem;
+  font-size: $small-info;
   letter-spacing: 0.1rem;
+  margin: 1rem;
+}
+
+.b-info__text {
+  font-size: $large-text;
 }
 
 .l-forms {
   display: flex;
-  flex-basis: 60vw;
+  flex-basis: 70vw;
+  margin: 2rem;
   // flex-direction: column;
   // justify-content: space-between;
+}
 
+.b-form {
+  flex-basis: 70vw;
 }
 
 .b-forms__label {
   margin: 0 0.5rem;
-  // display: inline-block;
-  font-family: "Oswald";
+  font-family: $secondary-font;
   flex-basis: 10vw;
-  flex-grow: 2;
-  flex-shrink: 1;
+  color: $body-font-color;
+  // flex-grow: 2;
+  // flex-shrink: 1;
 }
 
 .b-forms__submit {
-  font-family: "Oswald";
-  font-size: 1rem;
-  margin: 1rem;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid black;
-  background-color: #FFF;
+  font-family: $secondary-font;
+  font-size: $text;
+  margin: 0.5rem 0.25rem 0.5rem 0;
+  padding: 0.5rem 2rem;
+  border: 2px solid $main-link-color;
+  background-color: $secondary-bg-color;
+  text-decoration: none;
 
 }
 
@@ -111,9 +135,9 @@ l- layout (containers)
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  flex-basis: 50vw;
-  flex-grow: 1;
-  flex-shrink: 0.5;
+  flex-basis: 55vw;
+  // flex-grow: 1;
+  // flex-shrink: 0.5;
   // max-width: 30vw;
 }
 
@@ -125,51 +149,70 @@ input[type=radio] {
 
 // .b-servcies__input + label
 input[type=radio]+span {
-  padding: .25rem 1rem;
-  border: 1px solid black;
-  background-color: #FFF;
-  margin: 0 0.1rem 0 0;
+  padding: .5rem 1rem;
+  border: 2px solid $main-link-color;
+  background-color: $secondary-bg-color;
+  margin: 0 0.25rem 0 0;
+  // color: $main-link-color;
   display: inline-block;
 }
 
 // .b-servcies__input:checked + label
 input[type=radio]:checked + span {
-  background-color: #CCC;
-  border: 3px solid #FFF;
+  background-color: $accent-orange;
+  color: #000;
 }
 
 
 .b-hours {
-  flex-basis: 40vw;
+  flex-basis: 55vw;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
 .b-hours__button {
-  font-family: "Oswald";
-  font-size: 1rem;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid black;
-  background-color: #FFF;
+  font-family: $secondary-font;
+  color: $invert-font-color;
+  font-size: 2rem;
+  padding: 0 1rem;
+  border: none;
+
+  background-color: $main-link-color;
   // margin: 1rem 0;
 }
 
 .b-hours__counter {
   font-size: 1.25rem;
+  color: $main-link-color;
   width: 2rem;
   text-align: center;
+  border: none;
   // margin: 1rem 0;
+}
+
+.b-hours__counter+input {
+  color: $main-link-color;
 }
 
 .b-description {
   font-size: 1rem;
-  margin: 0.5rem 0;
+  margin: 1rem;
+  line-height: ($large-text);
 }
 
 .l-reviews {
-
+  margin: 0 2rem
 }
 
 .b-review {
+  margin: 0.5rem 0;
+  max-width: 30vw;
+}
 
+.b-review__rating {
+
+}
+
+.b-review__text {
+  margin: 0.25rem 0.5rem;
 }
