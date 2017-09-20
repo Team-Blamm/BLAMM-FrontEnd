@@ -22,14 +22,10 @@ l- layout (containers)
   min-height: 500px;
   max-width: 70vw;
   margin: 4rem auto 1rem auto;
-  // background-color: #FFF;
-
-
 }
 
 .l-image {
   min-height: 500px;
-  // background-color: #FFF;
   flex-basis: $product-image;
   width: 50%;
 }
@@ -56,7 +52,7 @@ l- layout (containers)
 .b-header {
   min-height: $product-image;
   padding: 0.5rem 2rem;
-  // background-color: $accent-teal;
+  // background-color: $accent-orange;
   background: linear-gradient(135deg, $accent-teal 0%, #ffffff 60%, #ffffff 100%);
   border: 5px solid $secondary-font-color;
 
@@ -95,8 +91,6 @@ l- layout (containers)
   display: flex;
   flex-basis: 70vw;
   margin: 2rem;
-  // flex-direction: column;
-  // justify-content: space-between;
 }
 
 .b-form {
@@ -115,15 +109,18 @@ l- layout (containers)
 .b-forms__submit {
   font-family: $secondary-font;
   font-size: $large-text;
-  margin: 0.5rem 0.25rem 0.5rem 0;
+  margin: 1rem 0.25rem 1rem 0;
   padding: 0.25rem 2rem;
-  // border: 2px solid $main-link-color;
   border: 1px solid darken($accent-orange, 10%);
   border-bottom: 3px solid darken($accent-orange,10%);
   background-color: $accent-orange;
   text-decoration: none;
   border-radius: 6px;
+}
 
+.b-forms__submitLink {
+  text-decoration: none;
+  color: $body-font-color;
 }
 
 .b-formGroup {
@@ -139,9 +136,6 @@ l- layout (containers)
   justify-content: flex-start;
   align-items: flex-start;
   flex-basis: 55vw;
-  // flex-grow: 1;
-  // flex-shrink: 0.5;
-  // max-width: 30vw;
 }
 
 // .b-services__input
@@ -154,8 +148,8 @@ input[type=radio] {
 input[type=radio]+span {
   font-family: $secondary-font;
   font-size: $large-text;
-  margin: 0.5rem 0.1rem;
-  padding: 0.5rem;
+  margin: 0 0.1rem 0.5rem 0;
+  padding: 0.25rem 1.25rem;
   border: 1px solid darken($accent-orange, 10%);
   border-bottom: 3px solid darken($accent-orange,10%);
   background-color: none;
@@ -173,20 +167,15 @@ input[type=radio]:checked + span {
 
 .b-hours {
   flex-basis: 55vw;
-  // justify-content: flex-start;
-  // align-items: flex-start;
 }
 
 .b-hours__button {
   font-family: $secondary-font;
   font-size: 1.5rem;
   color: $main-link-color;
-  // margin: 0.5rem 0.25rem 0.5rem 0;
-  // padding: 0.5rem 1rem;
   border: 1px solid darken($accent-orange, 10%);
   border-bottom: 3px solid darken($accent-orange,10%);
   background-color: $accent-orange;
-  // margin: 1rem 0;
   border-radius: 6px;
 }
 
@@ -224,4 +213,8 @@ input[type=radio]:checked + span {
 
 .b-review__text {
   margin: 0.25rem 0.5rem;
+}
+
+.b-itemAdded {
+  margin: 0 2rem;
 }

@@ -57,23 +57,23 @@ class Product extends Component {
                 {!this.props.showButtons ? (
                   <div></div>
                 ) : (
-                  <div >
+                  <div className="b-itemAdded">
                     <div style={{ display:"block" }}>
-                    <h4 className="added-item-title">You've saved this item to your cart</h4>
+                    <div className="b-forms__label">You've saved this item to your cart</div>
                     </div>
                     <div style={{ display:"inline-block" }}>
                     <button onClick={this.ClearButtons} className="b-forms__submit">
-                      <Link className="product-link" to='/productlist'>Back to All Products</Link>
+                      <Link className="b-forms__submitLink" to='/productlist'>Back to All Products</Link>
                     </button>
                     </div>
                     <div style={{ display:"inline-block" }}>
                     <button onClick={this.ClearButtons} className="b-forms__submit">
-                      <Link className="product-link" to={`/productlist/${productEncoded}`}>Purchase more services from {product.title}</Link>
+                      <Link className="b-forms__submitLink" to={`/productlist/${productEncoded}`}>Purchase more services from {product.title}</Link>
                     </button>
                     </div>
                     <div style={{ display:"inline-block" }}>
                     <button onClick={this.ClearButtons} className="b-forms__submit">
-                      <Link className="product-link" to='/shoppingCart'>Proceed to Checkout</Link>
+                      <Link className="b-forms__submitLink" to='/shoppingCart'>Proceed to Checkout</Link>
                     </button>
                     </div>
                   </div>
