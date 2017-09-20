@@ -114,12 +114,15 @@ l- layout (containers)
 
 .b-forms__submit {
   font-family: $secondary-font;
-  font-size: $text;
+  font-size: $large-text;
   margin: 0.5rem 0.25rem 0.5rem 0;
-  padding: 0.5rem 2rem;
-  border: 2px solid $main-link-color;
-  background-color: $secondary-bg-color;
+  padding: 0.25rem 2rem;
+  // border: 2px solid $main-link-color;
+  border: 1px solid darken($accent-orange, 10%);
+  border-bottom: 3px solid darken($accent-orange,10%);
+  background-color: $accent-orange;
   text-decoration: none;
+  border-radius: 6px;
 
 }
 
@@ -149,10 +152,14 @@ input[type=radio] {
 
 // .b-servcies__input + label
 input[type=radio]+span {
-  padding: .5rem 1rem;
-  border: 2px solid $main-link-color;
-  background-color: $secondary-bg-color;
-  margin: 0 0.25rem 0 0;
+  font-family: $secondary-font;
+  font-size: $large-text;
+  margin: 0.5rem 0.1rem;
+  padding: 0.5rem;
+  border: 1px solid darken($accent-orange, 10%);
+  border-bottom: 3px solid darken($accent-orange,10%);
+  background-color: none;
+  border-radius: 6px;
   // color: $main-link-color;
   display: inline-block;
 }
@@ -166,19 +173,21 @@ input[type=radio]:checked + span {
 
 .b-hours {
   flex-basis: 55vw;
-  justify-content: flex-start;
-  align-items: flex-start;
+  // justify-content: flex-start;
+  // align-items: flex-start;
 }
 
 .b-hours__button {
   font-family: $secondary-font;
-  color: $invert-font-color;
-  font-size: 2rem;
-  padding: 0 1rem;
-  border: none;
-
-  background-color: $main-link-color;
+  font-size: 1.5rem;
+  color: $main-link-color;
+  // margin: 0.5rem 0.25rem 0.5rem 0;
+  // padding: 0.5rem 1rem;
+  border: 1px solid darken($accent-orange, 10%);
+  border-bottom: 3px solid darken($accent-orange,10%);
+  background-color: $accent-orange;
   // margin: 1rem 0;
+  border-radius: 6px;
 }
 
 .b-hours__counter {
