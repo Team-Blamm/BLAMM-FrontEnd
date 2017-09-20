@@ -41,14 +41,16 @@ class Header extends Component {
                   <li className="menu-item"><NavLink to="/user/productlist/:type" style={{textDecoration: 'none', margin:'50px', color: "black"}}>Villains</NavLink></li>
                   */}
             </div>
-            <div className="userNav">
-              <NavLink to="/shoppingCart">
+            <div >
+              <NavLink to="/shoppingCart" className="userNav">
                 { !this.props.itemAdded ? (
-                  <div className="header-item-count">0</div>
+                  <div className="cartNumber">0</div>
                 ) : (
-                  <div className="header-item-count">{this.props.cartProducts.length}</div>
+                  <div className="cartNumber">{this.props.cartProducts.length}</div>
                 )}
-                <i className="fa fa-2x fa-shopping-cart" aria-hidden="true" />
+                <div className="cartIcon">
+                  <i className="fa fa-2x fa-shopping-cart" aria-hidden="true" />
+                </div>
               </NavLink>
               {/*
                 <li className="menu-item"><NavLink to="/"><i className="fa fa-user" aria-hidden="true" style={{marginRight:"30px", color: "black"}}></i></NavLink></li>

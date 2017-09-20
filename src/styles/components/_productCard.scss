@@ -55,7 +55,12 @@ l- layout (containers)
   // background-color: $accent-orange;
   background: linear-gradient(135deg, $accent-teal 0%, #ffffff 60%, #ffffff 100%);
   border: 5px solid $secondary-font-color;
+}
 
+.b-header__title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .b-info__h1 {
@@ -69,18 +74,28 @@ l- layout (containers)
    2px -2px 0 $body-font-color,
    -2px 2px 0 $body-font-color,
     2px 2px 0 $body-font-color,;
+    z-index: 2;
+
 }
 
 .b-info__h2 {
   font-size: $large-info;
   letter-spacing: 0.1rem;
-  margin: 1rem;
+  margin: 0.25rem 1rem 1rem 1rem;
 }
 
 .b-info__h3 {
   font-size: $small-info;
   letter-spacing: 0.1rem;
-  margin: 1rem;
+  padding: 0.75rem;
+  background-color: vintage;
+  box-shadow:
+    4px 4px 0 $body-font-color,
+  -2px -2px 0 $body-font-color,
+   2px -2px 0 $body-font-color,
+   -2px 2px 0 $body-font-color,
+    2px 2px 0 $body-font-color,
+
 }
 
 .b-info__text {
@@ -146,7 +161,7 @@ input[type=radio] {
 
 // .b-servcies__input + label
 input[type=radio]+span {
-  font-family: $secondary-font;
+  font-family: $comic-font;
   font-size: $large-text;
   margin: 0 0.1rem 0.5rem 0;
   padding: 0.25rem 1.25rem;

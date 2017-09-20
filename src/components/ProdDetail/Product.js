@@ -48,8 +48,10 @@ class Product extends Component {
             </div>
             <div className="l-info">
                 <header className="b-header">
-                  <span className="b-info__h1">{product.title}</span>
-                  <span className="b-info__h3">{product.type}</span>
+                  <div className="b-header__title">
+                    <span className="b-info__h1">{product.title}</span>
+                    <span className="b-info__h3">{product.type}</span>
+                  </div>
                   <div className="b-info__h2">"{product.tagline}"</div>
                   <Description {...this.props} />
                 </header>
