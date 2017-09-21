@@ -1,27 +1,235 @@
 .thumbnailImage  {
-  height: $prodList-img-thumbnail-height;
-  width: $prodList-img-thumbnail-width;
+  height: $prodList-img-height;
+  width: $prodList-img-width;
 }
-.productCardContainer {
-  border: 1px solid black;
-  width: 20vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 5px;
-  justify-items: center;
-  align-items:center;
-}
-.cardText {
-  margin: 3px;
 
-  h5 {
-    margin: 0;
-  }
-  p {
-    margin:0;
-    text-transform: capitalize;
-  }
+
+
+/* BEM organization
+
+.block {}
+.block__element {}
+.block--modifier {}
+
+b- block (presentational)
+l- layout (containers)
+
+*/
+
+
+.l-product {
+  display: flex;
+  min-height: 500px;
+  max-width: 70vw;
+  margin: 4rem auto 1rem auto;
 }
-.cardImageLeft {
-  margin: 3px;
+
+.l-image {
+  min-height: 500px;
+  flex-basis: $product-image;
+  width: 50%;
+}
+
+.b-image {
+  height: $product-image;
+  width: $product-image;
+  top: 2rem;
+  object-fit: cover;
+  object-position: 40% 10%;
+  border: 5px solid $body-font-color;
+}
+
+.l-info {
+  padding: 0 0.25rem;
+  flex-basis: 60vw;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+}
+
+.b-header {
+  min-height: $product-image;
+  padding: 0.5rem 2rem;
+  // background-color: $accent-orange;
+  background: linear-gradient(135deg, $accent-teal 0%, #ffffff 60%, #ffffff 100%);
+  border: 5px solid $secondary-font-color;
+}
+
+.b-header__title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.b-info__h1 {
+  font-size: $large-title;
+  color: $accent-red;
+  letter-spacing: 0.1rem;
+  margin-right: 2rem;
+  text-shadow:
+    4px 4px 0 $body-font-color,
+  -2px -2px 0 $body-font-color,
+   2px -2px 0 $body-font-color,
+   -2px 2px 0 $body-font-color,
+    2px 2px 0 $body-font-color,;
+    z-index: 2;
+
+}
+
+.b-info__h2 {
+  font-size: $large-info;
+  letter-spacing: 0.1rem;
+  margin: 0.25rem 1rem 1rem 1rem;
+}
+
+.b-info__h3 {
+  font-size: $small-info;
+  letter-spacing: 0.1rem;
+  padding: 0.75rem;
+  background-color: vintage;
+  box-shadow:
+    4px 4px 0 $body-font-color,
+  -2px -2px 0 $body-font-color,
+   2px -2px 0 $body-font-color,
+   -2px 2px 0 $body-font-color,
+    2px 2px 0 $body-font-color,
+
+}
+
+.b-info__text {
+  font-size: $large-text;
+}
+
+.l-forms {
+  display: flex;
+  flex-basis: 70vw;
+  margin: 2rem;
+}
+
+.b-form {
+  flex-basis: 70vw;
+}
+
+.b-forms__label {
+  margin: 0 0.5rem;
+  font-family: $secondary-font;
+  flex-basis: 10vw;
+  color: $body-font-color;
+  // flex-grow: 2;
+  // flex-shrink: 1;
+}
+
+.b-forms__submit {
+  font-family: $secondary-font;
+  font-size: $large-text;
+  margin: 1rem 0.25rem 1rem 0;
+  padding: 0.25rem 2rem;
+  border: 1px solid darken($accent-orange, 10%);
+  border-bottom: 3px solid darken($accent-orange,10%);
+  background-color: $accent-orange;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.b-forms__submitLink {
+  text-decoration: none;
+  color: $body-font-color;
+}
+
+.b-formGroup {
+  display: flex;
+  flex-basis: 70vw;
+  justify-content: flex-start;
+  margin: 0.5rem 0;
+}
+
+.b-services__options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-basis: 55vw;
+}
+
+// .b-services__input
+input[type=radio] {
+  display: none;
+  position: absolute;
+}
+
+// .b-servcies__input + label
+input[type=radio]+span {
+  font-family: $comic-font;
+  font-size: $large-text;
+  margin: 0 0.1rem 0.5rem 0;
+  padding: 0.25rem 1.25rem;
+  border: 1px solid darken($accent-orange, 10%);
+  border-bottom: 3px solid darken($accent-orange,10%);
+  background-color: none;
+  border-radius: 6px;
+  // color: $main-link-color;
+  display: inline-block;
+}
+
+// .b-servcies__input:checked + label
+input[type=radio]:checked + span {
+  background-color: $accent-orange;
+  color: #000;
+}
+
+
+.b-hours {
+  flex-basis: 55vw;
+}
+
+.b-hours__button {
+  font-family: $secondary-font;
+  font-size: 1.5rem;
+  color: $main-link-color;
+  border: 1px solid darken($accent-orange, 10%);
+  border-bottom: 3px solid darken($accent-orange,10%);
+  background-color: $accent-orange;
+  border-radius: 6px;
+}
+
+.b-hours__counter {
+  font-size: 1.25rem;
+  color: $main-link-color;
+  width: 2rem;
+  text-align: center;
+  border: none;
+  // margin: 1rem 0;
+}
+
+.b-hours__counter+input {
+  color: $main-link-color;
+}
+
+.b-description {
+  font-size: 1rem;
+  margin: 1rem;
+  line-height: ($large-text);
+}
+
+.l-reviews {
+  margin: 0 2rem
+}
+
+.b-review {
+  margin: 0.5rem 0;
+  max-width: 30vw;
+}
+
+.b-review__rating {
+
+}
+
+.b-review__text {
+  margin: 0.25rem 0.5rem;
+}
+
+.b-itemAdded {
+  margin: 0 2rem;
 }

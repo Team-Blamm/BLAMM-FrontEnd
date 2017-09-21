@@ -1,20 +1,112 @@
-/*This is in ProductCard.js*/
+/*in ProductCard.js*/
 .productListGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80vw;
+  margin: 4rem auto 0 auto;
+  text-decoration: none;
 }
 
-.productListContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+
+/* BEM organization
+
+.block {}
+.block__element {}
+.block--modifier {}
+
+b- block (presentational)
+l- layout (containers)
+
+*/
+
+
+
+.l-productListing {
+  flex: 1 1 12vw;
+  // height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  text-decoration: none;
+  color: $body-font-color;
+
 }
 
-.sideBarContainer {
-  border: 1px solid black;
-  width: 10vw;
+.b-productListing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.productCardsContainer {
-  grid-column-start: 2;
-  grid-column-end: 4;
+
+.b-productListing__image {
+  height: $prodList-img-height;
+  width: $prodList-img-width;
+  object-fit: cover;
+  object-position: 40% 10%;
+  margin-bottom: 2px;
+  border: 3px solid $secondary-font-color;
+
+}
+
+.b-productListing__title {
+  // flex: 1;
+  font-size: $small-title;
+  text-align: center;
+  margin-top: 0.4rem;
+  padding: 0 0.2rem;
+  text-decoration: none;
+
+}
+
+.b-productListing__title a{
+  text-decoration: none;
+  color: $accent-red;
+  letter-spacing: 0.1rem;
+  text-shadow:
+    3px 3px 0 $body-font-color,
+  -1px -1px 0 $body-font-color,
+   1px -1px 0 $body-font-color,
+   -1px 1px 0 $body-font-color,
+    1px 1px 0 $body-font-color,;
+
+}
+
+.l-productListing__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 0.2rem;
+  text-decoration: none;
+  color: $body-font-color;
+  // flex-grow: 2;
+  // flex-shrink: 1;
+  flex-basis: 9rem;
+}
+
+.b-productListing__info {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  max-height: 40px;
+  text-decoration: none;
+}
+
+.b-productListing__subheader {
+  margin: 0;
+  text-align: left;
+  font-size: $small-info-label;
+  font-family: $secondary-font;
+  text-decoration: none;
+}
+
+.b-productListing__text {
+  margin: 0;
+  font-size: $small-info;
+  letter-spacing: 0.05rem;
+  text-decoration: none;
 }

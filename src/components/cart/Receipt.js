@@ -12,10 +12,10 @@ class Receipt extends Component {
     let itemTotal = product.subtotal;
     let cartItemKey = product.title + "_" + Math.floor(Math.random()*10000);
     return (
-      <div>
-        <div key={cartItemKey}>
+      <div key={cartItemKey} className="l-receipt">
+        <div >
           <div className="cartCardStyle">
-            <div className="cartImageStyle">
+            <div className="b-productListing__image">
               <img className="thumbnailImage" src={product.product.imgSrc} alt={"portrait of " + product.product.title}/>
             </div>
             <div className="cartItemInfo">
@@ -31,11 +31,6 @@ class Receipt extends Component {
             </div>
           </div>
         </div>
-        <div className="cart-total-container">
-          <CartTotal cart={this.props.cart}
-            cartTotal={this.props.cartTotal}
-          />
-        </div>
       </div>
       )
     })
@@ -43,6 +38,11 @@ class Receipt extends Component {
       <div>
         <div className="cartItems">
           {cartProducts}
+        </div>
+        <div className="cart-total-container">
+          <CartTotal cart={this.props.cart}
+            cartTotal={this.props.cartTotal}
+          />
         </div>
       </div>
     )

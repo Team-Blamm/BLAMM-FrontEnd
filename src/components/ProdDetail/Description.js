@@ -27,8 +27,8 @@ class Description extends Component {
     switch (userType) {
       case "user":
         renderDescription =
-          <div className="description">
-            {description}
+          <div className="b-description">
+            <span className="b-info__text">{description}</span>
           </div>
         break;
       case "admin":

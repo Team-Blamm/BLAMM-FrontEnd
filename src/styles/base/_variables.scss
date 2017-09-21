@@ -1,13 +1,46 @@
 /* GLOBAL VARIABLES GO HERE */
 
-$body-bg-color: white;
-$body-font-color: black;
+/* COLORS */
+$body-bg-color: #FFF;
+$secondary-bg-color: #FAFAFA;
+$vintage: #D4D2B6;
+
+$body-font-color: #452B34;
+$secondary-font-color: #4E3D59;
+$invert-font-color: #FEFEE7;
+
+$main-link-color: #923D31;
+
+$accent-orange: #FFB300;
+$accent-teal: #88D1CA;
+$accent-red: #ED4E1D;
 
 
-/*This is where you can define your personal variables!*/
+
+/* TYPE */
+$comic-font: "Bangers";
+$secondary-font: "Oswald";
+
+
+/* TYPE SIZES */
+/* comic font */
+$small-title: 2rem;
+$small-info: 1.25rem;
+
+$large-title: 6rem;
+$large-info: 1.75rem;
+
+$text: 1rem;
+$large-text: 1.25rem;
+
+/* label font */
+$small-info-label: 1rem;
 
 
 /*PRODUCT LIST VARIABLES */
 $prodList-bg-color: lightgrey;
-$prodList-img-thumbnail-height: 150px;
-$prodList-img-thumbnail-width: 150px;
+$prodList-img-height: 150px;
+$prodList-img-width: 150px;
+
+/*PRODUCT IMAGE VARIABLES */
+$product-image: 300px;
