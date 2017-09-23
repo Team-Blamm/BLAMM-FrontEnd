@@ -50,6 +50,7 @@ l- layout (containers)
   object-position: 40% 10%;
   margin-bottom: 2px;
   border: 3px solid $secondary-font-color;
+  box-shadow: 3px 3px 0 $accent-teal;
 
 }
 
@@ -65,14 +66,14 @@ l- layout (containers)
 
 .b-productListing__title a{
   text-decoration: none;
-  color: $accent-red;
+  color: $main-link-color;
   letter-spacing: 0.1rem;
-  text-shadow:
-    3px 3px 0 $body-font-color,
-  -1px -1px 0 $body-font-color,
-   1px -1px 0 $body-font-color,
-   -1px 1px 0 $body-font-color,
-    1px 1px 0 $body-font-color,;
+  // text-shadow:
+    // 3px 3px 0 $body-font-color,
+  // -1px -1px 0 $body-font-color,
+  //  1px -1px 0 $body-font-color,
+  //  -1px 1px 0 $body-font-color,
+  //   1px 1px 0 $body-font-color,;
 
 }
 
