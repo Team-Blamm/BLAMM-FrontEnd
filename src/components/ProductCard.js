@@ -10,8 +10,6 @@ class ProductCard extends Component {
 
       return (
         <div className="l-productListing" key={product.title}>
-        <Link to={`productlist/${encodeURIComponent(product.title)}`} style={{ textDecoration:"none" }} >
-
           <div className="b-productListing">
             <img className="b-productListing__image" src={product.imgSrc} alt={product.title}/>
             <div className="l-productListing__info">
@@ -30,7 +28,6 @@ class ProductCard extends Component {
               </div>
             </div>
           </div>
-        </Link>
         </div>
       )
     });

@@ -31,7 +31,7 @@ export const fetchProducts = (products) => {
   }
 };
 
-export function reqForm() {
+export function requestForm() {
   return {
     type: types.REQ_FORM
   };

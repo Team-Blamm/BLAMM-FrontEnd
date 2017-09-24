@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Link, Redirect } from "react-router-dom";
 import { bindActionCreators } from "redux";
 
-import { deleteProduct, reqForm } from '../../actions/productActions';
+import { deleteProduct, requestForm } from '../../actions/productActions';
 import { clearButtons } from '../../actions/cartActions';
 
 import SelectContainer from '../../containers/SelectContainer';
@@ -23,7 +23,7 @@ class Product extends Component {
   ReqForm = () => {
     return (e) => {
       e.preventDefault();
-      this.props.reqForm();
+      this.props.requestForm();
     }
   }
 
@@ -64,17 +64,17 @@ class Product extends Component {
                     <div className="b-forms__label">You've saved this item to your cart</div>
                     </div>
                     <div style={{ display:"inline-block" }}>
-                    <button onClick={this.ClearButtons} className="b-forms__submit">
+                    <button onClick={this.ClearButtons} className="b-itemAdded__nav">
                       <Link className="b-forms__submitLink" to='/productlist'>Back to All Products</Link>
                     </button>
                     </div>
                     <div style={{ display:"inline-block" }}>
-                    <button onClick={this.ClearButtons} className="b-forms__submit">
+                    <button onClick={this.ClearButtons} className="b-itemAdded__nav">
                       <Link className="b-forms__submitLink" to={`/productlist/${productEncoded}`}>Purchase more services from {product.title}</Link>
                     </button>
                     </div>
                     <div style={{ display:"inline-block" }}>
-                    <button onClick={this.ClearButtons} className="b-forms__submit">
+                    <button onClick={this.ClearButtons} className="b-itemAdded__nav">
                       <Link className="b-forms__submitLink" to='/shoppingCart'>Proceed to Checkout</Link>
                     </button>
                     </div>
@@ -128,7 +128,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
       return bindActionCreators({
-        clearButtons: clearButtons
+        clearButtons: clearButtons,
+        requestForm: requestForm
     }, dispatch)
 }
 
