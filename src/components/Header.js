@@ -19,7 +19,6 @@ class Header extends Component {
   render() {
 
     console.log(this.props.cartProducts)
-    const cartProducts = this.props.cartProducts;
     const authed = this.props.authed;
     const userType = this.props.userType;
     switch (authed) {

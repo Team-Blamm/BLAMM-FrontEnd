@@ -4,7 +4,6 @@ class CartItem extends Component {
   render() {
 
     const cart = this.props.cart;
-    let cartTotals = 0;
     console.log(cart);
     let cartProducts = cart.map(product => {
     let itemTotal = product.subtotal;

@@ -6,7 +6,7 @@ class Receipt extends Component {
 
   render() {
     const cart = this.props.cart;
-    const cartTotal = this.props.cartTotal;
+    // const cartTotal = this.props.cartTotal;
 
     let cartProducts = cart.map(product => {
     let itemTotal = product.subtotal;
