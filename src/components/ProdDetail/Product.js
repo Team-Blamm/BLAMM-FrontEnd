@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 
-import { deleteProduct, requestForm } from '../../actions/productActions';
+import { requestForm } from '../../actions/productActions';
 import { clearButtons } from '../../actions/cartActions';
 
 import SelectContainer from '../../containers/SelectContainer';

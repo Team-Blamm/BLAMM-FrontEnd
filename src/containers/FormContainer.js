@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import EditProdForm from '../components/EditProdForm';
 import AddProdForm from '../components/AddProdForm';
 
-import { addProduct, editProduct, requestForm } from '../actions/productActions';
+import { addProduct, editProduct } from '../actions/productActions';
 
 class FormContainer extends Component {
   render() {

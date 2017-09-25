@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
-import { Link } from "react-router-dom";
 
 // import { incrementHours, decrementHours } from "../../actions/selectActions";
 
@@ -42,7 +41,6 @@ class Select extends Component {
   }
 
   render() {
-    const {increment, decrement, AddToCart} = this.props;
     const product = this.props.product;
     const userType = this.props.userType;
     let selector = null;
