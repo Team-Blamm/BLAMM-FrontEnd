@@ -14,8 +14,8 @@ class UserTypeDropdown extends Component {
   render() {
     return (
       <div className="header-button-container">
-        <button className="header-button" onClick={this.authedAsAdmin}><Link className="header-button-link" to={"productlist"}>Admin</Link></button>
-        <button className="header-button" onClick={this.authedAsUser}><Link className="header-button-link" to={"productlist"}>User</Link></button>
+        <Link className="header-button-link" to={"productlist"}><button className="header-button" onClick={this.authedAsAdmin}>Admin</button></Link>
+        <Link className="header-button-link" to={"productlist"}><button className="header-button" onClick={this.authedAsUser}>User</button></Link>
       </div>
     )
   }
