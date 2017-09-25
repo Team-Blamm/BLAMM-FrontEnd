@@ -16,17 +16,13 @@
   background-size: 20px 20px;
   background-position: 0 0, 10px 10px;
   z-index: 3;
-
-
 }
 
 .branding {
   background: url('./src/styles/images/BLAMM_Logo.png') center/contain;
-  width: 13rem;
-  height: 13rem;
-  position: relative;
-  top: 2.5rem;
-  left: 0.5rem;
+  width: 6rem;
+  height: 6rem;
+  margin: 1vw;
 }
 
 #mainMenu {
@@ -85,4 +81,25 @@
   position: absolute;
   right: 5.25rem;
   top: 2rem;
+}
+
+.header-button-container {
+  margin-left: 3vw;
+}
+
+.header-button-link {
+  font-family: $secondary-font;
+  font-size: $text;
+  text-decoration: none;
+  color: $invert-font-color;
+}
+
+.header-button {
+  margin: 0 0.2rem 0.5rem 0;
+  padding: 0.25rem 1.25rem;
+  border: 1px solid darken($accent-blue, 10%);
+  border-bottom: 3px solid darken($accent-blue,10%);
+  background-color: $accent-blue;
+  border-radius: 6px;
+  display: inline-block;
 }

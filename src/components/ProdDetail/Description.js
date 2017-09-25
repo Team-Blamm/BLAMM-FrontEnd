@@ -50,7 +50,7 @@ class Description extends Component {
           case false:
             renderDescription =
               <form className="addDescription">
-                <textarea for="description" className="description">Description</textarea>
+                <textarea htmlFor="description" className="description">Description</textarea>
                 <button type="submit" name="description">Add</button>
               </form>
             break;

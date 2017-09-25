@@ -61,7 +61,7 @@ class Select extends Component {
             console.log(service);
             console.log(serviceName);
               return (
-                <label className="b-services__label" for={`service${service}`}>
+                <label className="b-services__label" htmlFor={`service${service}`}>
                 <Field
                   id={`service${service}`}
                   label={`service${service}`}

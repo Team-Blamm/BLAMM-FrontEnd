@@ -63,7 +63,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     incrementHours: incrementHours,
     decrementHours: decrementHours,
-    fetchProducts: fetchProducts
+    fetchProducts: fetchProducts,
   }, dispatch)
 }
 

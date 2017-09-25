@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from "react-redux";
 
 import UserTypeDropdown from './UserTypeDropdown';
-import { reqForm } from '../actions/productActions';
+import { requestForm } from '../actions/productActions';
 import logo from '../styles/images/BLAMM_Logo.png';
 
 class Header extends Component {
@@ -12,7 +12,7 @@ class Header extends Component {
   ReqForm = () => {
     return (e) => {
       e.preventDefault();
-      this.props.dispatch(reqForm(e.target.value));
+      this.props.dispatch(requestForm(e.target.value));
     }
   }
 
@@ -26,7 +26,6 @@ class Header extends Component {
       case false:
         return (
           <header id="header" className="header" >
-            <div className="branding"></div>
             <UserTypeDropdown {...this.props}/>
           </header>
         )
@@ -43,14 +42,20 @@ class Header extends Component {
             </div>
             <div >
               <NavLink to="/shoppingCart" className="userNav">
-                { !this.props.itemAdded ? (
-                  <div className="cartNumber">0</div>
+                { userType === "admin" ? (
+                  <div></div>
                 ) : (
-                  <div className="cartNumber">{this.props.cartProducts.length}</div>
+                  <div>
+                    { !this.props.itemAdded ? (
+                      <div className="cartNumber">0</div>
+                    ) : (
+                      <div className="cartNumber">{this.props.cartProducts.length}</div>
+                    )}
+                    <div className="cartIcon">
+                      <i className="fa fa-2x fa-shopping-cart" aria-hidden="true" />
+                    </div>
+                  </div>
                 )}
-                <div className="cartIcon">
-                  <i className="fa fa-2x fa-shopping-cart" aria-hidden="true" />
-                </div>
               </NavLink>
               {/*
                 <li className="menu-item"><NavLink to="/"><i className="fa fa-user" aria-hidden="true" style={{marginRight:"30px", color: "black"}}></i></NavLink></li>
