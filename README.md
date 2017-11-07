@@ -9,6 +9,10 @@ Users can browse a list of products (superheroes and villians offering services)
 
 Admins can access CRUD functions for products. 
 
+Catalog | Product page | Receipt  
+--- | --- | --- 
+| ![img_1472](https://user-images.githubusercontent.com/13813593/32473592-39800ab8-c336-11e7-8831-7816e04cb4d8.png) | ![img_1473](https://user-images.githubusercontent.com/13813593/32473595-3b835c20-c336-11e7-820f-eeda121d0578.png) | ![img_1474](https://user-images.githubusercontent.com/13813593/32473597-3d1a6024-c336-11e7-838e-8bafceff4ead.png) | 
+
 This ecommerce site was a group project with Iron Yard students: 
 [Brad Broge](https://github.com/b-r-broge)
 [Matt Morgan](https://github.com/mmorgan6)
