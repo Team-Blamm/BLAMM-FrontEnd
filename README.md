@@ -1,4 +1,24 @@
 
+#BLAMM
+
+###Live demo of site: 
+[http://blammstore.surge.sh/](http://blammstore.surge.sh/)
+
+The site was a student project at The Iron Yard built with React, utilizing Redux, React Router, and using a custom API. The back-end used to build the API [can be found here](https://github.com/Team-Blamm/BLAMM-BackEnd). 
+
+Users can browse a list of products (superheroes and villians offering services), navigate to a product detail page, add items to a shopping cart, and go through a checkout process that includes a receipt. 
+
+Admins can access CRUD functions for products. 
+
+This ecommerce site was a group project with Iron Yard students: 
+[Brad Broge](https://github.com/b-r-broge)
+[Matt Morgan](https://github.com/mmorgan6)
+[Matt McDonald](https://github.com/Matthew-McDonald)
+[Lorien Olive](https://github.com/LorienOlive)
+[Amelia Royster](https://github.com/amelia-royster)
+
+___
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
