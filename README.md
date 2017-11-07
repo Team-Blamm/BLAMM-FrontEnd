@@ -1,7 +1,6 @@
+# BLAMM
 
-#BLAMM
-
-###Live demo of site: 
+### Live demo of site: 
 [http://blammstore.surge.sh/](http://blammstore.surge.sh/)
 
 The site was a student project at The Iron Yard built with React, utilizing Redux, React Router, and using a custom API. The back-end used to build the API [can be found here](https://github.com/Team-Blamm/BLAMM-BackEnd). 
